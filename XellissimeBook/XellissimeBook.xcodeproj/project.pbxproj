@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAB22772658003E0734 /* AppDelegate.swift */; };
-		C1AC1FAE22772658003E0734 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAD22772658003E0734 /* ViewController.swift */; };
+		C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */; };
 		C1AC1FB122772658003E0734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AC1FAF22772658003E0734 /* Main.storyboard */; };
 		C1AC1FB32277265A003E0734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1AC1FB22277265A003E0734 /* Assets.xcassets */; };
 		C1AC1FB62277265A003E0734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AC1FB42277265A003E0734 /* LaunchScreen.storyboard */; };
 		C1AC1FC12277265A003E0734 /* XellissimeBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FC02277265A003E0734 /* XellissimeBookTests.swift */; };
 		C1AC1FCF227729C1003E0734 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FCE227729C1003E0734 /* Settings.swift */; };
+		C1AC1FD122773268003E0734 /* TextAndString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FD022773268003E0734 /* TextAndString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +30,7 @@
 /* Begin PBXFileReference section */
 		C1AC1FA822772658003E0734 /* XellissimeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XellissimeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AC1FAB22772658003E0734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C1AC1FAD22772658003E0734 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
 		C1AC1FB022772658003E0734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1AC1FB22277265A003E0734 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1AC1FB52277265A003E0734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		C1AC1FC02277265A003E0734 /* XellissimeBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XellissimeBookTests.swift; sourceTree = "<group>"; };
 		C1AC1FC22277265A003E0734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1AC1FCE227729C1003E0734 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		C1AC1FD022773268003E0734 /* TextAndString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAndString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				C1AC1FCE227729C1003E0734 /* Settings.swift */,
+				C1AC1FD022773268003E0734 /* TextAndString.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,7 +121,7 @@
 		C1AC1FCD22772975003E0734 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C1AC1FAD22772658003E0734 /* ViewController.swift */,
+				C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,7 +228,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1AC1FCF227729C1003E0734 /* Settings.swift in Sources */,
-				C1AC1FAE22772658003E0734 /* ViewController.swift in Sources */,
+				C1AC1FD122773268003E0734 /* TextAndString.swift in Sources */,
+				C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */,
 				C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

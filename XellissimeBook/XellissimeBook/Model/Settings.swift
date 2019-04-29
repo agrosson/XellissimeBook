@@ -7,12 +7,25 @@
 //
 
 import Foundation
+import UIKit
 
 
+// MARK: - Global variables
+
+let screenHeight = UIScreen.main.bounds.height
+let screenWidth = UIScreen.main.bounds.width
+
+// MARK: - Settings class
+/**
+ This class enables to set UserDefault
+ */
 class SettingsService {
+    // MARK: - Structs for UserDefault keys
     private struct Keys {
         static let hasBeenAlreadyConnected = "hasBeenAlreadyConnected"
     }
+    // MARK: - Properties
+    ///
     static var hasBeenAlreadyConnected: Bool {
         get {
             // if first connection, no default value is false
