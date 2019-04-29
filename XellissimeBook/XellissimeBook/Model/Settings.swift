@@ -23,6 +23,7 @@ class SettingsService {
     // MARK: - Structs for UserDefault keys
     private struct Keys {
         static let hasBeenAlreadyConnected = "hasBeenAlreadyConnected"
+        static let hasAcceptedConditions = "hasAcceptedConditions"
     }
     // MARK: - Properties
     ///
@@ -35,5 +36,13 @@ class SettingsService {
             UserDefaults.standard.set(newValue, forKey: Keys.hasBeenAlreadyConnected)
         }
     }
-    
+    static var hasAcceptedConditions: Bool {
+        get {
+            // if first connection, no default value is false
+            return  UserDefaults.standard.bool(forKey: Keys.hasAcceptedConditions)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.hasAcceptedConditions)
+        }
+    }
 }

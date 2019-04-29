@@ -39,22 +39,35 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oo-NK-RXD">
                             <rect key="frame" x="8" y="210" width="224" height="48"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                            <state key="normal" title="Valid">
+                            <state key="normal" title="I refuse">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
-                                <action selector="validButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ova-4V-tQw"/>
+                                <action selector="iRefuseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ova-4V-tQw"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lq-xe-Z7E">
+                            <rect key="frame" x="8" y="154" width="224" height="48"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <state key="normal" title="I accept">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="iAcceptButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xAd-iK-zFs"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.33007979389999997" green="0.6018631458" blue="0.47449618580000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
+                        <constraint firstItem="WOo-FW-Fa3" firstAttribute="trailing" secondItem="8lq-xe-Z7E" secondAttribute="trailing" constant="8" id="21K-V0-VrY"/>
                         <constraint firstItem="WOo-FW-Fa3" firstAttribute="trailing" secondItem="7TB-FU-vwO" secondAttribute="trailing" constant="8" id="6p7-ec-8Z8"/>
                         <constraint firstItem="WOo-FW-Fa3" firstAttribute="trailing" secondItem="7oo-NK-RXD" secondAttribute="trailing" constant="8" id="7ev-pW-K9Y"/>
+                        <constraint firstItem="8lq-xe-Z7E" firstAttribute="leading" secondItem="WOo-FW-Fa3" secondAttribute="leading" constant="8" id="DOd-yY-3jl"/>
                         <constraint firstItem="7oo-NK-RXD" firstAttribute="leading" secondItem="WOo-FW-Fa3" secondAttribute="leading" constant="8" id="Iq2-f9-hHp"/>
                         <constraint firstItem="7TB-FU-vwO" firstAttribute="top" secondItem="qFV-cl-YzS" secondAttribute="top" constant="8" id="RQS-t1-fue"/>
                         <constraint firstAttribute="bottom" secondItem="7oo-NK-RXD" secondAttribute="bottom" constant="8" id="gyu-L4-2EG"/>
                         <constraint firstItem="7TB-FU-vwO" firstAttribute="leading" secondItem="WOo-FW-Fa3" secondAttribute="leading" constant="8" id="jMk-k5-lcO"/>
+                        <constraint firstItem="7oo-NK-RXD" firstAttribute="top" secondItem="8lq-xe-Z7E" secondAttribute="bottom" constant="8" id="y6s-h3-0Yt"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="WOo-FW-Fa3"/>
                 </view>

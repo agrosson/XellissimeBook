@@ -13,7 +13,9 @@ class InitialScreenViewController: UIViewController {
     // Elements of the initial Popover View
     @IBOutlet var initialPopoverView: UIView!
     @IBOutlet weak var popoverLabel: UILabel!
-    @IBAction func validButtonPressed(_ sender: UIButton) {
+    @IBAction func iAcceptButtonPressed(_ sender: UIButton) {
+    }
+    @IBAction func iRefuseButtonPressed(_ sender: UIButton) {
         self.initialPopoverView.removeFromSuperview()
     }
     
@@ -40,7 +42,15 @@ extension InitialScreenViewController {
             print("warning has been already displayed")
         }
     }
-
+    private func checkIfConditionsAccepted(_ accepted: Bool){
+        if !accepted {
+            self.view.addSubview(initialPopoverView)
+            adaptPopoverSize()
+            popoverLabel.text = TextAndString.shared.conditionMustBeAccepted
+        } else {
+            print("condition already accepted")
+        }
+    }
 }
 // Here to set up popover display
 extension InitialScreenViewController {
