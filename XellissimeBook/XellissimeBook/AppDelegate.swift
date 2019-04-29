@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Check if first connection for the user
+        if SettingsService.hasBeenAlreadyConnected == false {
+            print("Do something here")
+        }
+        SettingsService.hasBeenAlreadyConnected = true
         return true
     }
 

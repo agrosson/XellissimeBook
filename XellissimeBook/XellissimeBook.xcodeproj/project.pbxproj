@@ -13,6 +13,7 @@
 		C1AC1FB32277265A003E0734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1AC1FB22277265A003E0734 /* Assets.xcassets */; };
 		C1AC1FB62277265A003E0734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AC1FB42277265A003E0734 /* LaunchScreen.storyboard */; };
 		C1AC1FC12277265A003E0734 /* XellissimeBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FC02277265A003E0734 /* XellissimeBookTests.swift */; };
+		C1AC1FCF227729C1003E0734 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FCE227729C1003E0734 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C1AC1FBC2277265A003E0734 /* XellissimeBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XellissimeBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AC1FC02277265A003E0734 /* XellissimeBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XellissimeBookTests.swift; sourceTree = "<group>"; };
 		C1AC1FC22277265A003E0734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1AC1FCE227729C1003E0734 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				C1AC1FAB22772658003E0734 /* AppDelegate.swift */,
-				C1AC1FAD22772658003E0734 /* ViewController.swift */,
-				C1AC1FAF22772658003E0734 /* Main.storyboard */,
-				C1AC1FB22277265A003E0734 /* Assets.xcassets */,
-				C1AC1FB42277265A003E0734 /* LaunchScreen.storyboard */,
 				C1AC1FB72277265A003E0734 /* Info.plist */,
+				C1AC1FCB2277295F003E0734 /* Model */,
+				C1AC1FCD22772975003E0734 /* Controller */,
+				C1AC1FCC2277296B003E0734 /* View */,
+				C1AC1FB22277265A003E0734 /* Assets.xcassets */,
 			);
 			path = XellissimeBook;
 			sourceTree = "<group>";
@@ -94,6 +96,31 @@
 				C1AC1FC22277265A003E0734 /* Info.plist */,
 			);
 			path = XellissimeBookTests;
+			sourceTree = "<group>";
+		};
+		C1AC1FCB2277295F003E0734 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C1AC1FCE227729C1003E0734 /* Settings.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C1AC1FCC2277296B003E0734 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1AC1FB42277265A003E0734 /* LaunchScreen.storyboard */,
+				C1AC1FAF22772658003E0734 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1AC1FCD22772975003E0734 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C1AC1FAD22772658003E0734 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1AC1FCF227729C1003E0734 /* Settings.swift in Sources */,
 				C1AC1FAE22772658003E0734 /* ViewController.swift in Sources */,
 				C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */,
 			);
