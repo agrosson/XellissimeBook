@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12B2C4721A6CE90DFE9C2E27 /* Pods_XellissimeBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 153253AB8E8847ACF8B88706 /* Pods_XellissimeBookTests.framework */; };
 		C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAB22772658003E0734 /* AppDelegate.swift */; };
 		C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */; };
 		C1AC1FB122772658003E0734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AC1FAF22772658003E0734 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 		C1AC1FC12277265A003E0734 /* XellissimeBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FC02277265A003E0734 /* XellissimeBookTests.swift */; };
 		C1AC1FCF227729C1003E0734 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FCE227729C1003E0734 /* Settings.swift */; };
 		C1AC1FD122773268003E0734 /* TextAndString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FD022773268003E0734 /* TextAndString.swift */; };
+		C1D2C57C2278CC860030498F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1D2C57B2278CC860030498F /* GoogleService-Info.plist */; };
+		C9A5512E9B795B03502EB4D7 /* Pods_XellissimeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11921FF18DDBBD5B074109A4 /* Pods_XellissimeBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11921FF18DDBBD5B074109A4 /* Pods_XellissimeBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XellissimeBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		153253AB8E8847ACF8B88706 /* Pods_XellissimeBookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XellissimeBookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2899BF6E512ADAF4E64D12EE /* Pods-XellissimeBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBookTests/Pods-XellissimeBookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3096E525A5D8BCA4C3464DB4 /* Pods-XellissimeBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook.debug.xcconfig"; sourceTree = "<group>"; };
+		5BDF1F71984CDF9D532DC970 /* Pods-XellissimeBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBookTests/Pods-XellissimeBookTests.release.xcconfig"; sourceTree = "<group>"; };
 		C1AC1FA822772658003E0734 /* XellissimeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XellissimeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AC1FAB22772658003E0734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +48,8 @@
 		C1AC1FC22277265A003E0734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1AC1FCE227729C1003E0734 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C1AC1FD022773268003E0734 /* TextAndString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAndString.swift; sourceTree = "<group>"; };
+		C1D2C57B2278CC860030498F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E5B68362ADBC175D2D6C1761 /* Pods-XellissimeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9A5512E9B795B03502EB4D7 /* Pods_XellissimeBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,18 +65,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B2C4721A6CE90DFE9C2E27 /* Pods_XellissimeBookTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39BF98EC2D7312EB2E711196 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11921FF18DDBBD5B074109A4 /* Pods_XellissimeBook.framework */,
+				153253AB8E8847ACF8B88706 /* Pods_XellissimeBookTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5BFC8A5885A9404852704D0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3096E525A5D8BCA4C3464DB4 /* Pods-XellissimeBook.debug.xcconfig */,
+				E5B68362ADBC175D2D6C1761 /* Pods-XellissimeBook.release.xcconfig */,
+				2899BF6E512ADAF4E64D12EE /* Pods-XellissimeBookTests.debug.xcconfig */,
+				5BDF1F71984CDF9D532DC970 /* Pods-XellissimeBookTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C1AC1F9F22772658003E0734 = {
 			isa = PBXGroup;
 			children = (
 				C1AC1FAA22772658003E0734 /* XellissimeBook */,
 				C1AC1FBF2277265A003E0734 /* XellissimeBookTests */,
 				C1AC1FA922772658003E0734 /* Products */,
+				5BFC8A5885A9404852704D0B /* Pods */,
+				39BF98EC2D7312EB2E711196 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +117,7 @@
 			children = (
 				C1AC1FAB22772658003E0734 /* AppDelegate.swift */,
 				C1AC1FB72277265A003E0734 /* Info.plist */,
+				C1D2C57B2278CC860030498F /* GoogleService-Info.plist */,
 				C1AC1FCB2277295F003E0734 /* Model */,
 				C1AC1FCD22772975003E0734 /* Controller */,
 				C1AC1FCC2277296B003E0734 /* View */,
@@ -133,9 +168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1AC1FC52277265A003E0734 /* Build configuration list for PBXNativeTarget "XellissimeBook" */;
 			buildPhases = (
+				029726C37AAA03AF8518DB26 /* [CP] Check Pods Manifest.lock */,
 				C1AC1FA422772658003E0734 /* Sources */,
 				C1AC1FA522772658003E0734 /* Frameworks */,
 				C1AC1FA622772658003E0734 /* Resources */,
+				00A52EA2C2967565E19B0C92 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1AC1FC82277265A003E0734 /* Build configuration list for PBXNativeTarget "XellissimeBookTests" */;
 			buildPhases = (
+				43C035044E6111D60D063384 /* [CP] Check Pods Manifest.lock */,
 				C1AC1FB82277265A003E0734 /* Sources */,
 				C1AC1FB92277265A003E0734 /* Frameworks */,
 				C1AC1FBA2277265A003E0734 /* Resources */,
+				FB93C27AD07367D12ADE3F59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1AC1FB62277265A003E0734 /* LaunchScreen.storyboard in Resources */,
+				C1D2C57C2278CC860030498F /* GoogleService-Info.plist in Resources */,
 				C1AC1FB32277265A003E0734 /* Assets.xcassets in Resources */,
 				C1AC1FB122772658003E0734 /* Main.storyboard in Resources */,
 			);
@@ -221,6 +261,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00A52EA2C2967565E19B0C92 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		029726C37AAA03AF8518DB26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XellissimeBook-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43C035044E6111D60D063384 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XellissimeBookTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB93C27AD07367D12ADE3F59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-XellissimeBookTests/Pods-XellissimeBookTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XellissimeBookTests/Pods-XellissimeBookTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C1AC1FA422772658003E0734 /* Sources */ = {
@@ -390,6 +533,7 @@
 		};
 		C1AC1FC62277265A003E0734 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3096E525A5D8BCA4C3464DB4 /* Pods-XellissimeBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -409,6 +553,7 @@
 		};
 		C1AC1FC72277265A003E0734 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5B68362ADBC175D2D6C1761 /* Pods-XellissimeBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -428,6 +573,7 @@
 		};
 		C1AC1FC92277265A003E0734 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2899BF6E512ADAF4E64D12EE /* Pods-XellissimeBookTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -449,6 +595,7 @@
 		};
 		C1AC1FCA2277265A003E0734 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BDF1F71984CDF9D532DC970 /* Pods-XellissimeBookTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class InitialScreenViewController: UIViewController {
 
@@ -56,6 +57,16 @@ class InitialScreenViewController: UIViewController {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         if userName != "" && password != "" && email != "" {
+            // create a new user
+            Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+                guard let authResult = authResult, error == nil else {
+                    print(error.debugDescription)
+                    return
+                }
+                
+                
+            }
+            
             print("Welcome \(userName)")
         } else {
             print("Data are no completed")
