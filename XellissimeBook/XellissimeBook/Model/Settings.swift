@@ -25,6 +25,7 @@ class SettingsService {
     private struct Keys {
         static let hasBeenAlreadyConnected = "hasBeenAlreadyConnected"
         static let hasAcceptedConditions = "hasAcceptedConditions"
+        static let isAlreadyRegistered = "isAlreadyRegistered"
     }
     // MARK: - Properties
     ///
@@ -44,6 +45,15 @@ class SettingsService {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: Keys.hasAcceptedConditions)
+        }
+    }
+    
+    static var isAlreadyRegistered: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: Keys.isAlreadyRegistered)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.isAlreadyRegistered)
         }
     }
 }
