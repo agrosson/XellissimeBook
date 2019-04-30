@@ -21,13 +21,12 @@ class InitialScreenViewController: UIViewController {
     @IBOutlet weak var alreadyAccountLabel: UILabel!
     // MARK: - Outlets - TextFields
     @IBOutlet weak var userNameTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    // MARK: - Actions
+    // MARK: - Outlets - Buttons
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
+    // MARK: - Actions
     @IBAction func iAcceptButtonPressed(_ sender: UIButton) {
         SettingsService.hasAcceptedConditions = true
         self.initialPopoverView.removeFromSuperview()
@@ -55,12 +54,10 @@ class InitialScreenViewController: UIViewController {
         super.viewDidLoad()
         setUpPageLogIn()
         outletDisplay(shown: false)
-        print("on load: est ce que le user a deja été connecté?")
-        print(SettingsService.hasBeenAlreadyConnected)
-        print("on check")
         checkIfHasBeenAlreadyConnected(SettingsService.hasBeenAlreadyConnected)
-        print("on change le status")
         SettingsService.hasBeenAlreadyConnected = true
+        manageTextField()
+        
        
     }
 
@@ -102,6 +99,67 @@ extension InitialScreenViewController {
          outletDisplay(shown: true)
         }
     }
+    /**
+     Function that manages TextField
+     */
+    private func manageTextField(){
+        userNameTextField.delegate = self
+        passwordTextField.delegate = self
+        emailTextField.delegate = self
+    }
+    private func setUpPageLogIn(){
+        userNameTextField.backgroundColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
+        userNameTextField.textColor = #colorLiteral(red: 0.5201328993, green: 0.5498541594, blue: 0.5580087304, alpha: 1)
+        passwordTextField.backgroundColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
+        passwordTextField.textColor = #colorLiteral(red: 0.5201328993, green: 0.5498541594, blue: 0.5580087304, alpha: 1)
+        emailTextField.backgroundColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
+        emailTextField.textColor = #colorLiteral(red: 0.5201328993, green: 0.5498541594, blue: 0.5580087304, alpha: 1)
+        
+        logInButton.layer.cornerRadius = 20
+        logInButton.layer.borderWidth = 3
+        logInButton.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
+        signUpButton.layer.cornerRadius = 20
+        
+        gestureTapCreation()
+        gestureswipeCreation()
+        
+    }
+    
+    private func gestureTapCreation(){
+        let mytapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(myTap
+            ))
+        mytapGestureRecognizer.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(mytapGestureRecognizer)
+    }
+    
+    private func gestureswipeCreation(){
+        let mySwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(myTap
+            ))
+        mySwipeGestureRecognizer.direction = .down
+        self.view.addGestureRecognizer(mySwipeGestureRecognizer)
+    }
+    
+    @objc private func myTap() {
+        userNameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+    }
+    
+    
+    private func outletDisplay(shown: Bool){
+        if shown == true {
+            self.logStackView.isHidden = !shown
+            self.signUpButton.isHidden = !shown
+            self.alreadyAccountLabel.isHidden = !shown
+            self.logInButton.isHidden = !shown
+        } else {
+            self.logStackView.isHidden = true
+            self.signUpButton.isHidden = true
+            self.alreadyAccountLabel.isHidden = true
+            self.logInButton.isHidden = true
+        }
+    }
+    
 }
 // Here to set up popover display
 extension InitialScreenViewController {
@@ -119,43 +177,14 @@ extension InitialScreenViewController {
     }
 }
 
-extension InitialScreenViewController {
-    private func setUpPageLogIn(){
-        userNameTextField.backgroundColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
-        userNameTextField.textColor = #colorLiteral(red: 0.5201328993, green: 0.5498541594, blue: 0.5580087304, alpha: 1)
-        passwordTextField.backgroundColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
-        passwordTextField.textColor = #colorLiteral(red: 0.5201328993, green: 0.5498541594, blue: 0.5580087304, alpha: 1)
-        emailTextField.backgroundColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
-        emailTextField.textColor = #colorLiteral(red: 0.5201328993, green: 0.5498541594, blue: 0.5580087304, alpha: 1)
-        
-        logInButton.layer.cornerRadius = 20
-        logInButton.layer.borderWidth = 3
-        logInButton.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
-        signUpButton.layer.cornerRadius = 20
-        
-    }
-    
-    private func outletDisplay(shown: Bool){
-        if shown == true {
-            self.logStackView.isHidden = !shown
-            self.signUpButton.isHidden = !shown
-            self.alreadyAccountLabel.isHidden = !shown
-            self.logInButton.isHidden = !shown
-        } else {
-            self.logStackView.isHidden = true
-            self.signUpButton.isHidden = true
-            self.alreadyAccountLabel.isHidden = true
-            self.logInButton.isHidden = true
-        }
-    }
-    
-}
-
-
-
 extension InitialScreenViewController : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
