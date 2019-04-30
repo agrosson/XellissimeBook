@@ -49,6 +49,23 @@ class InitialScreenViewController: UIViewController {
         self.noAccessPopoverView.removeFromSuperview()
         checkIfConditionsAccepted(SettingsService.hasAcceptedConditions)
     }
+    
+    
+    @IBAction func SignUpButtonPressed(_ sender: UIButton) {
+        let userName = userNameTextField.text ?? ""
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        if userName != "" && password != "" && email != "" {
+            print("Welcome \(userName)")
+        } else {
+            print("Data are no completed")
+        }
+    }
+    
+    @IBAction func logInButtonPressed(_ sender: UIButton) {
+        print("Go to next page :-)")
+    }
+    
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
