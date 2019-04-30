@@ -14,6 +14,7 @@ import UIKit
 
 let screenHeight = UIScreen.main.bounds.height
 let screenWidth = UIScreen.main.bounds.width
+let popoverRoundRadius = CGFloat(30)
 
 // MARK: - Settings class
 /**
