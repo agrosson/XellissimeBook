@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		12B2C4721A6CE90DFE9C2E27 /* Pods_XellissimeBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 153253AB8E8847ACF8B88706 /* Pods_XellissimeBookTests.framework */; };
+		C156652C2279B1D800C41453 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652B2279B1D800C41453 /* WelcomeViewController.swift */; };
+		C156652E2279D83E00C41453 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652D2279D83E00C41453 /* Alert.swift */; };
 		C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAB22772658003E0734 /* AppDelegate.swift */; };
 		C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */; };
 		C1AC1FB122772658003E0734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AC1FAF22772658003E0734 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		2899BF6E512ADAF4E64D12EE /* Pods-XellissimeBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBookTests/Pods-XellissimeBookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3096E525A5D8BCA4C3464DB4 /* Pods-XellissimeBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook.debug.xcconfig"; sourceTree = "<group>"; };
 		5BDF1F71984CDF9D532DC970 /* Pods-XellissimeBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBookTests/Pods-XellissimeBookTests.release.xcconfig"; sourceTree = "<group>"; };
+		C156652B2279B1D800C41453 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		C156652D2279D83E00C41453 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C1AC1FA822772658003E0734 /* XellissimeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XellissimeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AC1FAB22772658003E0734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			children = (
 				C1AC1FCE227729C1003E0734 /* Settings.swift */,
 				C1AC1FD022773268003E0734 /* TextAndString.swift */,
+				C156652D2279D83E00C41453 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 		C1AC1FCD22772975003E0734 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C156652B2279B1D800C41453 /* WelcomeViewController.swift */,
 				C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */,
 			);
 			path = Controller;
@@ -388,8 +394,10 @@
 				C1AC1FCF227729C1003E0734 /* Settings.swift in Sources */,
 				C1D7690D2278E134009FE3DB /* APIKeys.swift in Sources */,
 				C1AC1FD122773268003E0734 /* TextAndString.swift in Sources */,
+				C156652C2279B1D800C41453 /* WelcomeViewController.swift in Sources */,
 				C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */,
 				C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */,
+				C156652E2279D83E00C41453 /* Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

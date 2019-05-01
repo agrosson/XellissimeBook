@@ -156,6 +156,7 @@
                         <outlet property="popoverLabel" destination="7TB-FU-vwO" id="Vzh-ep-NBz"/>
                         <outlet property="signUpButton" destination="sAO-ho-tAl" id="qCD-LQ-ft9"/>
                         <outlet property="userNameTextField" destination="GOf-dP-PlJ" id="F3h-yY-DLe"/>
+                        <segue destination="8uS-ZW-9mQ" kind="show" identifier="goToWelcomeScreen" id="md2-dT-A5P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -239,6 +240,47 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="-1684" y="-62"/>
+        </scene>
+        <!--Welcome-->
+        <scene sceneID="cAU-g8-YRH">
+            <objects>
+                <viewController title="Welcome" id="8uS-ZW-9mQ" customClass="WelcomeViewController" customModule="XellissimeBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lb8-Fb-s5o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-9q-fNg">
+                                <rect key="frame" x="8" y="138" width="398" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sty-ha-2wN">
+                                <rect key="frame" x="8" y="224" width="398" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iXX-9q-fNg" firstAttribute="leading" secondItem="fvb-fB-6se" secondAttribute="leading" constant="8" id="RgL-tu-SIP"/>
+                            <constraint firstItem="Sty-ha-2wN" firstAttribute="leading" secondItem="fvb-fB-6se" secondAttribute="leading" constant="8" id="aZn-1I-RqI"/>
+                            <constraint firstItem="iXX-9q-fNg" firstAttribute="top" secondItem="fvb-fB-6se" secondAttribute="top" constant="50" id="abe-nE-HBq"/>
+                            <constraint firstItem="Sty-ha-2wN" firstAttribute="top" secondItem="iXX-9q-fNg" secondAttribute="bottom" constant="50" id="mx9-gx-NEQ"/>
+                            <constraint firstItem="fvb-fB-6se" firstAttribute="trailing" secondItem="Sty-ha-2wN" secondAttribute="trailing" constant="8" id="pYd-X2-qy0"/>
+                            <constraint firstItem="fvb-fB-6se" firstAttribute="trailing" secondItem="iXX-9q-fNg" secondAttribute="trailing" constant="8" id="qGb-8b-Dut"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fvb-fB-6se"/>
+                    </view>
+                    <connections>
+                        <outlet property="usernameWelcomeLabel" destination="Sty-ha-2wN" id="oZT-AR-1af"/>
+                        <outlet property="welcomeLabel" destination="iXX-9q-fNg" id="oLM-Xe-VII"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WSX-tg-8UQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-713" y="-58"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fwQ-8y-1x5">

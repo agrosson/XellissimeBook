@@ -28,7 +28,7 @@ class SettingsService {
         static let isAlreadyRegistered = "isAlreadyRegistered"
     }
     // MARK: - Properties
-    ///
+    /// Computed variable to check if first connection
     static var hasBeenAlreadyConnected: Bool {
         get {
             // if first connection, no default value is false
@@ -38,6 +38,7 @@ class SettingsService {
             UserDefaults.standard.set(newValue, forKey: Keys.hasBeenAlreadyConnected)
         }
     }
+    /// Computed variable to check if first user conditions have been accepted
     static var hasAcceptedConditions: Bool {
         get {
             // if first connection, no default value is false
@@ -47,7 +48,7 @@ class SettingsService {
             UserDefaults.standard.set(newValue, forKey: Keys.hasAcceptedConditions)
         }
     }
-    
+    /// Computed variable to check if user conditions is already registered
     static var isAlreadyRegistered: Bool {
         get {
             return UserDefaults.standard.bool(forKey: Keys.isAlreadyRegistered)

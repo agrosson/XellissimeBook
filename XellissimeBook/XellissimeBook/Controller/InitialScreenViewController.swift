@@ -16,6 +16,7 @@ class InitialScreenViewController: UIViewController {
     // MARK: - Outlets - Views
     @IBOutlet var initialPopoverView: UIView!
     @IBOutlet var noAccessPopoverView: UIView!
+    // MARK: - Outlets - StackView
     @IBOutlet weak var logStackView: UIStackView!
     // MARK: - Outlets - Labels
     @IBOutlet weak var popoverLabel: UILabel!
@@ -59,15 +60,41 @@ class InitialScreenViewController: UIViewController {
         if userName != "" && password != "" && email != "" {
             // create a new user
             Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-                guard let authResult = authResult, error == nil else {
+                guard let _ = authResult, error == nil else {
+                    
+
+                    // manage error here :
+                   
+                    
+                    print("ici la description de l'erreur")
+                    // case : The email address is already in use by another account.
+                    if error.debugDescription == "Optional(Error Domain=FIRAuthErrorDomain Code=17007 \"The email address is already in use by another account.\" UserInfo={NSLocalizedDescription=The email address is already in use by another account., error_name=ERROR_EMAIL_ALREADY_IN_USE})" {
+                        Alert.shared.controller = self
+                        Alert.shared.alertDisplay = .userEmailAlreadyUsedByAnotherUser
+                        print("Faire un message  d'erreur en disant que: The email address is already in use by another account.")
+                    }
+                    // case: The password must be 6 characters long or more.
+                    if error.debugDescription == "Optional(Error Domain=FIRAuthErrorDomain Code=17026 \"The password must be 6 characters long or more.\" UserInfo={error_name=ERROR_WEAK_PASSWORD, NSLocalizedFailureReason=Password should be at least 6 characters, NSLocalizedDescription=The password must be 6 characters long or more.})" {
+                        print("Faire un message indiquant que: The password must be 6 characters long or more.")
+                        Alert.shared.controller = self
+                        Alert.shared.alertDisplay = .passwordIsTooShort
+                    }
+                    // case : The email address is badly formatted.
+                    if error.debugDescription == "Optional(Error Domain=FIRAuthErrorDomain Code=17008 \"The email address is badly formatted.\" UserInfo={NSLocalizedDescription=The email address is badly formatted., error_name=ERROR_INVALID_EMAIL})" {
+                        print("Faire un message indiquant que: The email address is badly formatted.")
+                        Alert.shared.controller = self
+                        Alert.shared.alertDisplay = .emailBadlyFormatted
+                    }
+                    
                     print(error.debugDescription)
                     return
                 }
-                
-                
+                print(authResult?.description ?? "no description")
+                self.performSegue(withIdentifier: "goToWelcomeScreen", sender: self)
+                print("Welcome \(userName), inscription réussie ✅" )
             }
             
-            print("Welcome \(userName)")
+         
         } else {
             print("Data are no completed")
         }
@@ -75,6 +102,7 @@ class InitialScreenViewController: UIViewController {
     
     @IBAction func logInButtonPressed(_ sender: UIButton) {
         print("Go to next page :-)")
+         self.performSegue(withIdentifier: "goToWelcomeScreen", sender: self)
     }
     
     // MARK: -
