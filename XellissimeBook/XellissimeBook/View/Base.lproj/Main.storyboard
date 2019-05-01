@@ -330,11 +330,12 @@
                         <outlet property="emailLogInTextField" destination="akQ-Cm-c0Y" id="ITb-vf-tA5"/>
                         <outlet property="logInButton" destination="TfM-3b-Fyd" id="Y4K-Re-4ts"/>
                         <outlet property="passwordLogInTextField" destination="dk6-5Y-BkE" id="JGc-VC-gZO"/>
+                        <segue destination="8uS-ZW-9mQ" kind="presentation" identifier="logInToWelcome" modalTransitionStyle="crossDissolve" id="dbF-Oq-imC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0j-25-N9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1680" y="674"/>
+            <point key="canvasLocation" x="-1623" y="755"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="cAU-g8-YRH">
@@ -397,4 +398,7 @@
     <resources>
         <image name="bookAtLaunchScreen" width="4000" height="6000"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="md2-dT-A5P"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class InitialScreenViewController: UIViewController {
 
@@ -89,7 +90,18 @@ class InitialScreenViewController: UIViewController {
                     print(error.debugDescription)
                     return
                 }
+                
+                // Here : do what yo want when user is registered
                 print(authResult?.description ?? "no description")
+                
+                // Get the reference of the DataBase
+                let databaseReference = Database.database().reference()
+                // Get the id of the current user
+                let userId = Auth.auth().currentUser?.uid
+                // In the dataBase, child is a repo, child userId (is an repo), create a dictionnary.
+                databaseReference.child("users").child(userId!).setValue(["userName" : userName])
+                
+                
                 self.performSegue(withIdentifier: "goToWelcomeScreen", sender: self)
                 print("Welcome \(userName), inscription réussie ✅" )
             }

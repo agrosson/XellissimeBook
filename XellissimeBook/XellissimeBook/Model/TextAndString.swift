@@ -16,5 +16,10 @@ struct TextAndString {
     let userEmailAlreadyUsedByAnotherUser = "This email is already used by another user.\nPlease enter another Email."
     let emailBadlyFormatted = "This is not an Email.\nPlease enter a new Email"
     let passwordIsTooShort = "Enter password with minimum 6 characters"
+    let noUserRegistered = "No user registered with this Email.\nPlease sign up"
+    let invalidPassword = "Invalid password"
     let noData = "Fill all fields"
+    let segueFromLogInToHome = "logInToWelcome"
+    let segueToLogIn = "goToLogInScreen"
+    let segueFromInitialToWelcome = "goToWelcomeScreen"
 }
