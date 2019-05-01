@@ -96,13 +96,15 @@ class InitialScreenViewController: UIViewController {
             
          
         } else {
+            Alert.shared.controller = self
+            Alert.shared.alertDisplay = .noData
             print("Data are no completed")
         }
     }
     
     @IBAction func logInButtonPressed(_ sender: UIButton) {
         print("Go to next page :-)")
-         self.performSegue(withIdentifier: "goToWelcomeScreen", sender: self)
+         self.performSegue(withIdentifier: "goToLogInScreen", sender: self)
     }
     
     // MARK: -

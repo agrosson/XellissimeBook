@@ -28,7 +28,7 @@ class Alert{
     // MARK: - Enum
     /// Enum that lists all cases of alert presentations
     enum AlertCase {
-        case userEmailAlreadyUsedByAnotherUser, emailBadlyFormatted, passwordIsTooShort
+        case userEmailAlreadyUsedByAnotherUser, emailBadlyFormatted, passwordIsTooShort, noData
     }
     // MARK: -
     init() {}
@@ -52,6 +52,11 @@ class Alert{
             controller?.presentAlertDetails(title: "Sorry",
                                             message: TextAndString.shared.passwordIsTooShort,
                                             titleButton: "OK")
+        case .noData:
+            controller?.presentAlertDetails(title: "Sorry",
+                                            message: TextAndString.shared.noData,
+                                            titleButton: "OK")
+            
         }
     }
 }
