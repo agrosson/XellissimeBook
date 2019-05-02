@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-
+// credit 
 // MARK: - Global variables
 
 let screenHeight = UIScreen.main.bounds.height
