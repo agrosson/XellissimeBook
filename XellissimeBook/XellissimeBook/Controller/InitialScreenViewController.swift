@@ -128,6 +128,9 @@ class InitialScreenViewController: UIViewController {
         SettingsService.hasBeenAlreadyConnected = true
         manageTextField()
         
+        if SettingsService.hasAcceptedConditions == true {
+             self.performSegue(withIdentifier: "goToWelcomeScreen", sender: self)
+        }
        
     }
 

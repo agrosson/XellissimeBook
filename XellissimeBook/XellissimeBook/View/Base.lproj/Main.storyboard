@@ -346,13 +346,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-9q-fNg">
-                                <rect key="frame" x="8" y="94" width="398" height="36"/>
+                                <rect key="frame" x="8" y="138" width="398" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sty-ha-2wN">
-                                <rect key="frame" x="8" y="180" width="398" height="36"/>
+                                <rect key="frame" x="8" y="224" width="398" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -401,11 +401,12 @@
                     <connections>
                         <segue destination="UqG-RB-knq" kind="relationship" relationship="viewControllers" id="Mwy-27-Any"/>
                         <segue destination="2Cr-oK-W8y" kind="relationship" relationship="viewControllers" id="UL7-sf-egk"/>
+                        <segue destination="TsA-3H-6Dm" kind="relationship" relationship="viewControllers" id="KQx-95-pd1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mL1-z5-Ba1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="230" y="-38"/>
+            <point key="canvasLocation" x="193" y="-80"/>
         </scene>
         <!--Search-->
         <scene sceneID="IP8-ag-ddC">
@@ -428,7 +429,7 @@
         <scene sceneID="afB-LV-ZMf">
             <objects>
                 <navigationController id="UqG-RB-knq" userLabel="Add" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add" largeContentSizeImage="search" id="EZU-Zo-6ny" userLabel="Add"/>
+                    <tabBarItem key="tabBarItem" title="Add" image="books" largeContentSizeImage="search" selectedImage="books" id="EZU-Zo-6ny" userLabel="Add"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LPD-jc-AWD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -440,6 +441,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Nq-D2-1hg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1109" y="-496"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="5I9-jy-Nvg">
+            <objects>
+                <navigationController id="TsA-3H-6Dm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="rog-je-eu6" userLabel="Settings"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ild-Cb-W8B">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gQP-ov-UgZ" kind="relationship" relationship="rootViewController" id="nhG-pO-ByV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W8x-bY-HCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1135" y="-1159"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Cve-yd-HZt">
+            <objects>
+                <viewController id="gQP-ov-UgZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4r1-0N-LqS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ici on aura les paramètres" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEP-7C-Orm">
+                                <rect key="frame" x="8" y="400.5" width="398" height="95.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VEP-7C-Orm" secondAttribute="trailing" constant="8" id="6yP-Ct-APB"/>
+                            <constraint firstItem="VEP-7C-Orm" firstAttribute="centerY" secondItem="4r1-0N-LqS" secondAttribute="centerY" id="Jsb-hS-OyY"/>
+                            <constraint firstItem="VEP-7C-Orm" firstAttribute="centerX" secondItem="4r1-0N-LqS" secondAttribute="centerX" priority="999" id="p9H-QU-fbS"/>
+                            <constraint firstItem="VEP-7C-Orm" firstAttribute="leading" secondItem="4r1-0N-LqS" secondAttribute="leading" constant="8" id="r67-Xj-zde"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bVz-bc-59u"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Ko-qa-nc2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcR-3A-aQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2006" y="-1157"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Isk-N7-JQb">
@@ -516,9 +564,11 @@
     </scenes>
     <resources>
         <image name="bookAtLaunchScreen" width="4000" height="6000"/>
-        <image name="search" width="25" height="25"/>
+        <image name="books" width="30" height="30"/>
+        <image name="search" width="30" height="30"/>
+        <image name="settings" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dbF-Oq-imC"/>
+        <segue reference="md2-dT-A5P"/>
     </inferredMetricsTieBreakers>
 </document>
