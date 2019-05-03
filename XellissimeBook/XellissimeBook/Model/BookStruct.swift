@@ -10,18 +10,24 @@ import Foundation
 import UIKit
 
 struct Book {
-    var bookId: String // or Int automatic incremental
+    var bookId: String? // or Int automatic incremental
     var bookIsbn: String
     var bookTitle: String
     var bookAuthor: String
-    var bookEditor: String
-    var bookYearOfEdition: String
+    var bookEditor: String?
+    var bookYearOfEdition: String?
     var bookCover: UIImage?
-    var bookOwner: String // the userIosId
+    var bookOwner: String? // the userIosId
     var bookIsAvailable: Bool = false
     var bookDateOfLoanStart: Date?
     var bookDateOfLoanEnd: Date?
     var bookType: BookType = .unknown
+    
+    init(title: String, author:String, isbn: String){
+        bookIsbn = isbn
+        bookTitle = title
+        bookAuthor = author
+    }
 }
 
 enum BookType {

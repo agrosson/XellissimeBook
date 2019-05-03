@@ -35,6 +35,7 @@
 		C1FC7CF3227C850D00D32467 /* BookStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF2227C850D00D32467 /* BookStruct.swift */; };
 		C1FC7CF5227C854400D32467 /* MyBookToStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */; };
 		C1FC7CF7227C859700D32467 /* MessageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF6227C859700D32467 /* MessageStruct.swift */; };
+		C1FC7CF9227C9EB800D32467 /* AddBookManuallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF8227C9EB800D32467 /* AddBookManuallyViewController.swift */; };
 		C9A5512E9B795B03502EB4D7 /* Pods_XellissimeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11921FF18DDBBD5B074109A4 /* Pods_XellissimeBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		C1FC7CF2227C850D00D32467 /* BookStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStruct.swift; sourceTree = "<group>"; };
 		C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookToStruct.swift; sourceTree = "<group>"; };
 		C1FC7CF6227C859700D32467 /* MessageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStruct.swift; sourceTree = "<group>"; };
+		C1FC7CF8227C9EB800D32467 /* AddBookManuallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookManuallyViewController.swift; sourceTree = "<group>"; };
 		E5B68362ADBC175D2D6C1761 /* Pods-XellissimeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +205,7 @@
 		C1AC1FCD22772975003E0734 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C1FC7CF8227C9EB800D32467 /* AddBookManuallyViewController.swift */,
 				C1FC7CE8227C73F100D32467 /* AddMenuViewController.swift */,
 				C1FC7CDE227C68DC00D32467 /* MenuTabBarViewController.swift */,
 				C156652B2279B1D800C41453 /* WelcomeViewController.swift */,
@@ -450,6 +453,7 @@
 				C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */,
 				C1FC7CE9227C73F100D32467 /* AddMenuViewController.swift in Sources */,
 				C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */,
+				C1FC7CF9227C9EB800D32467 /* AddBookManuallyViewController.swift in Sources */,
 				C1FC7CE1227C6F8E00D32467 /* Utilities.swift in Sources */,
 				C1FC7CF1227C84E200D32467 /* AddressStruct.swift in Sources */,
 				C156652E2279D83E00C41453 /* Alert.swift in Sources */,
