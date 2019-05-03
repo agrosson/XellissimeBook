@@ -27,3 +27,23 @@ struct TextAndString {
     let fireBaseErrorEmailAlreadyInUse = "Optional(Error Domain=FIRAuthErrorDomain Code=17007 \"The email address is already in use by another account.\" UserInfo={NSLocalizedDescription=The email address is already in use by another account., error_name=ERROR_EMAIL_ALREADY_IN_USE})"
     
 }
+
+
+extension String {
+    mutating func removeFirstAndLastAndDoubleWhitespace() {
+        var newString = self
+        repeat{
+            if newString.last == " " {
+                newString = String(newString.dropLast())
+            }
+            if newString.first == " " {
+                newString = String(newString.dropFirst())
+            }
+        }
+            while newString.first == " " || newString.last == " "
+        repeat { newString = newString.replacingOccurrences(of: "  ", with: " ")
+        } while newString.contains("  ")
+        self =  newString
+    }
+}
+

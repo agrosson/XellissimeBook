@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class AddBookManuallyViewController: UIViewController {
-
+    
     // MARK: - Outlets
     
     
@@ -26,35 +26,39 @@ class AddBookManuallyViewController: UIViewController {
     @IBOutlet weak var addToDatabaseButton: UIButton!
     
     @IBAction func myAction(_ sender: UIButton) {
-        let title = titleTextField.text ?? ""
-        let author = authorTextField.text ?? ""
-        let isbn = isbnTextField.text ?? ""
-        
+        var title = titleTextField.text ?? ""
+        var author = authorTextField.text ?? ""
+        var isbn = isbnTextField.text ?? ""
         if title == "" || author == "" ||  isbn == ""  {
-            
             self.presentAlertDetails(title: "Sorry", message: "Fill in all fields please.", titleButton: "BACK")
         } else {
-            
-            var book = Book(title: title, author: author, isbn: isbn)
-            // create the reference of the book with userId
-
-            // Get the reference of the DataBase
+            title.removeFirstAndLastAndDoubleWhitespace()
+            author.removeFirstAndLastAndDoubleWhitespace()
+            isbn.removeFirstAndLastAndDoubleWhitespace()
+           /*
+             If needed later ...Create a book
+             let book = Book(title: title, author: author, isbn: isbn)
+             */
+            // Create a dictionary with the elements you want to save
+            let arrayItem = ["title" :title,
+                             "author" : author,
+                             "isbn" : isbn]
+            // create a shortcut reference : type DataReference
             let databaseReference = Database.database().reference()
             // Get the id of the current user
-            let userId = Auth.auth().currentUser?.uid
-            book.bookId = userId!+isbn
-         //   let text =  book.bookId!
-            
-            // In the dataBase, child is a repo, child userId (is an repo), create a dictionnary.
-            // databaseReference.child("users").child(userId!).setValue(["bookId" : text])
-            databaseReference.child("book2").child(userId!).setValue(["bookId" : [book]])
-            
-            print(("on est là?"))
-        
+            if let userId = Auth.auth().currentUser?.uid {
+                // create the reference of the book with userId  et Isbn
+                let uniqueBookId = userId+isbn
+                // In the dataBase, child is a repo, child userId (is an repo), create a dictionnary.
+                // databaseReference.child("users").child(userId!).setValue(["bookId" : text])
+                databaseReference.child("books").child(uniqueBookId).setValue(arrayItem)
+            }
         }
     }
+    
+    
     // MARK: - Actions
-   
+    
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +66,7 @@ class AddBookManuallyViewController: UIViewController {
         setUpPageLogIn()
         // Do any additional setup after loading the view.
     }
-
+    
     /**
      Function that manages TextField
      */
@@ -79,8 +83,8 @@ class AddBookManuallyViewController: UIViewController {
         
         addToDatabaseButton.layer.borderWidth = 3
         addToDatabaseButton.layer.borderColor = #colorLiteral(red: 0.5201328993, green: 0.5498541594, blue: 0.5580087304, alpha: 1)
-            
-
+        
+        
         titleLabel.layer.masksToBounds = true
         authorLabel.layer.masksToBounds = true
         isbnLabel.layer.masksToBounds = true
@@ -94,9 +98,9 @@ class AddBookManuallyViewController: UIViewController {
         isbnLabel.textAlignment = .center
         
         
-//        logInButton.layer.borderWidth = 3
-//        logInButton.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
-//        signUpButton.layer.cornerRadius = 20
+        //        logInButton.layer.borderWidth = 3
+        //        logInButton.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
+        //        signUpButton.layer.cornerRadius = 20
         
         gestureTapCreation()
         gestureswipeCreation()
