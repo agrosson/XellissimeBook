@@ -27,6 +27,14 @@
 		C1FC7CE3227C70EE00D32467 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FC7CE2227C70EE00D32467 /* Settings.storyboard */; };
 		C1FC7CE5227C714700D32467 /* AddBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FC7CE4227C714700D32467 /* AddBook.storyboard */; };
 		C1FC7CE7227C717F00D32467 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FC7CE6227C717F00D32467 /* Search.storyboard */; };
+		C1FC7CE9227C73F100D32467 /* AddMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CE8227C73F100D32467 /* AddMenuViewController.swift */; };
+		C1FC7CEB227C78D900D32467 /* AddBookManually.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FC7CEA227C78D900D32467 /* AddBookManually.storyboard */; };
+		C1FC7CED227C792700D32467 /* AddBookWithCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FC7CEC227C792700D32467 /* AddBookWithCamera.storyboard */; };
+		C1FC7CEF227C7A6400D32467 /* UserClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CEE227C7A6400D32467 /* UserClass.swift */; };
+		C1FC7CF1227C84E200D32467 /* AddressStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF0227C84E200D32467 /* AddressStruct.swift */; };
+		C1FC7CF3227C850D00D32467 /* BookStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF2227C850D00D32467 /* BookStruct.swift */; };
+		C1FC7CF5227C854400D32467 /* MyBookToStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */; };
+		C1FC7CF7227C859700D32467 /* MessageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF6227C859700D32467 /* MessageStruct.swift */; };
 		C9A5512E9B795B03502EB4D7 /* Pods_XellissimeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11921FF18DDBBD5B074109A4 /* Pods_XellissimeBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +77,14 @@
 		C1FC7CE2227C70EE00D32467 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C1FC7CE4227C714700D32467 /* AddBook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddBook.storyboard; sourceTree = "<group>"; };
 		C1FC7CE6227C717F00D32467 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		C1FC7CE8227C73F100D32467 /* AddMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuViewController.swift; sourceTree = "<group>"; };
+		C1FC7CEA227C78D900D32467 /* AddBookManually.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddBookManually.storyboard; sourceTree = "<group>"; };
+		C1FC7CEC227C792700D32467 /* AddBookWithCamera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddBookWithCamera.storyboard; sourceTree = "<group>"; };
+		C1FC7CEE227C7A6400D32467 /* UserClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClass.swift; sourceTree = "<group>"; };
+		C1FC7CF0227C84E200D32467 /* AddressStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressStruct.swift; sourceTree = "<group>"; };
+		C1FC7CF2227C850D00D32467 /* BookStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStruct.swift; sourceTree = "<group>"; };
+		C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookToStruct.swift; sourceTree = "<group>"; };
+		C1FC7CF6227C859700D32467 /* MessageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStruct.swift; sourceTree = "<group>"; };
 		E5B68362ADBC175D2D6C1761 /* Pods-XellissimeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,6 +177,11 @@
 				C1AC1FCE227729C1003E0734 /* Settings.swift */,
 				C1AC1FD022773268003E0734 /* TextAndString.swift */,
 				C156652D2279D83E00C41453 /* Alert.swift */,
+				C1FC7CEE227C7A6400D32467 /* UserClass.swift */,
+				C1FC7CF6227C859700D32467 /* MessageStruct.swift */,
+				C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */,
+				C1FC7CF2227C850D00D32467 /* BookStruct.swift */,
+				C1FC7CF0227C84E200D32467 /* AddressStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,6 +191,8 @@
 			children = (
 				C1FC7CE6227C717F00D32467 /* Search.storyboard */,
 				C1FC7CE4227C714700D32467 /* AddBook.storyboard */,
+				C1FC7CEC227C792700D32467 /* AddBookWithCamera.storyboard */,
+				C1FC7CEA227C78D900D32467 /* AddBookManually.storyboard */,
 				C1FC7CE2227C70EE00D32467 /* Settings.storyboard */,
 				C1AC1FB42277265A003E0734 /* LaunchScreen.storyboard */,
 				C1AC1FAF22772658003E0734 /* Main.storyboard */,
@@ -180,6 +203,7 @@
 		C1AC1FCD22772975003E0734 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C1FC7CE8227C73F100D32467 /* AddMenuViewController.swift */,
 				C1FC7CDE227C68DC00D32467 /* MenuTabBarViewController.swift */,
 				C156652B2279B1D800C41453 /* WelcomeViewController.swift */,
 				C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */,
@@ -285,10 +309,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1AC1FB62277265A003E0734 /* LaunchScreen.storyboard in Resources */,
+				C1FC7CEB227C78D900D32467 /* AddBookManually.storyboard in Resources */,
 				C1D7690A2278E065009FE3DB /* APIKeys.plist in Resources */,
 				C1D2C57C2278CC860030498F /* GoogleService-Info.plist in Resources */,
 				C1FC7CE3227C70EE00D32467 /* Settings.storyboard in Resources */,
 				C1FC7CE5227C714700D32467 /* AddBook.storyboard in Resources */,
+				C1FC7CED227C792700D32467 /* AddBookWithCamera.storyboard in Resources */,
 				C1AC1FB32277265A003E0734 /* Assets.xcassets in Resources */,
 				C1FC7CE7227C717F00D32467 /* Search.storyboard in Resources */,
 				C1AC1FB122772658003E0734 /* Main.storyboard in Resources */,
@@ -413,15 +439,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1FC7CDF227C68DC00D32467 /* MenuTabBarViewController.swift in Sources */,
+				C1FC7CF3227C850D00D32467 /* BookStruct.swift in Sources */,
 				C1AC1FCF227729C1003E0734 /* Settings.swift in Sources */,
 				C1D7690D2278E134009FE3DB /* APIKeys.swift in Sources */,
 				C1AC1FD122773268003E0734 /* TextAndString.swift in Sources */,
 				C156652C2279B1D800C41453 /* WelcomeViewController.swift in Sources */,
 				C1890992227A055B00ABE37D /* LogInViewController.swift in Sources */,
+				C1FC7CF5227C854400D32467 /* MyBookToStruct.swift in Sources */,
+				C1FC7CF7227C859700D32467 /* MessageStruct.swift in Sources */,
 				C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */,
+				C1FC7CE9227C73F100D32467 /* AddMenuViewController.swift in Sources */,
 				C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */,
 				C1FC7CE1227C6F8E00D32467 /* Utilities.swift in Sources */,
+				C1FC7CF1227C84E200D32467 /* AddressStruct.swift in Sources */,
 				C156652E2279D83E00C41453 /* Alert.swift in Sources */,
+				C1FC7CEF227C7A6400D32467 /* UserClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
