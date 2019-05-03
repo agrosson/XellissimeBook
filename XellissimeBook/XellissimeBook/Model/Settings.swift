@@ -58,3 +58,27 @@ class SettingsService {
         }
     }
 }
+
+func getErrorMessageFromFireBase(error : String) -> String {
+    var counter = 0
+    var start = 0
+    var end = 0
+    for char in error {
+        if char == "\u{22}" {
+            if start == 0 {
+                start = counter
+                print("dans la boucle start \(counter)")
+            }
+            if end == 0 || end == start {
+                end = counter
+                print("dans la boucle end \(counter)")
+            }
+        }
+        counter += 1
+    }
+    let sentenceStartIndex = error.index(error.startIndex, offsetBy: start+1)
+    let sentenceEndIndex = error.index(error.startIndex, offsetBy: end)
+    let myWarning = error[(sentenceStartIndex..<sentenceEndIndex)]
+    print(myWarning)
+    return String(myWarning)
+}

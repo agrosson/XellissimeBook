@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TsA-3H-6Dm">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5I9-jy-Nvg">
+            <objects>
+                <navigationController id="TsA-3H-6Dm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="settings-1" selectedImage="settings-1" id="rog-je-eu6" userLabel="Settings"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ild-Cb-W8B">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gQP-ov-UgZ" kind="relationship" relationship="rootViewController" id="nhG-pO-ByV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W8x-bY-HCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1135" y="-1159"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Cve-yd-HZt">
+            <objects>
+                <viewController id="gQP-ov-UgZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4r1-0N-LqS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ici on aura les paramètres" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEP-7C-Orm">
+                                <rect key="frame" x="8" y="400.5" width="398" height="95.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VEP-7C-Orm" secondAttribute="trailing" constant="8" id="6yP-Ct-APB"/>
+                            <constraint firstItem="VEP-7C-Orm" firstAttribute="centerY" secondItem="4r1-0N-LqS" secondAttribute="centerY" id="Jsb-hS-OyY"/>
+                            <constraint firstItem="VEP-7C-Orm" firstAttribute="centerX" secondItem="4r1-0N-LqS" secondAttribute="centerX" priority="999" id="p9H-QU-fbS"/>
+                            <constraint firstItem="VEP-7C-Orm" firstAttribute="leading" secondItem="4r1-0N-LqS" secondAttribute="leading" constant="8" id="r67-Xj-zde"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bVz-bc-59u"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Ko-qa-nc2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcR-3A-aQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2006" y="-1157"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="settings-1" width="40" height="40"/>
+    </resources>
+</document>

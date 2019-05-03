@@ -22,4 +22,8 @@ struct TextAndString {
     let segueFromLogInToHome = "logInToWelcome"
     let segueToLogIn = "goToLogInScreen"
     let segueFromInitialToWelcome = "goToWelcomeScreen"
+    
+    // FireBase Error Message
+    let fireBaseErrorEmailAlreadyInUse = "Optional(Error Domain=FIRAuthErrorDomain Code=17007 \"The email address is already in use by another account.\" UserInfo={NSLocalizedDescription=The email address is already in use by another account., error_name=ERROR_EMAIL_ALREADY_IN_USE})"
+    
 }

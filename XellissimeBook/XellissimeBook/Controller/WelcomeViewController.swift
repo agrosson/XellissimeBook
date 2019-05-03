@@ -10,11 +10,11 @@ import UIKit
 import FirebaseAuth
 
 class WelcomeViewController: UIViewController {
-// MARK: - Outlets - Labels
-    
+
+    // MARK: - Outlets - Labels
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var usernameWelcomeLabel: UILabel!
-    
+    // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         // Check if user already connected
@@ -25,8 +25,5 @@ class WelcomeViewController: UIViewController {
         } else {
             fatalError("⛔️ ! There is no user connected")
         }
-        
     }
-    
-
 }
