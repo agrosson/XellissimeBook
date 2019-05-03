@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Cr-oK-W8y">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="IP8-ag-ddC">
+            <objects>
+                <navigationController id="2Cr-oK-W8y" userLabel="Search" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="search-1" selectedImage="search-1" id="UsV-qK-0mK" userLabel="Search"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PGd-OT-36L">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Wd0-ol-Snq" kind="relationship" relationship="rootViewController" id="enC-NB-Dhl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nTU-6d-3y5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1109" y="204"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nmO-FJ-DNt">
+            <objects>
+                <viewController id="Wd0-ol-Snq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J4f-3t-I8A">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ici on aura la recherche" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msa-zE-ufN">
+                                <rect key="frame" x="12.5" y="424" width="389.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="msa-zE-ufN" firstAttribute="centerY" secondItem="J4f-3t-I8A" secondAttribute="centerY" id="0d5-LK-Vcx"/>
+                            <constraint firstItem="msa-zE-ufN" firstAttribute="centerX" secondItem="J4f-3t-I8A" secondAttribute="centerX" id="J9V-ah-IFf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="boC-e2-Wqy"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="B11-h7-7la"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S37-di-lRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1994" y="218"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="search-1" width="40" height="40"/>
+    </resources>
+</document>

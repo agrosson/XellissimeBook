@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S7X-sq-qwo">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="vLa-ET-mtD">
+            <objects>
+                <navigationController id="S7X-sq-qwo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qe9-Nl-MH6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2GI-3D-gaD" kind="relationship" relationship="rootViewController" id="9Je-tG-Ku8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yjq-SU-dWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1855" y="-711"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="24g-St-Soy">
+            <objects>
+                <viewController id="2GI-3D-gaD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WR5-WB-Vlr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAISIE MANUELLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJi-vC-dqt">
+                                <rect key="frame" x="135.5" y="437.5" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzz-Qr-tTS">
+                                <rect key="frame" x="8" y="96" width="43" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="pzY-eJ-LcI" kind="unwind" unwindAction="backToAddMenuWithSegue:" id="5d5-uw-4qu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rzz-Qr-tTS" firstAttribute="leading" secondItem="lVG-Cd-p0X" secondAttribute="leading" constant="8" id="EsS-hO-Ltt"/>
+                            <constraint firstItem="Rzz-Qr-tTS" firstAttribute="top" secondItem="lVG-Cd-p0X" secondAttribute="top" constant="8" id="Loq-rc-NeL"/>
+                            <constraint firstItem="rJi-vC-dqt" firstAttribute="centerX" secondItem="WR5-WB-Vlr" secondAttribute="centerX" id="fTi-1Q-Gl2"/>
+                            <constraint firstItem="rJi-vC-dqt" firstAttribute="centerY" secondItem="WR5-WB-Vlr" secondAttribute="centerY" id="oGL-qO-u8x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lVG-Cd-p0X"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="29c-RF-SZn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjG-eH-Uld" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pzY-eJ-LcI" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2803" y="-709"/>
+        </scene>
+    </scenes>
+</document>

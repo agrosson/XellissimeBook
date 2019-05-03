@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UqG-RB-knq">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add-->
+        <scene sceneID="afB-LV-ZMf">
+            <objects>
+                <navigationController id="UqG-RB-knq" userLabel="Add" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="books-1" selectedImage="books-1" id="EZU-Zo-6ny" userLabel="Add"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LPD-jc-AWD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="K1i-Bf-mj8" kind="relationship" relationship="rootViewController" id="r2a-E3-4Up"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Nq-D2-1hg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101" y="-398"/>
+        </scene>
+        <!--Add Menu View Controller-->
+        <scene sceneID="Isk-N7-JQb">
+            <objects>
+                <viewController id="K1i-Bf-mj8" customClass="AddMenuViewController" customModule="XellissimeBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nh3-1q-EdN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ici on aura la saisie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcp-gA-2ru">
+                                <rect key="frame" x="49.5" y="424" width="315" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MP6-4P-euA">
+                                <rect key="frame" x="8" y="776" width="398" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <state key="normal" title="ADD WITH CAMERA">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addWithCameraButtonIsPressed:" destination="K1i-Bf-mj8" eventType="touchUpInside" id="Em8-8R-ugs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIM-jG-bze">
+                                <rect key="frame" x="8" y="710" width="398" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
+                                <state key="normal" title="ADD MANUALLY">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addManuallyButtonIsPressed:" destination="K1i-Bf-mj8" eventType="touchUpInside" id="ByA-Mu-h01"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aJZ-mo-WgW" firstAttribute="bottom" secondItem="MP6-4P-euA" secondAttribute="bottom" constant="50" id="J0q-FD-sFs"/>
+                            <constraint firstItem="aJZ-mo-WgW" firstAttribute="trailing" secondItem="KIM-jG-bze" secondAttribute="trailing" constant="8" id="V16-4y-yHd"/>
+                            <constraint firstItem="MP6-4P-euA" firstAttribute="leading" secondItem="aJZ-mo-WgW" secondAttribute="leading" constant="8" id="VRP-H7-rvN"/>
+                            <constraint firstItem="dcp-gA-2ru" firstAttribute="centerY" secondItem="nh3-1q-EdN" secondAttribute="centerY" id="Xsz-Tt-HxU"/>
+                            <constraint firstItem="dcp-gA-2ru" firstAttribute="centerX" secondItem="nh3-1q-EdN" secondAttribute="centerX" id="gK9-U4-n9j"/>
+                            <constraint firstItem="MP6-4P-euA" firstAttribute="top" secondItem="KIM-jG-bze" secondAttribute="bottom" constant="30" id="k2X-uB-qvg"/>
+                            <constraint firstItem="aJZ-mo-WgW" firstAttribute="trailing" secondItem="MP6-4P-euA" secondAttribute="trailing" constant="8" id="kPI-iZ-Sfo"/>
+                            <constraint firstItem="KIM-jG-bze" firstAttribute="leading" secondItem="aJZ-mo-WgW" secondAttribute="leading" constant="8" id="y11-hk-GJR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aJZ-mo-WgW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jpu-5y-LCD"/>
+                    <connections>
+                        <outlet property="addManuallyButton" destination="KIM-jG-bze" id="p2j-DY-bLz"/>
+                        <outlet property="addWithCameraButton" destination="MP6-4P-euA" id="59a-gl-WDa"/>
+                        <segue destination="Nci-5b-ucv" kind="show" identifier="goToAddManually" id="jQ9-SA-c44"/>
+                        <segue destination="mcO-hf-AGX" kind="show" identifier="goToAddWithCamera" id="34q-CT-oEb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cWs-Uy-Hm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="-406"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Pci-Ym-oY5">
+            <objects>
+                <navigationController id="mcO-hf-AGX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vpt-2D-wrR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hVU-wA-Z8N" kind="relationship" relationship="rootViewController" id="eRo-Bk-l3z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8U4-WN-B0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996" y="6"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CQs-Bg-6R6">
+            <objects>
+                <viewController id="hVU-wA-Z8N" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uhZ-rq-15u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SAISIE CAMERA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZR-Am-jmL">
+                                <rect key="frame" x="145.5" y="437.5" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdz-aE-TUO">
+                                <rect key="frame" x="8" y="96" width="43" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jiZ-5E-lQ9" kind="unwind" unwindAction="backToAddMenuWithSegue:" id="g1r-aY-JpF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aZR-Am-jmL" firstAttribute="centerX" secondItem="uhZ-rq-15u" secondAttribute="centerX" id="5MR-O8-s4z"/>
+                            <constraint firstItem="Wdz-aE-TUO" firstAttribute="leading" secondItem="IIP-5S-jqS" secondAttribute="leading" constant="8" id="DRJ-h4-yS1"/>
+                            <constraint firstItem="aZR-Am-jmL" firstAttribute="centerY" secondItem="uhZ-rq-15u" secondAttribute="centerY" id="ixy-Ae-6rr"/>
+                            <constraint firstItem="Wdz-aE-TUO" firstAttribute="top" secondItem="IIP-5S-jqS" secondAttribute="top" constant="8" id="xex-B7-nm5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IIP-5S-jqS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PAl-6Q-Dgj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6LJ-K4-UZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jiZ-5E-lQ9" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2770" y="9"/>
+        </scene>
+        <!--AddBookManually-->
+        <scene sceneID="APD-mX-8kq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddBookManually" id="Nci-5b-ucv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k4L-az-uJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1855" y="-711"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="books-1" width="40" height="40"/>
+    </resources>
+</document>
