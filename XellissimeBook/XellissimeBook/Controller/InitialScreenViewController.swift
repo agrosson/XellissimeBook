@@ -29,6 +29,8 @@ class InitialScreenViewController: UIViewController {
     // MARK: - Outlets - Buttons
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
+    // MARK: - unwind Segue
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
     // MARK: - Actions
     @IBAction func iAcceptButtonPressed(_ sender: UIButton) {
         SettingsService.hasAcceptedConditions = true
@@ -93,7 +95,13 @@ class InitialScreenViewController: UIViewController {
     
     @IBAction func logInButtonPressed(_ sender: UIButton) {
         print("Go to next page :-)")
-         self.performSegue(withIdentifier: "goToLogInScreen", sender: self)
+        if Auth.auth().currentUser != nil {
+          self.performSegue(withIdentifier: "goToWelcomeScreen", sender: self)
+        }
+        else
+        {
+          self.performSegue(withIdentifier: "goToLogInScreen", sender: self)
+        }
     }
     
     // MARK: -
@@ -104,8 +112,13 @@ class InitialScreenViewController: UIViewController {
         checkIfHasBeenAlreadyConnected(SettingsService.hasBeenAlreadyConnected)
         SettingsService.hasBeenAlreadyConnected = true
         manageTextField()
-        
-        if SettingsService.hasAcceptedConditions == true {
+        if Auth.auth().currentUser?.uid == nil {
+            print(" You must log in ")
+        } else {
+            print(Auth.auth().currentUser?.uid as Any)
+            print("already logged in")
+        }
+        if SettingsService.hasAcceptedConditions == true && Auth.auth().currentUser?.uid != nil{
              self.performSegue(withIdentifier: "goToWelcomeScreen", sender: self)
         }
        

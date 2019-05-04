@@ -330,7 +330,7 @@
                         <outlet property="emailLogInTextField" destination="akQ-Cm-c0Y" id="ITb-vf-tA5"/>
                         <outlet property="logInButton" destination="TfM-3b-Fyd" id="Y4K-Re-4ts"/>
                         <outlet property="passwordLogInTextField" destination="dk6-5Y-BkE" id="JGc-VC-gZO"/>
-                        <segue destination="8uS-ZW-9mQ" kind="presentation" identifier="logInToWelcome" modalTransitionStyle="crossDissolve" id="dbF-Oq-imC"/>
+                        <segue destination="8uS-ZW-9mQ" kind="show" identifier="logInToWelcome" id="dbF-Oq-imC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0j-25-N9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -346,19 +346,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iXX-9q-fNg">
-                                <rect key="frame" x="8" y="94" width="398" height="36"/>
+                                <rect key="frame" x="8" y="138" width="398" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sty-ha-2wN">
-                                <rect key="frame" x="8" y="180" width="398" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sty-ha-2wN">
+                                <rect key="frame" x="8" y="224" width="398" height="0.0"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amq-3z-VYK">
-                                <rect key="frame" x="8" y="752" width="398" height="60"/>
+                                <rect key="frame" x="8" y="703" width="398" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Go to Menu"/>
                                 <connections>
@@ -370,22 +370,35 @@
                         <constraints>
                             <constraint firstItem="fvb-fB-6se" firstAttribute="trailing" secondItem="amq-3z-VYK" secondAttribute="trailing" constant="8" id="7TZ-5z-Q7J"/>
                             <constraint firstItem="amq-3z-VYK" firstAttribute="leading" secondItem="fvb-fB-6se" secondAttribute="leading" constant="8" id="AER-fR-CJc"/>
-                            <constraint firstItem="iXX-9q-fNg" firstAttribute="leading" secondItem="fvb-fB-6se" secondAttribute="leading" constant="8" id="RgL-tu-SIP"/>
                             <constraint firstItem="Sty-ha-2wN" firstAttribute="leading" secondItem="fvb-fB-6se" secondAttribute="leading" constant="8" id="aZn-1I-RqI"/>
                             <constraint firstItem="iXX-9q-fNg" firstAttribute="top" secondItem="fvb-fB-6se" secondAttribute="top" constant="50" id="abe-nE-HBq"/>
                             <constraint firstItem="fvb-fB-6se" firstAttribute="bottom" secondItem="amq-3z-VYK" secondAttribute="bottom" constant="50" id="lkC-lW-95U"/>
                             <constraint firstItem="Sty-ha-2wN" firstAttribute="top" secondItem="iXX-9q-fNg" secondAttribute="bottom" constant="50" id="mx9-gx-NEQ"/>
+                            <constraint firstItem="iXX-9q-fNg" firstAttribute="centerX" secondItem="lb8-Fb-s5o" secondAttribute="centerX" id="p92-93-KVX"/>
                             <constraint firstItem="fvb-fB-6se" firstAttribute="trailing" secondItem="Sty-ha-2wN" secondAttribute="trailing" constant="8" id="pYd-X2-qy0"/>
                             <constraint firstItem="fvb-fB-6se" firstAttribute="trailing" secondItem="iXX-9q-fNg" secondAttribute="trailing" constant="8" id="qGb-8b-Dut"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fvb-fB-6se"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="2mz-m2-sv8">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="Fpx-6D-jCm">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="8uS-ZW-9mQ" id="Djo-TC-K61"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="goToMenuButton" destination="amq-3z-VYK" id="BJQ-jA-wxH"/>
+                        <outlet property="logoutButton" destination="Fpx-6D-jCm" id="rcS-BV-kG5"/>
                         <outlet property="usernameWelcomeLabel" destination="Sty-ha-2wN" id="oZT-AR-1af"/>
                         <outlet property="welcomeLabel" destination="iXX-9q-fNg" id="oLM-Xe-VII"/>
+                        <segue destination="coq-mn-djy" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="1Gn-uh-6I4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSX-tg-8UQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="coq-mn-djy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-713" y="-58"/>
         </scene>
@@ -407,7 +420,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mL1-z5-Ba1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="193" y="-80"/>
+            <point key="canvasLocation" x="193" y="-60"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fwQ-8y-1x5">
@@ -460,6 +473,6 @@
         <image name="bookAtLaunchScreen" width="4000" height="6000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dbF-Oq-imC"/>
+        <segue reference="md2-dT-A5P"/>
     </inferredMetricsTieBreakers>
 </document>

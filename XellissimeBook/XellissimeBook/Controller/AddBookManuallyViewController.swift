@@ -23,40 +23,38 @@ class AddBookManuallyViewController: UIViewController {
     @IBOutlet weak var isbnLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     
+    @IBOutlet weak var item: UIBarButtonItem!
+    
     @IBOutlet weak var addToDatabaseButton: UIButton!
     
     @IBAction func myAction(_ sender: UIButton) {
         var title = titleTextField.text ?? ""
         var author = authorTextField.text ?? ""
         var isbn = isbnTextField.text ?? ""
+        var userId = ""
+        var uniqueBookId = ""
         if title == "" || author == "" ||  isbn == ""  {
             self.presentAlertDetails(title: "Sorry", message: "Fill in all fields please.", titleButton: "BACK")
         } else {
             title.removeFirstAndLastAndDoubleWhitespace()
             author.removeFirstAndLastAndDoubleWhitespace()
             isbn.removeFirstAndLastAndDoubleWhitespace()
-           /*
-             If needed later ...Create a book
-             let book = Book(title: title, author: author, isbn: isbn)
-             */
-            // Create a dictionary with the elements you want to save
-            let arrayItem = ["title" :title,
-                             "author" : author,
-                             "isbn" : isbn]
-            // create a shortcut reference : type DataReference
-            let databaseReference = Database.database().reference()
-            // Get the id of the current user
-            if let userId = Auth.auth().currentUser?.uid {
-                // create the reference of the book with userId  et Isbn
-                let uniqueBookId = userId+isbn
-                // In the dataBase, child is a repo, child userId (is an repo), create a dictionnary.
-                // databaseReference.child("users").child(userId!).setValue(["bookId" : text])
-                databaseReference.child("books").child(uniqueBookId).setValue(arrayItem)
+            if Auth.auth().currentUser?.uid == nil {
+                print("no connection")
+            }
+            
+            if let currentUserId = Auth.auth().currentUser?.uid {
+                // Assign currentUserId to userId
+                userId = currentUserId
+                // Set uniqueBookId
+                uniqueBookId = userId+isbn
+                var book = Book(title: title, author: author, isbn: isbn)
+                book.bookId = uniqueBookId
+                book.bookOwner = userId
+                book.saveBook(with: book)
             }
         }
     }
-    
-    
     // MARK: - Actions
     
     // MARK: -
@@ -64,9 +62,7 @@ class AddBookManuallyViewController: UIViewController {
         super.viewDidLoad()
         manageTextField()
         setUpPageLogIn()
-        // Do any additional setup after loading the view.
     }
-    
     /**
      Function that manages TextField
      */

@@ -51,6 +51,11 @@ class LogInViewController: UIViewController {
         setUpPageLogIn()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailLogInTextField.text = ""
+        passwordLogInTextField.text = ""
+    }
     
     /**
      Function that manages TextField
