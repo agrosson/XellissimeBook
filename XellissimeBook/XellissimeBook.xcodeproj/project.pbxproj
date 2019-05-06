@@ -11,6 +11,8 @@
 		C156652C2279B1D800C41453 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652B2279B1D800C41453 /* WelcomeViewController.swift */; };
 		C156652E2279D83E00C41453 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652D2279D83E00C41453 /* Alert.swift */; };
 		C1890992227A055B00ABE37D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1890991227A055B00ABE37D /* LogInViewController.swift */; };
+		C1A020D1228082FA0024C594 /* MyListOfBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */; };
+		C1A020D322809A720024C594 /* MenuSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A020D222809A720024C594 /* MenuSearchViewController.swift */; };
 		C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAB22772658003E0734 /* AppDelegate.swift */; };
 		C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */; };
 		C1AC1FB122772658003E0734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AC1FAF22772658003E0734 /* Main.storyboard */; };
@@ -58,6 +60,10 @@
 		C156652B2279B1D800C41453 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C156652D2279D83E00C41453 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C1890991227A055B00ABE37D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		C1A020CC22806D330024C594 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C1A020CD22806D330024C594 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListOfBooksViewController.swift; sourceTree = "<group>"; };
+		C1A020D222809A720024C594 /* MenuSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSearchViewController.swift; sourceTree = "<group>"; };
 		C1AC1FA822772658003E0734 /* XellissimeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XellissimeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AC1FAB22772658003E0734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +211,8 @@
 		C1AC1FCD22772975003E0734 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C1A020D222809A720024C594 /* MenuSearchViewController.swift */,
+				C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */,
 				C1FC7CF8227C9EB800D32467 /* AddBookManuallyViewController.swift */,
 				C1FC7CE8227C73F100D32467 /* AddMenuViewController.swift */,
 				C1FC7CDE227C68DC00D32467 /* MenuTabBarViewController.swift */,
@@ -294,6 +302,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = C1AC1F9F22772658003E0734;
 			productRefGroup = C1AC1FA922772658003E0734 /* Products */;
@@ -451,11 +460,13 @@
 				C1FC7CF5227C854400D32467 /* MyBookToStruct.swift in Sources */,
 				C1FC7CF7227C859700D32467 /* MessageStruct.swift in Sources */,
 				C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */,
+				C1A020D1228082FA0024C594 /* MyListOfBooksViewController.swift in Sources */,
 				C1FC7CE9227C73F100D32467 /* AddMenuViewController.swift in Sources */,
 				C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */,
 				C1FC7CF9227C9EB800D32467 /* AddBookManuallyViewController.swift in Sources */,
 				C1FC7CE1227C6F8E00D32467 /* Utilities.swift in Sources */,
 				C1FC7CF1227C84E200D32467 /* AddressStruct.swift in Sources */,
+				C1A020D322809A720024C594 /* MenuSearchViewController.swift in Sources */,
 				C156652E2279D83E00C41453 /* Alert.swift in Sources */,
 				C1FC7CEF227C7A6400D32467 /* UserClass.swift in Sources */,
 			);
@@ -484,6 +495,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C1AC1FB022772658003E0734 /* Base */,
+				C1A020CD22806D330024C594 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -492,6 +504,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C1AC1FB52277265A003E0734 /* Base */,
+				C1A020CC22806D330024C594 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -503,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -550,7 +564,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -564,6 +578,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -605,7 +620,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -1,0 +1,63 @@
+
+/* Class = "UILabel"; text = "warning text to display"; ObjectID = "7TB-FU-vwO"; */
+"7TB-FU-vwO.text" = "warning text to display";
+
+/* Class = "UIButton"; normalTitle = "I refuse"; ObjectID = "7oo-NK-RXD"; */
+"7oo-NK-RXD.normalTitle" = "I refuse";
+
+/* Class = "UIButton"; normalTitle = "I accept"; ObjectID = "8lq-xe-Z7E"; */
+"8lq-xe-Z7E.normalTitle" = "I accept";
+
+/* Class = "UIViewController"; title = "Welcome"; ObjectID = "8uS-ZW-9mQ"; */
+"8uS-ZW-9mQ.title" = "Welcome";
+
+/* Class = "UILabel"; text = "NO ACCESS"; ObjectID = "99e-R4-n3P"; */
+"99e-R4-n3P.text" = "NO ACCESS";
+
+/* Class = "UILabel"; text = "If you have already an account"; ObjectID = "F0k-zc-FQQ"; */
+"F0k-zc-FQQ.text" = "If you have already an account";
+
+/* Class = "UIBarButtonItem"; title = "Log out"; ObjectID = "Fpx-6D-jCm"; */
+"Fpx-6D-jCm.title" = "Log out";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "GOf-dP-PlJ"; */
+"GOf-dP-PlJ.placeholder" = "Username";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "QDU-Ji-2xA"; */
+"QDU-Ji-2xA.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Log in"; ObjectID = "TfM-3b-Fyd"; */
+"TfM-3b-Fyd.normalTitle" = "Log in";
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "Y7U-Kp-xdn"; */
+"Y7U-Kp-xdn.normalTitle" = "Log In";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "aNq-Lf-ghW"; */
+"aNq-Lf-ghW.title" = "Item";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "akQ-Cm-c0Y"; */
+"akQ-Cm-c0Y.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Go to Menu"; ObjectID = "amq-3z-VYK"; */
+"amq-3z-VYK.normalTitle" = "Go to Menu";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "dk6-5Y-BkE"; */
+"dk6-5Y-BkE.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "eJf-8R-g6O"; */
+"eJf-8R-g6O.placeholder" = "Email";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "fMx-XC-3yW"; */
+"fMx-XC-3yW.title" = "Item";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "iXX-9q-fNg"; */
+"iXX-9q-fNg.text" = "Welcome";
+
+/* Class = "UIButton"; normalTitle = "BACK"; ObjectID = "lzK-Yc-RUc"; */
+"lzK-Yc-RUc.normalTitle" = "BACK";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "qdM-Lb-ybS"; */
+"qdM-Lb-ybS.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "sAO-ho-tAl"; */
+"sAO-ho-tAl.normalTitle" = "Sign Up";

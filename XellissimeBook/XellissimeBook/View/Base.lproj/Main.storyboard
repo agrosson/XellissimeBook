@@ -414,13 +414,23 @@
                     <connections>
                         <outlet property="menu" destination="YgU-kf-pCl" id="B3C-kz-xGQ"/>
                         <segue destination="Nrk-Yw-iwA" kind="relationship" relationship="viewControllers" id="Mwy-27-Any"/>
-                        <segue destination="LVO-cW-5V1" kind="relationship" relationship="viewControllers" id="UL7-sf-egk"/>
                         <segue destination="X4S-Cn-zQT" kind="relationship" relationship="viewControllers" id="KQx-95-pd1"/>
+                        <segue destination="fHP-P5-8GJ" kind="relationship" relationship="viewControllers" id="X68-Xh-dz3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mL1-z5-Ba1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="193" y="-60"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="hSs-On-LPW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="fHP-P5-8GJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="LdE-Ei-Gsh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vW7-yS-Tox" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1180" y="190"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fwQ-8y-1x5">
@@ -457,16 +467,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUW-be-0f1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1358" y="-490"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="TpU-KQ-07I">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Search" id="LVO-cW-5V1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="fMx-XC-3yW"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oQo-nl-6bg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1109" y="204"/>
         </scene>
     </scenes>
     <resources>

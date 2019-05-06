@@ -43,7 +43,7 @@ struct Book {
         }
     }
     var bookType: BookType = .unknown
-    
+    //  create a failable initializer
     init(title: String, author:String, isbn: String){
         bookIsbn = isbn
         bookTitle = title
