@@ -8,7 +8,9 @@
 
 import Foundation
 
-
+/**
+ This Struct enables to list all texts of the application in a single file
+ */
 struct TextAndString {
     static let shared = TextAndString()
     let initialWarning = "This is the initial warning of the application. Please accept all users conditions!!"
@@ -19,6 +21,8 @@ struct TextAndString {
     let noUserRegistered = "No user registered with this Email.\nPlease sign up"
     let invalidPassword = "Invalid password"
     let noData = "Fill all fields"
+    
+    // Segue
     let segueFromLogInToHome = "logInToWelcome"
     let segueToLogIn = "goToLogInScreen"
     let segueFromInitialToWelcome = "goToWelcomeScreen"
@@ -26,13 +30,11 @@ struct TextAndString {
     
     // Cell identifier
     let myListOfBookCell = "myListOfBookCell"
-    
-    // FireBase Error Message
-    let fireBaseErrorEmailAlreadyInUse = "Optional(Error Domain=FIRAuthErrorDomain Code=17007 \"The email address is already in use by another account.\" UserInfo={NSLocalizedDescription=The email address is already in use by another account., error_name=ERROR_EMAIL_ALREADY_IN_USE})"
-    
 }
 
-
+/**
+ This extension enables to remove inaccurate whitespace
+ */
 extension String {
     mutating func removeFirstAndLastAndDoubleWhitespace() {
         var newString = self
