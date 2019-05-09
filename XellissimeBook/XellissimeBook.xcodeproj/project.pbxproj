@@ -11,6 +11,7 @@
 		C1025A442284309600AF6DFE /* BookResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1025A432284309600AF6DFE /* BookResponse.swift */; };
 		C1025A4622844D6900AF6DFE /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1025A4522844D6900AF6DFE /* APIManager.swift */; };
 		C1025A4822844EBC00AF6DFE /* GoogleBookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1025A4722844EBC00AF6DFE /* GoogleBookAPI.swift */; };
+		C1025A4A228495C600AF6DFE /* OpenLibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1025A49228495C600AF6DFE /* OpenLibraryAPI.swift */; };
 		C156652C2279B1D800C41453 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652B2279B1D800C41453 /* WelcomeViewController.swift */; };
 		C156652E2279D83E00C41453 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652D2279D83E00C41453 /* Alert.swift */; };
 		C1890992227A055B00ABE37D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1890991227A055B00ABE37D /* LogInViewController.swift */; };
@@ -63,6 +64,7 @@
 		C1025A432284309600AF6DFE /* BookResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookResponse.swift; sourceTree = "<group>"; };
 		C1025A4522844D6900AF6DFE /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		C1025A4722844EBC00AF6DFE /* GoogleBookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBookAPI.swift; sourceTree = "<group>"; };
+		C1025A49228495C600AF6DFE /* OpenLibraryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLibraryAPI.swift; sourceTree = "<group>"; };
 		C156652B2279B1D800C41453 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C156652D2279D83E00C41453 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C1890991227A055B00ABE37D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				C1FC7CE0227C6F8E00D32467 /* Utilities.swift */,
 				C1025A4522844D6900AF6DFE /* APIManager.swift */,
 				C1025A4722844EBC00AF6DFE /* GoogleBookAPI.swift */,
+				C1025A49228495C600AF6DFE /* OpenLibraryAPI.swift */,
 				C1AC1FCE227729C1003E0734 /* Settings.swift */,
 				C1AC1FD022773268003E0734 /* TextAndString.swift */,
 				C156652D2279D83E00C41453 /* Alert.swift */,
@@ -473,6 +476,7 @@
 				C1A020D1228082FA0024C594 /* MyListOfBooksViewController.swift in Sources */,
 				C1025A442284309600AF6DFE /* BookResponse.swift in Sources */,
 				C1FC7CE9227C73F100D32467 /* AddMenuViewController.swift in Sources */,
+				C1025A4A228495C600AF6DFE /* OpenLibraryAPI.swift in Sources */,
 				C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */,
 				C1FC7CF9227C9EB800D32467 /* AddBookManuallyViewController.swift in Sources */,
 				C1FC7CE1227C6F8E00D32467 /* Utilities.swift in Sources */,
