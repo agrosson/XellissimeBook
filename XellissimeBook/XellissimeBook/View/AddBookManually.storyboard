@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjq-SU-dWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-219" y="-722"/>
+            <point key="canvasLocation" x="-2409" y="-720"/>
         </scene>
         <!--Add Book Manually View Controller-->
         <scene sceneID="24g-St-Soy">
@@ -136,7 +136,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0S-TD-KQW">
                                         <rect key="frame" x="0.0" y="190" width="398" height="2"/>
@@ -157,17 +157,30 @@
                                     <action selector="myAction:" destination="2GI-3D-gaD" eventType="touchUpInside" id="TmU-0z-2EF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hJ9-g2-93q">
+                                <rect key="frame" x="8" y="684" width="398" height="48"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <state key="normal" title="testons l'api googleBooks">
+                                    <color key="titleColor" red="0.97674978599999995" green="0.058663590289999998" blue="0.069022705749999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="testGoogleAPI:" destination="2GI-3D-gaD" eventType="touchUpInside" id="QAu-Ro-0bG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8EN-KE-I9Z" firstAttribute="centerX" secondItem="WR5-WB-Vlr" secondAttribute="centerX" id="3rd-WO-ENt"/>
                             <constraint firstItem="rJi-vC-dqt" firstAttribute="centerX" secondItem="WR5-WB-Vlr" secondAttribute="centerX" id="7Oj-VE-ArV"/>
                             <constraint firstItem="lVG-Cd-p0X" firstAttribute="bottom" secondItem="2db-Dh-5A1" secondAttribute="bottom" constant="20" id="BH7-Fg-96b"/>
+                            <constraint firstItem="hJ9-g2-93q" firstAttribute="leading" secondItem="lVG-Cd-p0X" secondAttribute="leading" constant="8" id="Ly3-Y5-V7L"/>
                             <constraint firstItem="rJi-vC-dqt" firstAttribute="top" secondItem="lVG-Cd-p0X" secondAttribute="top" constant="30" id="UEG-yW-nj8"/>
                             <constraint firstItem="2db-Dh-5A1" firstAttribute="leading" secondItem="lVG-Cd-p0X" secondAttribute="leading" constant="8" id="YZ0-sA-KXW"/>
                             <constraint firstItem="8EN-KE-I9Z" firstAttribute="top" secondItem="rJi-vC-dqt" secondAttribute="bottom" constant="50" id="al9-ml-8j6"/>
                             <constraint firstItem="8EN-KE-I9Z" firstAttribute="leading" secondItem="lVG-Cd-p0X" secondAttribute="leading" constant="8" id="jVA-Mu-46P"/>
+                            <constraint firstItem="lVG-Cd-p0X" firstAttribute="trailing" secondItem="hJ9-g2-93q" secondAttribute="trailing" constant="8" id="ocJ-lt-w90"/>
                             <constraint firstItem="lVG-Cd-p0X" firstAttribute="trailing" secondItem="8EN-KE-I9Z" secondAttribute="trailing" constant="8" id="rdr-5d-xAu"/>
+                            <constraint firstItem="2db-Dh-5A1" firstAttribute="top" secondItem="hJ9-g2-93q" secondAttribute="bottom" constant="50" id="zIO-70-8cN"/>
                             <constraint firstItem="lVG-Cd-p0X" firstAttribute="trailing" secondItem="2db-Dh-5A1" secondAttribute="trailing" constant="8" id="zdX-bD-NtW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lVG-Cd-p0X"/>
@@ -194,7 +207,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjG-eH-Uld" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pzY-eJ-LcI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="519" y="-723"/>
+            <point key="canvasLocation" x="78" y="-721"/>
         </scene>
     </scenes>
     <resources>

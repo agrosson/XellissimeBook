@@ -28,7 +28,7 @@ class Alert{
     // MARK: - Enum
     /// Enum that lists all cases of alert presentations
     enum AlertCase {
-        case userEmailAlreadyUsedByAnotherUser, emailBadlyFormatted, passwordIsTooShort, noData, noUserRegistered, invalidPassword
+        case userEmailAlreadyUsedByAnotherUser, emailBadlyFormatted, passwordIsTooShort, noData, noUserRegistered, invalidPassword, googleBookDidNotFindAResult, googleBookAPIProblemWithUrl
     }
     // MARK: -
     init() {}
@@ -63,7 +63,16 @@ class Alert{
         case .invalidPassword:
             controller?.presentAlertDetails(title: "Sorry",
                                             message: TextAndString.shared.invalidPassword,
-                                            titleButton: "OK")            
+                                            titleButton: "OK")
+        case .googleBookDidNotFindAResult:
+            controller?.presentAlertDetails(title: "Sorry",
+                                            message:TextAndString.shared.googleBookDidNotFindAResult,
+                                            titleButton: "OK")
+                
+        case .googleBookAPIProblemWithUrl:
+            controller?.presentAlertDetails(title: "Sorry",
+                                            message:TextAndString.shared.googleBookAPIProblemWithUrl,
+                                            titleButton: "OK")
         }
     }
 }

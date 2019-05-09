@@ -12,21 +12,57 @@ import FirebaseAuth
 
 class AddBookManuallyViewController: UIViewController {
     
-    // MARK: - Outlets
-    
-    
+    // MARK: - Properies
+    /// Book to save on FireBase
+    var bookToSave: Book?
+    // MARK: - Outlets : UITextfield
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var isbnTextField: UITextField!
+    // MARK: - Outlets : UITStackView
     @IBOutlet weak var mainSV: UIStackView!
+    // MARK: - Outlets : UILabel
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var isbnLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
-    
+    // MARK: - Outlets : UIBarButtonItem
     @IBOutlet weak var item: UIBarButtonItem!
-    
+    // MARK: - Outlets : UIButton
     @IBOutlet weak var addToDatabaseButton: UIButton!
     
+    // MARK: - Actions
+    @IBAction func testGoogleAPI(_ sender: UIButton) {
+        let isbnFromScreen = isbnTextField.text!
+        print("isbn ecran \(isbnFromScreen)")
+        let api = GoogleBookAPI(isbn: isbnFromScreen)
+        guard let fullUrl = api.googleBookFullUrl else {
+            Alert.shared.controller = self
+            Alert.shared.alertDisplay = .googleBookAPIProblemWithUrl
+            return
+        }
+        let method = api.httpMethod
+        let googleCall = NetworkManager.shared
+        
+        
+        googleCall.getBookInfo(fullUrl: fullUrl, method: method, isbn: api.isbn, callBack: { (success, bookresult) in
+            if bookresult != nil {
+            
+                // Fill the textfield with the data retrieved
+                
+                // make an alternative view pop-over and possibility to save on firebase 
+                self.titleTextField.text = bookresult?.bookTitle
+                self.authorTextField.text = bookresult?.bookAuthor
+                
+                self.bookToSave = bookresult
+            }
+            else {
+                print("echec on lance un autre api? ")
+                Alert.shared.controller = self
+                Alert.shared.alertDisplay = .googleBookDidNotFindAResult
+            }
+        })
+ 
+    }
     @IBAction func myAction(_ sender: UIButton) {
         var title = titleTextField.text ?? ""
         var author = authorTextField.text ?? ""
@@ -51,6 +87,7 @@ class AddBookManuallyViewController: UIViewController {
                 var book = Book(title: title, author: author, isbn: isbn)
                 book.bookId = uniqueBookId
                 book.bookOwner = userId
+                book.bookEditor = bookToSave?.bookEditor
                 book.saveBook(with: book)
             }
         }
@@ -122,8 +159,6 @@ class AddBookManuallyViewController: UIViewController {
         authorTextField.resignFirstResponder()
         isbnTextField.resignFirstResponder()
     }
-    
-    
     
 }
 extension  AddBookManuallyViewController : UITextFieldDelegate {

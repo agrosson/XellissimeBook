@@ -9,17 +9,27 @@
 import Foundation
 import FirebaseAuth
 import Firebase
-
 import UIKit
 
+
+// MARK: - Book class
+/**
+ An object that stores all elements of a book
+ 
+ Only 3 elements are required when intializing
+ 
+ */
 struct Book {
+    // MARK: - Properties
     var bookId = String() // or Int automatic incremental
     var bookIsbn: String
     var bookTitle: String
     var bookAuthor: String
     var bookEditor: String?
     var bookYearOfEdition: String?
-    var bookCover: UIImage?
+    /// URL of the cover image
+    var bookCoverURL: String?
+    /// Will be set when user will add a book in the list
     var bookOwner = String() // the userIosId
     var bookIsAvailable: Bool = false
     var bookDateOfLoanStart: Date?
@@ -44,22 +54,29 @@ struct Book {
     }
     var bookType: BookType = .unknown
     //  create a failable initializer
+    
+    // MARK: - Method init
     init(title: String, author:String, isbn: String){
         bookIsbn = isbn
         bookTitle = title
         bookAuthor = author
     }
-    
+    // MARK: - Methods
+    /**
+     Function that saves the book in FireBase
+     - Parameter book : book to be saved
+     */
     func saveBook(with book: Book){
         // create a shortcut reference : type DataReference
         let databaseReference = Database.database().reference()
+        // the book properties have to be saved as dictionary in Firebase
         let bookToSaveDictionary: [String : Any] =  ["bookId" : book.bookId,
                                                     "bookIsbn" : book.bookIsbn,
                                                     "bookTitle" : book.bookTitle,
                                                     "bookAuthor" : book.bookAuthor,
                                                     "bookEditor": book.bookEditor ?? "",
                                                     "bookYearOfEdition" : book.bookYearOfEdition ?? "",
-                                                //    "bookCover" : book.bookCover as Any,
+                                                    "bookCover" : book.bookCoverURL ?? "",
                                                     "bookOwner": book.bookOwner,
                                                     "bookIsAvailable" : book.bookIsAvailable,
                                                 //     "bookDateOfLoanStart" : book.bookDateOfLoanStart as Any,
