@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class AddBookManuallyViewController: UIViewController {
     
-    // MARK: - Properies
+    // MARK: - Properties
     /// Book to save on FireBase
     var bookToSave: Book?
     // MARK: - Outlets : UITextfield
@@ -31,10 +31,16 @@ class AddBookManuallyViewController: UIViewController {
     @IBOutlet weak var addToDatabaseButton: UIButton!
     
     // MARK: - Actions
+    /**
+     Action to get book information from Google Books API
+     */
     @IBAction func testGoogleAPI(_ sender: UIButton) {
-        let isbnFromScreen = isbnTextField.text!
-        print("isbn ecran \(isbnFromScreen)")
-        let api = GoogleBookAPI(isbn: isbnFromScreen)
+        // This to ensure that no data remains in the object
+        bookToSave = Book(title: "", author: "", isbn: "")
+        // Get the isbn from the user (typed in textfield)
+        var isbnFromTextField = isbnTextField.text!
+        isbnFromTextField.removeFirstAndLastAndDoubleWhitespace()
+        let api = GoogleBookAPI(isbn: isbnFromTextField)
         guard let fullUrl = api.googleBookFullUrl else {
             Alert.shared.controller = self
             Alert.shared.alertDisplay = .googleBookAPIProblemWithUrl
@@ -42,18 +48,14 @@ class AddBookManuallyViewController: UIViewController {
         }
         let method = api.httpMethod
         let googleCall = NetworkManager.shared
-        
-        
         googleCall.getBookInfo(fullUrl: fullUrl, method: method, isbn: api.isbn, callBack: { (success, bookresult) in
-            if bookresult != nil {
-            
+            if let book = bookresult  {
                 // Fill the textfield with the data retrieved
-                
-                // make an alternative view pop-over and possibility to save on firebase 
-                self.titleTextField.text = bookresult?.bookTitle
-                self.authorTextField.text = bookresult?.bookAuthor
-                
-                self.bookToSave = bookresult
+                // TODO: make an alternative view pop-over and possibility to save on firebase
+                // Display all the data received from API and ask the user if want to add to database
+                self.titleTextField.text = book.bookTitle
+                self.authorTextField.text = book.bookAuthor
+                self.bookToSave = book
             }
             else {
                 print("echec on lance un autre api? ")
@@ -61,8 +63,44 @@ class AddBookManuallyViewController: UIViewController {
                 Alert.shared.alertDisplay = .googleBookDidNotFindAResult
             }
         })
- 
     }
+    /**
+     Action to get book information from Open Library API
+     */
+    @IBAction func openlibrary(_ sender: UIButton) {
+        // This to ensure that no data remains in the object
+        bookToSave = Book(title: "", author: "", isbn: "")
+        // Get the isbn from the user (typed in textfield)
+        var isbnFromTextField = isbnTextField.text!
+        isbnFromTextField.removeFirstAndLastAndDoubleWhitespace()
+        let api = OpenLibraryAPI(isbn: isbnFromTextField)
+        guard let fullUrl = api.openlibraryFullUrl else {
+            Alert.shared.controller = self
+            Alert.shared.alertDisplay = .googleBookAPIProblemWithUrl
+            return
+        }
+        let method = api.httpMethod
+        let openLibraryCall = NetworkManager.shared
+        openLibraryCall.getBookInfoOpenLibrary(fullUrl: fullUrl, method: method, isbn: api.isbn, callBack: { (success, bookresult) in
+            if let book = bookresult  {
+                // Fill the textfield with the data retrieved
+                // TODO: make an alternative view pop-over and possibility to save on firebase
+                // Display all the data received from API and ask the user if want to add to database
+                self.titleTextField.text = book.bookTitle
+                self.authorTextField.text = book.bookAuthor
+                self.bookToSave = book
+            }
+            else {
+                print("echec openlibrary on lance un autre api? ")
+                Alert.shared.controller = self
+                Alert.shared.alertDisplay = .openLibraryBookDidNotFindAResult
+            }
+        })
+        }
+ 
+    /**
+     Action to save book information in FireBase
+     */
     @IBAction func myAction(_ sender: UIButton) {
         var title = titleTextField.text ?? ""
         var author = authorTextField.text ?? ""
@@ -70,7 +108,8 @@ class AddBookManuallyViewController: UIViewController {
         var userId = ""
         var uniqueBookId = ""
         if title == "" || author == "" ||  isbn == ""  {
-            self.presentAlertDetails(title: "Sorry", message: "Fill in all fields please.", titleButton: "BACK")
+            Alert.shared.controller = self
+            Alert.shared.alertDisplay = .needAllFieldsCompleted
         } else {
             title.removeFirstAndLastAndDoubleWhitespace()
             author.removeFirstAndLastAndDoubleWhitespace()
@@ -78,7 +117,6 @@ class AddBookManuallyViewController: UIViewController {
             if Auth.auth().currentUser?.uid == nil {
                 print("no connection")
             }
-            
             if let currentUserId = Auth.auth().currentUser?.uid {
                 // Assign currentUserId to userId
                 userId = currentUserId
@@ -88,6 +126,7 @@ class AddBookManuallyViewController: UIViewController {
                 book.bookId = uniqueBookId
                 book.bookOwner = userId
                 book.bookEditor = bookToSave?.bookEditor
+                book.bookCoverURL = bookToSave?.bookCoverURL
                 book.saveBook(with: book)
             }
         }
@@ -100,6 +139,19 @@ class AddBookManuallyViewController: UIViewController {
         manageTextField()
         setUpPageLogIn()
     }
+    
+    /*
+     
+     To do :
+     on prend l'url de l'image du livre
+     on télécharge l'image
+     on stocke l'image sur Firebase dans database books/cover
+     on enregistre l'url de Firebase dans les infos du livre
+     
+     */
+    
+    
+    
     /**
      Function that manages TextField
      */
@@ -108,6 +160,10 @@ class AddBookManuallyViewController: UIViewController {
         authorTextField.delegate = self
         isbnTextField.delegate = self
     }
+    
+    /**
+     Function that manages views for textFields
+     */
     private func setUpPageLogIn(){
         titleTextField.layer.cornerRadius = 5
         authorTextField.layer.cornerRadius = 5
@@ -129,11 +185,6 @@ class AddBookManuallyViewController: UIViewController {
         titleLabel.textAlignment = .center
         authorLabel.textAlignment = .center
         isbnLabel.textAlignment = .center
-        
-        
-        //        logInButton.layer.borderWidth = 3
-        //        logInButton.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
-        //        signUpButton.layer.cornerRadius = 20
         
         gestureTapCreation()
         gestureswipeCreation()
@@ -163,7 +214,6 @@ class AddBookManuallyViewController: UIViewController {
 }
 extension  AddBookManuallyViewController : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

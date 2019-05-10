@@ -19,59 +19,90 @@ class NetworkManager {
     // MARK: - Networking properties
     private var task: URLSessionDataTask?
     private var getBooKInfoFromGoogleBooks = URLSession(configuration: .default)
+    private var getBookInfoOpenLibrary = URLSession(configuration: .default)
 
     // MARK: -
-    init(getBooKInfoFromGoogleBooks: URLSession){
+    init(getBooKInfoFromGoogleBooks: URLSession, getBookInfoOpenLibrary : URLSession){
         self.getBooKInfoFromGoogleBooks = getBooKInfoFromGoogleBooks
+        self.getBookInfoOpenLibrary = getBookInfoOpenLibrary
     }
 }
 
 // MARK: - Request for Get book info
 extension NetworkManager {
     func getBookInfo(fullUrl: URL, method: String, isbn: String, callBack: @escaping (Bool, Book?) -> ()) {
+         print("on passe ici  A1")
         var request = URLRequest(url: fullUrl)
         request.httpMethod = method
         task?.cancel()
         let task = getBooKInfoFromGoogleBooks.dataTask(with: request) { (data, response, error) in
+            print("on passe ici  A2")
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
+                    print("erreur A1")
                     callBack(false, nil)
                     return
                 }
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                     print("erreur A2")
                     callBack(false, nil)
                     return
                 }
                 guard let responseJson = try? JSONDecoder().decode(BookResponse.self, from: data) else {
+                     print("erreur A3")
                     callBack(false, nil)
                     return
                 }
                 guard let title = responseJson.items?.first?.volumeInfo?.title else {
+                     print("erreur A4")
                     callBack(false, nil)
                     return
                 }
                 guard let author = responseJson.items?.first?.volumeInfo?.authors?.first else
-                {
+                {   print("erreur A5")
                     callBack(false, nil)
                     return
                 }
                 guard let editor = responseJson.items?.first?.volumeInfo?.publisher else
-                {
+                {    print("erreur A6")
                     callBack(false, nil)
                     return
                 }
-                var isbnEmpty = String()
-                if (responseJson.items?.first?.volumeInfo?.industryIdentifiers!.count)! > 0 {
-                    guard let isbnTemp = responseJson.items?.first?.volumeInfo?.industryIdentifiers![1].identifier     else {
-                        callBack(false, nil)
-                        return
+                var isbnEmpty = ""
+                if responseJson.items?.first?.volumeInfo?.industryIdentifiers?.count ?? 0 > 0 {
+                     print("on est là 1")
+                    if let tempsId = responseJson.items?.first?.volumeInfo?.industryIdentifiers {
+                        for item in tempsId {
+                            print("on est là 2")
+                            
+                            guard let isbnFromFile = item.identifier else {return}
+                            if isbnFromFile.count == 13 {
+                                print("on est là 3")
+                                isbnEmpty = isbnFromFile
+                            }
+                        }
                     }
-                    isbnEmpty = isbnTemp
+                   
+                } else {
+                     print("erreur A7")
+                    callBack(false, nil)
+                    return
                 }
+                if isbn != isbnEmpty {
+                     print("erreur A8")
+                    callBack(false, nil)
+                    return
+                }
+                var coverTemp = ""
+                if let cover = responseJson.items?.first?.volumeInfo?.imageLinks?.thumbnail {
+                    coverTemp = cover
+                }
+                
+                  print("on est là 4")
                 var bookTemp = Book(title:  title,
                                     author: author,
                                     isbn: isbnEmpty)
-                bookTemp.bookCoverURL = "On va trouver"
+                bookTemp.bookCoverURL = coverTemp
                 bookTemp.bookEditor = editor
                 callBack(true, bookTemp)
             }
@@ -80,7 +111,92 @@ extension NetworkManager {
     }
 }
 
-
+extension NetworkManager {
+    func getBookInfoOpenLibrary(fullUrl: URL, method: String, isbn: String, callBack: @escaping (Bool, Book?) -> ()) {
+        print("on passe ici  OPEN1")
+        var request = URLRequest(url: fullUrl)
+        print(fullUrl)
+        request.httpMethod = method
+        task?.cancel()
+        let task = getBookInfoOpenLibrary.dataTask(with: request) { (data, response, error) in
+            print("on passe ici  OPEN2")
+            DispatchQueue.main.async {
+                guard let data = data, error == nil else {
+                    print("erreur OPEN 1")
+                    callBack(false, nil)
+                    return
+                }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    print("erreur OPEN 2")
+                    callBack(false, nil)
+                    return
+                }
+                guard let responseJson = try? JSONDecoder().decode([String : BookOpenLibraryResponse].self, from: data)
+                    else {
+                    print("erreur OPEN 3")
+                    callBack(false, nil)
+                    return
+                }
+                print("on est dans le decoder")
+                print("ISBN:\(isbn)")
+                guard let openLibraryResponse = responseJson["ISBN:\(isbn)"] else {
+                    print("ça plante ici ")
+                    callBack(false, nil)
+                    return
+                }
+                guard let title =  openLibraryResponse.title else {
+                     print("erreur OPEN 4")
+                    callBack(false, nil)
+                    return
+                }
+                guard let author = openLibraryResponse.authors?.first?.name else
+                { print("erreur OPEN 5")
+                    callBack(false, nil)
+                    return
+                }
+                guard let editor = openLibraryResponse.publishers?.first?.name else
+                { print("erreur OPEN 6")
+                    callBack(false, nil)
+                    return
+                }
+               
+                guard let tempIsbn = openLibraryResponse.identifiers?["isbn_13"] else {
+                     print("erreur OPEN 7")
+                    callBack(false, nil)
+                    return
+                }
+                guard let firstItem = tempIsbn.first else {
+                     print("erreur OPEN 8")
+                    callBack(false, nil)
+                    return
+                }
+                var coverTemp = ""
+                if let coverMedium = openLibraryResponse.cover?.medium {
+                    coverTemp = coverMedium
+                     print("on passe ici  OPEN3")
+                } else {
+                    if let coverSmall = openLibraryResponse.cover?.small {
+                        coverTemp = coverSmall
+                         print("on passe ici  OPEN4")
+                    } else {
+                        if let coverLarge = openLibraryResponse.cover?.large {
+                            coverTemp = coverLarge
+                        }
+                    }
+                }
+                var bookTemp = Book(title:  title,
+                                    author: author,
+                                    isbn: firstItem)
+                bookTemp.bookCoverURL = coverTemp
+                bookTemp.bookEditor = editor
+                print("on passe ici  OPEn5")
+                callBack(true, bookTemp)
+             
+            }
+        }
+        task.resume()
+    }
+}
 /*
  //
  //  APIManager.swift

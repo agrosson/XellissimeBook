@@ -23,6 +23,8 @@ struct TextAndString {
     let noData = "Fill all fields"
     let googleBookDidNotFindAResult = "No book found by Google Books. A new search will be launch with Open Library"
     let googleBookAPIProblemWithUrl = "URL problem with Google Books API."
+    let openLibraryBookDidNotFindAResult = "No book found by Google Books. A new search will be launch with another API"
+    let needAllFieldsCompleted = "Fill in all fields please."
     
     // Segue
     let segueFromLogInToHome = "logInToWelcome"

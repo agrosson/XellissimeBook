@@ -18,7 +18,7 @@ class OpenLibraryAPI {
     /// API endPoint string
     
     // OpenLibraryAPI :
-    private let endPoint = "https://openlibrary.org/api/books?"
+    private let endPoint = "https://openlibrary.org/api/books"
     /// API method
     let httpMethod = "GET"
     /// API parameters : isbn 

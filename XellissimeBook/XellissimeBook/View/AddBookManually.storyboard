@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjq-SU-dWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2409" y="-720"/>
+            <point key="canvasLocation" x="-3658" y="-721"/>
         </scene>
         <!--Add Book Manually View Controller-->
         <scene sceneID="24g-St-Soy">
@@ -167,9 +167,18 @@
                                     <action selector="testGoogleAPI:" destination="2GI-3D-gaD" eventType="touchUpInside" id="QAu-Ro-0bG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSo-oS-RT3">
+                                <rect key="frame" x="134.5" y="616" width="145" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="openlibrary"/>
+                                <connections>
+                                    <action selector="openlibrary:" destination="2GI-3D-gaD" eventType="touchUpInside" id="Y3W-tO-EG3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fSo-oS-RT3" firstAttribute="centerX" secondItem="WR5-WB-Vlr" secondAttribute="centerX" id="37L-ci-xgh"/>
                             <constraint firstItem="8EN-KE-I9Z" firstAttribute="centerX" secondItem="WR5-WB-Vlr" secondAttribute="centerX" id="3rd-WO-ENt"/>
                             <constraint firstItem="rJi-vC-dqt" firstAttribute="centerX" secondItem="WR5-WB-Vlr" secondAttribute="centerX" id="7Oj-VE-ArV"/>
                             <constraint firstItem="lVG-Cd-p0X" firstAttribute="bottom" secondItem="2db-Dh-5A1" secondAttribute="bottom" constant="20" id="BH7-Fg-96b"/>
@@ -177,6 +186,7 @@
                             <constraint firstItem="rJi-vC-dqt" firstAttribute="top" secondItem="lVG-Cd-p0X" secondAttribute="top" constant="30" id="UEG-yW-nj8"/>
                             <constraint firstItem="2db-Dh-5A1" firstAttribute="leading" secondItem="lVG-Cd-p0X" secondAttribute="leading" constant="8" id="YZ0-sA-KXW"/>
                             <constraint firstItem="8EN-KE-I9Z" firstAttribute="top" secondItem="rJi-vC-dqt" secondAttribute="bottom" constant="50" id="al9-ml-8j6"/>
+                            <constraint firstItem="hJ9-g2-93q" firstAttribute="top" secondItem="fSo-oS-RT3" secondAttribute="bottom" constant="20" id="faA-W8-whk"/>
                             <constraint firstItem="8EN-KE-I9Z" firstAttribute="leading" secondItem="lVG-Cd-p0X" secondAttribute="leading" constant="8" id="jVA-Mu-46P"/>
                             <constraint firstItem="lVG-Cd-p0X" firstAttribute="trailing" secondItem="hJ9-g2-93q" secondAttribute="trailing" constant="8" id="ocJ-lt-w90"/>
                             <constraint firstItem="lVG-Cd-p0X" firstAttribute="trailing" secondItem="8EN-KE-I9Z" secondAttribute="trailing" constant="8" id="rdr-5d-xAu"/>
@@ -207,7 +217,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjG-eH-Uld" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pzY-eJ-LcI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="78" y="-721"/>
+            <point key="canvasLocation" x="-2832" y="-717"/>
         </scene>
     </scenes>
     <resources>

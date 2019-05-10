@@ -12,6 +12,7 @@
 		C1025A4622844D6900AF6DFE /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1025A4522844D6900AF6DFE /* APIManager.swift */; };
 		C1025A4822844EBC00AF6DFE /* GoogleBookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1025A4722844EBC00AF6DFE /* GoogleBookAPI.swift */; };
 		C1025A4A228495C600AF6DFE /* OpenLibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1025A49228495C600AF6DFE /* OpenLibraryAPI.swift */; };
+		C1025A4C22849B8200AF6DFE /* BookOpenLibraryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1025A4B22849B8200AF6DFE /* BookOpenLibraryResponse.swift */; };
 		C156652C2279B1D800C41453 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652B2279B1D800C41453 /* WelcomeViewController.swift */; };
 		C156652E2279D83E00C41453 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652D2279D83E00C41453 /* Alert.swift */; };
 		C1890992227A055B00ABE37D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1890991227A055B00ABE37D /* LogInViewController.swift */; };
@@ -65,6 +66,7 @@
 		C1025A4522844D6900AF6DFE /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		C1025A4722844EBC00AF6DFE /* GoogleBookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBookAPI.swift; sourceTree = "<group>"; };
 		C1025A49228495C600AF6DFE /* OpenLibraryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLibraryAPI.swift; sourceTree = "<group>"; };
+		C1025A4B22849B8200AF6DFE /* BookOpenLibraryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookOpenLibraryResponse.swift; sourceTree = "<group>"; };
 		C156652B2279B1D800C41453 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C156652D2279D83E00C41453 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C1890991227A055B00ABE37D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				C1FC7CF2227C850D00D32467 /* BookStruct.swift */,
 				C1FC7CF0227C84E200D32467 /* AddressStruct.swift */,
 				C1025A432284309600AF6DFE /* BookResponse.swift */,
+				C1025A4B22849B8200AF6DFE /* BookOpenLibraryResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1FC7CDF227C68DC00D32467 /* MenuTabBarViewController.swift in Sources */,
+				C1025A4C22849B8200AF6DFE /* BookOpenLibraryResponse.swift in Sources */,
 				C1FC7CF3227C850D00D32467 /* BookStruct.swift in Sources */,
 				C1AC1FCF227729C1003E0734 /* Settings.swift in Sources */,
 				C1D7690D2278E134009FE3DB /* APIKeys.swift in Sources */,
