@@ -44,14 +44,14 @@ extension String {
     mutating func removeFirstAndLastAndDoubleWhitespace() {
         var newString = self
         repeat{
-            if newString.last == " " {
+            if newString.last == " " || newString.last == "\""{
                 newString = String(newString.dropLast())
             }
-            if newString.first == " " {
+            if newString.first == " " || newString.first == "\""{
                 newString = String(newString.dropFirst())
             }
         }
-            while newString.first == " " || newString.last == " "
+            while newString.first == " " || newString.last == " " || newString.last == "\"" || newString.first == "\""
         repeat { newString = newString.replacingOccurrences(of: "  ", with: " ")
         } while newString.contains("  ")
         self =  newString

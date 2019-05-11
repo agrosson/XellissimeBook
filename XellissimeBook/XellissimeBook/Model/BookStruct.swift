@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import FirebaseAuth
-import Firebase
 import UIKit
 
 
@@ -34,24 +32,8 @@ struct Book {
     var bookIsAvailable: Bool = false
     var bookDateOfLoanStart: Date?
     var bookDateOfLoanEnd: Date?
-    var bookTypeString: String {
-        switch bookType {
-        case .unknown:
-            return "unknown"
-        case .cartoon:
-            return "cartoon"
-        case .classic:
-            return "classic"
-        case .youth:
-            return "youth"
-        case .historic:
-            return "historic"
-        case .scienceFiction:
-            return "science fiction"
-//        default:
-//            return "unknown"
-        }
-    }
+    var bookTypeString: String?
+    
     var bookType: BookType = .unknown
     //  create a failable initializer
     
@@ -60,33 +42,6 @@ struct Book {
         bookIsbn = isbn
         bookTitle = title
         bookAuthor = author
-    }
-    // MARK: - Methods
-    /**
-     Function that saves the book in FireBase
-     - Parameter book : book to be saved
-     */
-    func saveBook(with book: Book){
-        // create a shortcut reference : type DataReference
-        let databaseReference = Database.database().reference()
-        // the book properties have to be saved as dictionary in Firebase
-        let bookToSaveDictionary: [String : Any] =  ["bookId" : book.bookId,
-                                                    "bookIsbn" : book.bookIsbn,
-                                                    "bookTitle" : book.bookTitle,
-                                                    "bookAuthor" : book.bookAuthor,
-                                                    "bookEditor": book.bookEditor ?? "",
-                                                    "bookYearOfEdition" : book.bookYearOfEdition ?? "",
-                                                    "bookCover" : book.bookCoverURL ?? "",
-                                                    "bookOwner": book.bookOwner,
-                                                    "bookIsAvailable" : book.bookIsAvailable,
-                                                //     "bookDateOfLoanStart" : book.bookDateOfLoanStart as Any,
-                                                //    "bookDateOfLoanEnd": book.bookDateOfLoanEnd as Any,
-                                                    "bookType" : book.bookTypeString]
-    
-   
-        // In the dataBase, child is a repo, child userId (is an repo), create a dictionnary.
-        // databaseReference.child("users").child(userId!).setValue(["bookId" : text])
-        databaseReference.child("books").child(book.bookId).setValue(bookToSaveDictionary)
     }
 }
 

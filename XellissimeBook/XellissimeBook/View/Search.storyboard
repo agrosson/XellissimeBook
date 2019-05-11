@@ -25,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTU-6d-3y5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1775" y="288"/>
+            <point key="canvasLocation" x="-5117" y="265"/>
         </scene>
         <!--Menu Search View Controller-->
         <scene sceneID="t8J-2o-hcZ">
@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Swu-Gd-gOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-936" y="288"/>
+            <point key="canvasLocation" x="-4278" y="265"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VGO-6F-Edm">
@@ -80,7 +80,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4e-sl-fOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="335" y="-354"/>
+            <point key="canvasLocation" x="-3681" y="-390"/>
         </scene>
         <!--My List Of Books View Controller-->
         <scene sceneID="RW9-4j-Nhk">
@@ -111,7 +111,7 @@
                                                     <rect key="frame" x="2" y="31" width="208" height="150"/>
                                                     <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="199" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="29C-Ew-H70">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="199" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="29C-Ew-H70">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" priority="999" constant="50" id="EeT-um-iQ2"/>
@@ -120,7 +120,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="GEB-hU-5dP">
                                                             <rect key="frame" x="0.0" y="57" width="128" height="58"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Book Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Aa-hq-w7o">
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Book Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Aa-hq-w7o">
                                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <color key="textColor" red="0.52560549970000003" green="0.54886430500000005" blue="0.55686467890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -169,11 +169,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mycol" destination="7Fw-uM-fEr" id="pre-TJ-NCG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rqg-5B-Yhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Orf-g9-n6C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1433" y="-352"/>
+            <point key="canvasLocation" x="-2687" y="-226"/>
         </scene>
     </scenes>
     <resources>

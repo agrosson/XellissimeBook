@@ -15,6 +15,7 @@ class AddBookManuallyViewController: UIViewController {
     // MARK: - Properties
     /// Book to save on FireBase
     var bookToSave: Book?
+    var bookToSaveCoverImage: UIImage?
     // MARK: - Outlets : UITextfield
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
@@ -55,6 +56,8 @@ class AddBookManuallyViewController: UIViewController {
                 // Display all the data received from API and ask the user if want to add to database
                 self.titleTextField.text = book.bookTitle
                 self.authorTextField.text = book.bookAuthor
+                
+                
                 self.bookToSave = book
             }
             else {
@@ -127,7 +130,7 @@ class AddBookManuallyViewController: UIViewController {
                 book.bookOwner = userId
                 book.bookEditor = bookToSave?.bookEditor
                 book.bookCoverURL = bookToSave?.bookCoverURL
-                book.saveBook(with: book)
+                saveBook(with: book)
             }
         }
     }
@@ -139,7 +142,6 @@ class AddBookManuallyViewController: UIViewController {
         manageTextField()
         setUpPageLogIn()
     }
-    
     /*
      
      To do :
