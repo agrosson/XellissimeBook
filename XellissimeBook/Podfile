@@ -7,6 +7,7 @@ target 'XellissimeBook' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
   # Pods for XellissimeBook
 
   target 'XellissimeBookTests' do
@@ -14,6 +15,6 @@ target 'XellissimeBook' do
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
   end
-
 end

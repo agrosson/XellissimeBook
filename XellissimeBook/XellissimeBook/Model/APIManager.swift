@@ -103,6 +103,7 @@ extension NetworkManager {
                                     author: author,
                                     isbn: isbnEmpty)
                 bookTemp.bookCoverURL = coverTemp
+                print("coverTmp = \(coverTemp)")
                 bookTemp.bookEditor = editor
                 callBack(true, bookTemp)
             }

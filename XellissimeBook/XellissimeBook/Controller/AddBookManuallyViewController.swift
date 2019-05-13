@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 
 class AddBookManuallyViewController: UIViewController {
     
@@ -16,6 +17,12 @@ class AddBookManuallyViewController: UIViewController {
     /// Book to save on FireBase
     var bookToSave: Book?
     var bookToSaveCoverImage: UIImage?
+    var tempCoverReferenceWhenUploadOrDownLoad = StorageReference()
+    var coverReference: StorageReference {
+        return Storage.storage().reference().child("cover")
+    }
+    var tempURL:String?
+    
     // MARK: - Outlets : UITextfield
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
@@ -56,7 +63,8 @@ class AddBookManuallyViewController: UIViewController {
                 // Display all the data received from API and ask the user if want to add to database
                 self.titleTextField.text = book.bookTitle
                 self.authorTextField.text = book.bookAuthor
-                
+                print("ici on récupère les données du livre")
+                print(book.bookCoverURL as Any)
                 
                 self.bookToSave = book
             }
@@ -130,6 +138,10 @@ class AddBookManuallyViewController: UIViewController {
                 book.bookOwner = userId
                 book.bookEditor = bookToSave?.bookEditor
                 book.bookCoverURL = bookToSave?.bookCoverURL
+                // store image in Storage
+                storeCoverImageInFirebaseStorage(fromBook: book)
+                // change URL for book cover
+              //  book.bookCoverURL = tempURL
                 saveBook(with: book)
             }
         }
@@ -211,6 +223,40 @@ class AddBookManuallyViewController: UIViewController {
         titleTextField.resignFirstResponder()
         authorTextField.resignFirstResponder()
         isbnTextField.resignFirstResponder()
+    }
+    
+    private func storeCoverImageInFirebaseStorage(fromBook : Book) {
+        // get url string from book
+        guard let bookUrl = fromBook.bookCoverURL else {return}
+        // get url from url string
+        guard let url = URL(string: bookUrl) else {return}
+        // get data from url
+        guard let data = try? Data(contentsOf: url) else {return}
+        //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        guard let dataasImage = UIImage(data: data) else {return}
+        guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
+        tempCoverReferenceWhenUploadOrDownLoad = coverReference.child(fromBook.bookId)
+        let uploadTask = tempCoverReferenceWhenUploadOrDownLoad.putData(imageData, metadata: nil) { (metadata, erro) in
+            print("upload is finished")
+            print(metadata ?? "no metadata")
+            print(erro ?? "no error")
+            // To do get the reference as a string : tempCoverURLString =
+        }
+        uploadTask.observe(.progress) { (snapshot) in
+            print(snapshot.progress ?? "No More Progress")
+        }
+        uploadTask.resume()
+        tempCoverReferenceWhenUploadOrDownLoad.downloadURL(completion: { (url, error) in
+            if let error = error {
+                print("ajout erreur url")
+                print(error)
+                
+            } else {
+                print("ajout url ici  url")
+                self.tempURL = url?.path
+                print(self.tempURL as Any)
+            }
+        })
     }
     
 }

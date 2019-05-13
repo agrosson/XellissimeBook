@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
+
 
 
 class MyListOfBooksViewController: UIViewController {
@@ -22,6 +24,12 @@ class MyListOfBooksViewController: UIViewController {
     
     var ref: DatabaseReference?
     var databaseHandler : DatabaseHandle?
+    // reference for cover images in Firebase Storage
+    var coverReference: StorageReference {
+        return Storage.storage().reference().child("cover")
+    }
+    var tempCoverReferenceWhenUploadOrDownLoad = StorageReference()
+    var tempCoverURLString = ""
     var keysForBooks = [String]()
     
     // MARK: - Outlet
@@ -69,7 +77,8 @@ class MyListOfBooksViewController: UIViewController {
                     bookFromFireBase.bookOwner = bookOwner
                     bookFromFireBase.bookTypeString = bookTypeString
                     bookFromFireBase.bookYearOfEdition = bookYearOfEdition
-                    
+                    // I store the image if any
+//self.storeCoverImageInFirebaseStorage(fromBook: bookFromFireBase)
                     self.collectionBooks.append(bookFromFireBase)
                     self.mycol.reloadData()
 //                    print("ceci pour la référence dans firebase : \(childKey)")
@@ -88,6 +97,31 @@ class MyListOfBooksViewController: UIViewController {
                 }
             })
     }
+    
+    private func storeCoverImageInFirebaseStorage(fromBook : Book) {
+        tempCoverURLString = ""
+        // get url string from book
+        guard let bookUrl = fromBook.bookCoverURL else {return}
+        // get url from url string
+        guard let url = URL(string: bookUrl) else {return}
+        // get data from url
+        guard let data = try? Data(contentsOf: url) else {return}
+        //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        guard let dataasImage = UIImage(data: data) else {return}
+        guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
+        tempCoverReferenceWhenUploadOrDownLoad = coverReference.child(fromBook.bookId)
+        let uploadTask = tempCoverReferenceWhenUploadOrDownLoad.putData(imageData, metadata: nil) { (metadata, erro) in
+            print("upload is finished")
+            print(metadata ?? "no metadata")
+            print(erro ?? "no error")
+            // To do get the reference as a string : tempCoverURLString =
+        }
+        uploadTask.observe(.progress) { (snapshot) in
+            print(snapshot.progress ?? "No More Progress")
+        }
+        uploadTask.resume()
+        }
+        
     
     
     private func downloadImage(urlString : String) {
