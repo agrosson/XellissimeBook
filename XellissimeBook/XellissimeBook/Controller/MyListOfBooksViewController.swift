@@ -14,114 +14,119 @@ import FirebaseStorage
 
 class MyListOfBooksViewController: UIViewController {
     
+    var optionToList = 2
+    // MARK: - Outlet - CollectionView
     @IBOutlet weak var mycol: UICollectionView!
-    var bookA = Book(title: "le livre", author: "l'auteur", isbn: "l'isbn")
-    // MARK: - Properties
-    var collectionBooks = [Book]()
-    var collectionOfImageBooks = [UIImage]()
-    let imageDefault1 = UIImage.init(named: "notebook")
-    var imagefromFire : UIImage?
     
+    // MARK: - Properties
+    /// Empty book for testing
+    var bookA = Book(title: "le livre", author: "l'auteur", isbn: "l'isbn")
+    /// Array of books : displayed in collectionView
+    var collectionBooks = [Book]()
+    /// Array of book covers images : displayed in collectionView
+    var collectionOfImageBooks = [UIImage]()
+    /// Default image for cover book : used when no book cover is found
+    let imageDefault1 = UIImage.init(named: "notebook")
+    /// Image Object to store image received from FirebaseStorage
+    var imagefromFire : UIImage?
+    /// Firebase reference
     var ref: DatabaseReference?
+    /// Firebase var is used to identify listeners of Firebase Database events
     var databaseHandler : DatabaseHandle?
-    // reference for cover images in Firebase Storage
+    /// Firebase reference for cover images in Firebase Storage
     var coverReference: StorageReference {
         return Storage.storage().reference().child("cover")
     }
+    /// Temp reference of a Google Cloud Storage object
     var tempCoverReferenceWhenUploadOrDownLoad = StorageReference()
-    var tempCoverURLString = ""
-    var keysForBooks = [String]()
     
-    // MARK: - Outlet
     
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Reference to the database
         ref = Database.database().reference()
         // Retrieve the books and listen for change
-
-            self.databaseHandler = self.ref?.child("books").observe(.value, with: { (snapshot) in
-              //  print("on est là?")
-                // reference de book
-             //   print(snapshot.key)
-                var counter = 1
-                for mychild in snapshot.children {
-                    print("Détail du livre \(counter)")
-                    counter += 1
-                    let childTest = mychild as! DataSnapshot
-                //    print(childTest.key)
-                    //        let childKey = childTest.key
-                //    print("nouvel essai")
-                 //   print(childTest.value as Any)
-                    let values = childTest.value as! [String : AnyObject]
-                    guard   let bookId: String = values["bookId"] as? String,
-                            let bookIsbn: String = values["bookIsbn"] as? String,
-                            let bookAuthor: String = values["bookAuthor"] as? String,
-                            var bookCoverURL: String = values["bookCover"] as? String,
-                            let bookEditor: String = values["bookEditor"] as? String,
-                            let bookIsAvailable: Bool = values["bookIsAvailable"] as? Bool,
-                            let bookOwner: String = values["bookIsbn"] as? String,
-                            let bookTitle: String = values["bookTitle"] as? String,
-                            let bookTypeString: String = values["bookType"] as? String,
-                            let bookYearOfEdition: String = values["bookYearOfEdition"] as? String
+        self.databaseHandler = self.ref?.child("books").observe(.value, with: { (snapshot) in
+            var counter = 1
+            // In repo "books", go to every "child"
+            for mychild in snapshot.children {
+                print("Détail du livre \(counter)")
+                counter += 1
+                /// A FIRDataSnapshot contains data from a Firebase Database location
+                let childTest = mychild as! DataSnapshot
+                // the data contained in the DataSnapshot is a dictionary of type [String : AnyObject]
+                let values = childTest.value as! [String : AnyObject]
+                // Get all values from Dictionary
+                guard   let bookId: String = values["bookId"] as? String,
+                    let bookIsbn: String = values["bookIsbn"] as? String,
+                    let bookAuthor: String = values["bookAuthor"] as? String,
+                    var bookCoverURL: String = values["bookCover"] as? String,
+                    let bookEditor: String = values["bookEditor"] as? String,
+                    let bookIsAvailable: Bool = values["bookIsAvailable"] as? Bool,
+                    let bookOwner: String = values["bookIsbn"] as? String,
+                    let bookTitle: String = values["bookTitle"] as? String,
+                    let bookTypeString: String = values["bookType"] as? String,
+                    let bookYearOfEdition: String = values["bookYearOfEdition"] as? String
                     else {return}
-                    
-                    var bookFromFireBase = Book(title: bookTitle, author: bookAuthor, isbn: bookIsbn)
-                    bookFromFireBase.bookId = bookId
-                    bookCoverURL.removeFirstAndLastAndDoubleWhitespace()
-                    bookFromFireBase.bookCoverURL = bookCoverURL
-                    bookFromFireBase.bookEditor = bookEditor
-                    bookFromFireBase.bookIsAvailable = bookIsAvailable
-                    bookFromFireBase.bookOwner = bookOwner
-                    bookFromFireBase.bookTypeString = bookTypeString
-                    bookFromFireBase.bookYearOfEdition = bookYearOfEdition
-                    // I store the image if any
-//self.storeCoverImageInFirebaseStorage(fromBook: bookFromFireBase)
-                    self.collectionBooks.append(bookFromFireBase)
-                    self.mycol.reloadData()
-//                    print("ceci pour la référence dans firebase : \(childKey)")
-//                    print("bookId is dans xcode : \(String(describing: bookId))")
-//                    print("bookAuthor is : \(String(describing: bookAuthor))")
-//                    print("bookCoverURL is : \(String(describing: bookCoverURL))")
-//                    print("bookIsbn is : \(String(describing: bookIsbn))")
-//                    print("bookEditor is : \(String(describing: bookEditor))")
-//                    print("bookIsAvailable is : \(String(describing: bookIsAvailable))")
-//                    print("bookOwner is \(String(describing: bookOwner))")
-//                    print("bookYearOfEdition is \(String(describing: bookYearOfEdition))")
-//                    print("bookTitle is \(String(describing: bookTitle))")
-//                    print("bookType is \(String(describing: bookTypeString))")
-
-                    
-                }
-            })
+                // Use the values to create a book
+                var bookFromFireBase = Book(title: bookTitle, author: bookAuthor, isbn: bookIsbn)
+                bookFromFireBase.bookId = bookId
+                bookCoverURL.removeFirstAndLastAndDoubleWhitespace()
+                // To do here : change the url if needed
+                bookFromFireBase.bookCoverURL = bookCoverURL
+                bookFromFireBase.bookEditor = bookEditor
+                bookFromFireBase.bookIsAvailable = bookIsAvailable
+                bookFromFireBase.bookOwner = bookOwner
+                bookFromFireBase.bookTypeString = bookTypeString
+                bookFromFireBase.bookYearOfEdition = bookYearOfEdition
+                // Add the book in the collectionBook
+                self.collectionBooks.append(bookFromFireBase)
+                // reload the collectionView
+                self.mycol.reloadData()
+                /* Check the data with a print if needed
+                 //                    print("ceci pour la référence dans firebase : \(childKey)")
+                 //                    print("bookId is dans xcode : \(String(describing: bookId))")
+                 //                    print("bookAuthor is : \(String(describing: bookAuthor))")
+                 //                    print("bookCoverURL is : \(String(describing: bookCoverURL))")
+                 //                    print("bookIsbn is : \(String(describing: bookIsbn))")
+                 //                    print("bookEditor is : \(String(describing: bookEditor))")
+                 //                    print("bookIsAvailable is : \(String(describing: bookIsAvailable))")
+                 //                    print("bookOwner is \(String(describing: bookOwner))")
+                 //                    print("bookYearOfEdition is \(String(describing: bookYearOfEdition))")
+                 //                    print("bookTitle is \(String(describing: bookTitle))")
+                 //                    print("bookType is \(String(describing: bookTypeString))")
+                 */
+            }
+        })
     }
     
     private func storeCoverImageInFirebaseStorage(fromBook : Book) {
-        tempCoverURLString = ""
         // get url string from book
         guard let bookUrl = fromBook.bookCoverURL else {return}
         // get url from url string
         guard let url = URL(string: bookUrl) else {return}
         // get data from url
         guard let data = try? Data(contentsOf: url) else {return}
-        //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        // create a UIImage from the data
         guard let dataasImage = UIImage(data: data) else {return}
+        // create an data in jpg format from a UIImage
         guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
+        // Create a Storage reference with the bookId
         tempCoverReferenceWhenUploadOrDownLoad = coverReference.child(fromBook.bookId)
+        // create a tast to put (send) the data in the Firebase storage at storage reference
         let uploadTask = tempCoverReferenceWhenUploadOrDownLoad.putData(imageData, metadata: nil) { (metadata, erro) in
             print("upload is finished")
             print(metadata ?? "no metadata")
             print(erro ?? "no error")
-            // To do get the reference as a string : tempCoverURLString =
         }
         uploadTask.observe(.progress) { (snapshot) in
             print(snapshot.progress ?? "No More Progress")
         }
         uploadTask.resume()
-        }
-        
+        print("Test print to see if download is done")
+    }
+    
     
     
     private func downloadImage(urlString : String) {
@@ -155,24 +160,131 @@ extension MyListOfBooksViewController: UICollectionViewDataSource{
         }
         if let imageViewBook = cell.viewWithTag(199) as? UIImageView {
             
-            var imageToGet : UIImage?
-            if var urlTest = collectionBooks[indexPath.row].bookCoverURL {
-                print("ceci est l'url :\(urlTest)")
-                urlTest.removeFirstAndLastAndDoubleWhitespace()
-                if let url = URL(string: urlTest) {
-                    let data = try? Data(contentsOf: url)
-                    if let datatNotNil = data {
-                        imageToGet = UIImage(data: datatNotNil)
-                        let size = CGSize(width: 100, height: 100)
-                        let resizedImage = resizeImage(image: imageToGet!, targetSize: size)
-                        imageViewBook.image = resizedImage
+            if optionToList == 1 {
+                let coverurl = "\(String(describing: collectionBooks[indexPath.row].bookCoverURL!))"
+                print("coever url \(coverurl)")
+                let filename =  "\(collectionBooks[indexPath.row].bookId).jpg"
+                print("filename")
+                print(filename)
+                
+                let ref = coverReference.child(filename)
+                print("la ref \(ref)")
+                
+                
+                if coverurl == ref.description {
+                    
+                    let downloadImageRef = coverReference.child(filename)
+                    let downloadtask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
+                        if let data = data {
+                            let image = UIImage(data: data)
+                            imageViewBook.image = image
+                        }
+                        print(error ?? "NO ERROR")
+                    }
+                    downloadtask.observe(.progress) { (snapshot) in
+                        print(snapshot.progress ?? "NO MORE PROGRESS")
+                    }
+                    
+                    downloadtask.resume()
+                    
+                    print("j'en ai trouvé")
+                }
+            }
+            if optionToList == 2 {
+                if var urlTest = collectionBooks[indexPath.row].bookCoverURL {
+                    var imageToGet: UIImage?
+                    print("ceci est l'url :\(urlTest)")
+                    urlTest.removeFirstAndLastAndDoubleWhitespace()
+                    if let url = URL(string: urlTest) {
+                        let data = try? Data(contentsOf: url)
+                        if let datatNotNil = data {
+                            imageToGet = UIImage(data: datatNotNil)
+                            let size = CGSize(width: 100, height: 100)
+                            let resizedImage = resizeImage(image: imageToGet!, targetSize: size)
+                            imageViewBook.image = resizedImage
+                        }
+                        else {
+                            imageViewBook.image = imageDefault1!
+                        }
+                    }
+                    else {
+                        imageViewBook.image = imageDefault1!
+                        
                     }
                 }
-            } else {
-                imageViewBook.image = imageDefault1!
+                else {
+                    imageViewBook.image = imageDefault1!
+                }
+                
+                
             }
+            
+//
+//            let downloadImageRef = coverReference.child(filename)
+//
+//            let downloadtask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
+//                if let data = data {
+//                    let image = UIImage(data: data)
+//                    imageViewBook.image = image
+//                }
+//                print(error ?? "NO ERROR")
+//            }
+//
+//            downloadtask.observe(.progress) { (snapshot) in
+//                print(snapshot.progress ?? "NO MORE PROGRESS")
+//            }
+//
+//            downloadtask.resume()
+//
+//
+//        }
+            
+            return cell
         }
         return cell
-        
     }
 }
+/*
+ if var urlTest = collectionBooks[indexPath.row].bookCoverURL {
+ print("ceci est l'url :\(urlTest)")
+ urlTest.removeFirstAndLastAndDoubleWhitespace()
+ if let url = URL(string: urlTest) {
+ let data = try? Data(contentsOf: url)
+ if let datatNotNil = data {
+ imageToGet = UIImage(data: datatNotNil)
+ let size = CGSize(width: 100, height: 100)
+ let resizedImage = resizeImage(image: imageToGet!, targetSize: size)
+ imageViewBook.image = resizedImage
+ }
+ else {
+ imageViewBook.image = imageDefault1!
+ }
+ }
+ else {
+ imageViewBook.image = imageDefault1!
+ 
+ }
+ }
+ else {
+ imageViewBook.image = imageDefault1!
+ }
+ }*/
+
+
+/*
+ let task = referenceCover.getData(maxSize: 1024*1024*12) { (data, error) in
+ 
+ if let data = data {
+ let imageToGet = UIImage(data: data)
+ imageViewBook.image = imageToGet
+ }
+ 
+ else {
+ imageViewBook.image = self.imageDefault1!
+ }
+ print(error ?? "no error here")
+ }
+ 
+ 
+ task.resume()
+ */

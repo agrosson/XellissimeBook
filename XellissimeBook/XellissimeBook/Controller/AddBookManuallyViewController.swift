@@ -22,7 +22,9 @@ class AddBookManuallyViewController: UIViewController {
         return Storage.storage().reference().child("cover")
     }
     var tempURL:String?
-    
+    var imageReference: StorageReference {
+        return Storage.storage().reference().child("images")
+    }
     // MARK: - Outlets : UITextfield
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
@@ -64,8 +66,7 @@ class AddBookManuallyViewController: UIViewController {
                 self.titleTextField.text = book.bookTitle
                 self.authorTextField.text = book.bookAuthor
                 print("ici on récupère les données du livre")
-                print(book.bookCoverURL as Any)
-                
+    
                 self.bookToSave = book
             }
             else {
@@ -141,7 +142,11 @@ class AddBookManuallyViewController: UIViewController {
                 // store image in Storage
                 storeCoverImageInFirebaseStorage(fromBook: book)
                 // change URL for book cover
-              //  book.bookCoverURL = tempURL
+           //     let referenceToTransformInURLString = "\(coverReference.child(book.bookId)).jpg"
+            //    let one = referenceToTransformInURLString.fullPath
+             //   print("ceci est le full path \(one)")
+              //  book.bookCoverURL = referenceToTransformInURLString
+                //  book.bookCoverURL = tempURL
                 saveBook(with: book)
             }
         }
@@ -232,31 +237,23 @@ class AddBookManuallyViewController: UIViewController {
         guard let url = URL(string: bookUrl) else {return}
         // get data from url
         guard let data = try? Data(contentsOf: url) else {return}
-        //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        // create a UIImage from the data
         guard let dataasImage = UIImage(data: data) else {return}
+        // create an data in jpg format from a UIImage
         guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
-        tempCoverReferenceWhenUploadOrDownLoad = coverReference.child(fromBook.bookId)
+        // Create a Storage reference with the bookId
+        tempCoverReferenceWhenUploadOrDownLoad = coverReference.child("\(fromBook.bookId).jpg")
+        // create a tast to put (send) the data in the Firebase storage at storage reference
         let uploadTask = tempCoverReferenceWhenUploadOrDownLoad.putData(imageData, metadata: nil) { (metadata, erro) in
             print("upload is finished")
             print(metadata ?? "no metadata")
             print(erro ?? "no error")
-            // To do get the reference as a string : tempCoverURLString =
         }
         uploadTask.observe(.progress) { (snapshot) in
             print(snapshot.progress ?? "No More Progress")
         }
         uploadTask.resume()
-        tempCoverReferenceWhenUploadOrDownLoad.downloadURL(completion: { (url, error) in
-            if let error = error {
-                print("ajout erreur url")
-                print(error)
-                
-            } else {
-                print("ajout url ici  url")
-                self.tempURL = url?.path
-                print(self.tempURL as Any)
-            }
-        })
+        print("Test print to see if download is done")
     }
     
 }
