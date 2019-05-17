@@ -14,7 +14,7 @@ import FirebaseStorage
 
 class MyListOfBooksViewController: UIViewController {
     
-    var optionToList = 2
+    var optionToList = 1
     // MARK: - Outlet - CollectionView
     @IBOutlet weak var mycol: UICollectionView!
     
@@ -34,9 +34,8 @@ class MyListOfBooksViewController: UIViewController {
     /// Firebase var is used to identify listeners of Firebase Database events
     var databaseHandler : DatabaseHandle?
     /// Firebase reference for cover images in Firebase Storage
-    var coverReference: StorageReference {
-        return Storage.storage().reference().child("cover")
-    }
+    var coverReference: StorageReference = Storage.storage().reference().child("cover")
+
     /// Temp reference of a Google Cloud Storage object
     var tempCoverReferenceWhenUploadOrDownLoad = StorageReference()
     
@@ -111,9 +110,19 @@ class MyListOfBooksViewController: UIViewController {
         // create a UIImage from the data
         guard let dataasImage = UIImage(data: data) else {return}
         // create an data in jpg format from a UIImage
-        guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
+        
+        
+        guard let imageData = dataasImage.pngData() else {return}
+//
+//        dataasImage
+//        jpegData(compressionQuality: 1) else {return}
+        
         // Create a Storage reference with the bookId
-        tempCoverReferenceWhenUploadOrDownLoad = coverReference.child(fromBook.bookId)
+        
+        //let fileNameStorage = fromBook.bookIsbn
+        tempCoverReferenceWhenUploadOrDownLoad = Storage.storage().reference(forURL: "gs://xellissimebook.appspot.com/cover/"+"\(fromBook.bookIsbn).jpg")
+        
+
         // create a tast to put (send) the data in the Firebase storage at storage reference
         let uploadTask = tempCoverReferenceWhenUploadOrDownLoad.putData(imageData, metadata: nil) { (metadata, erro) in
             print("upload is finished")
@@ -163,32 +172,54 @@ extension MyListOfBooksViewController: UICollectionViewDataSource{
             if optionToList == 1 {
                 let coverurl = "\(String(describing: collectionBooks[indexPath.row].bookCoverURL!))"
                 print("coever url \(coverurl)")
-                let filename =  "\(collectionBooks[indexPath.row].bookId).jpg"
+                let filename =  "\(collectionBooks[indexPath.row].bookIsbn)"
                 print("filename")
                 print(filename)
                 
                 let ref = coverReference.child(filename)
                 print("la ref \(ref)")
                 
+                let leString = "gs://xellissimebook.appspot.com/cover/"+"\(filename).jpg"
+                let leString2 = "https://firebasestorage.googleapis.com/v0/b/xellissimebook.appspot.com/o/cover/2F9782070412396.jpg?alt=media&token=bd6d7523-4a5f-4a7a-a9f5-9c1fa01fdff1"
+                 print("le string \(leString)")
                 
-                if coverurl == ref.description {
+                let downloadImageRef = Storage.storage().reference(forURL:leString2 )
+                weak var dwn = downloadImageRef.getData(maxSize: 55555555) { (data, error) in
+                  
+
                     
-                    let downloadImageRef = coverReference.child(filename)
-                    let downloadtask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
+                    if error != nil {
+                        print("baaaaddd")
+                        // Uh-oh, an error occurred!
+                    } else {
+                        print("gooooooood")
+                        // Data for "images/island.jpg" is returned
+                        imageViewBook.image = UIImage(data: data!)
+                        
+                    }
+                }
+              dwn?.resume()
+                        
+                        /*                if let error = error {
+                            print(error )
+                        }
                         if let data = data {
+                            print("17 mai")
                             let image = UIImage(data: data)
                             imageViewBook.image = image
                         }
                         print(error ?? "NO ERROR")
-                    }
-                    downloadtask.observe(.progress) { (snapshot) in
-                        print(snapshot.progress ?? "NO MORE PROGRESS")
-                    }
-                    
-                    downloadtask.resume()
+                    */
+                        
+                
+//                    downloadtask.observe(.progress) { (snapshot) in
+//                        print(snapshot.progress ?? "NO MORE PROGRESS")
+//                    }
+                
+                
                     
                     print("j'en ai trouvé")
-                }
+                
             }
             if optionToList == 2 {
                 if var urlTest = collectionBooks[indexPath.row].bookCoverURL {

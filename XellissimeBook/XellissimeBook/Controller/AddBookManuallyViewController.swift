@@ -141,12 +141,18 @@ class AddBookManuallyViewController: UIViewController {
                 book.bookCoverURL = bookToSave?.bookCoverURL
                 // store image in Storage
                 storeCoverImageInFirebaseStorage(fromBook: book)
+                
+                /* This block is eventually here to change URLCOVER in Firebase : Todo if needed
                 // change URL for book cover
-           //     let referenceToTransformInURLString = "\(coverReference.child(book.bookId)).jpg"
-            //    let one = referenceToTransformInURLString.fullPath
-             //   print("ceci est le full path \(one)")
-              //  book.bookCoverURL = referenceToTransformInURLString
-                //  book.bookCoverURL = tempURL
+                let referenceToTransformInURLString = "\(coverReference.child(book.bookId)).jpg"
+                let one = referenceToTransformInURLString.fullPath
+                print("ceci est le full path \(one)")
+                book.bookCoverURL = referenceToTransformInURLString
+                  book.bookCoverURL = tempURL
+                */
+                
+                
+                // this function is defined in Utilities 
                 saveBook(with: book)
             }
         }
@@ -242,7 +248,8 @@ class AddBookManuallyViewController: UIViewController {
         // create an data in jpg format from a UIImage
         guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
         // Create a Storage reference with the bookId
-        tempCoverReferenceWhenUploadOrDownLoad = coverReference.child("\(fromBook.bookId).jpg")
+        tempCoverReferenceWhenUploadOrDownLoad = coverReference.child("\(fromBook.bookIsbn).jpg")
+        print("17 mai :  test pour reference \(tempCoverReferenceWhenUploadOrDownLoad)")
         // create a tast to put (send) the data in the Firebase storage at storage reference
         let uploadTask = tempCoverReferenceWhenUploadOrDownLoad.putData(imageData, metadata: nil) { (metadata, erro) in
             print("upload is finished")
@@ -253,7 +260,7 @@ class AddBookManuallyViewController: UIViewController {
             print(snapshot.progress ?? "No More Progress")
         }
         uploadTask.resume()
-        print("Test print to see if download is done")
+        print("Text printed if download is done")
     }
     
 }
