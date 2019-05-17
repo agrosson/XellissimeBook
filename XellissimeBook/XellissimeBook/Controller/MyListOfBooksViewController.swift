@@ -179,12 +179,14 @@ extension MyListOfBooksViewController: UICollectionViewDataSource{
                 let ref = coverReference.child(filename)
                 print("la ref \(ref)")
                 
+                print("mon temp \(tempCoverReferenceWhenUploadOrDownLoad)")
+                
                 let leString = "gs://xellissimebook.appspot.com/cover/"+"\(filename).jpg"
                 let leString2 = "https://firebasestorage.googleapis.com/v0/b/xellissimebook.appspot.com/o/cover/2F9782070412396.jpg?alt=media&token=bd6d7523-4a5f-4a7a-a9f5-9c1fa01fdff1"
                  print("le string \(leString)")
                 
-                let downloadImageRef = Storage.storage().reference(forURL:leString2 )
-                weak var dwn = downloadImageRef.getData(maxSize: 55555555) { (data, error) in
+                let downloadImageRef = Storage.storage().reference(forURL:leString )
+                let dwn = downloadImageRef.getData(maxSize: 55555555) { (data, error) in
                   
 
                     
@@ -198,7 +200,7 @@ extension MyListOfBooksViewController: UICollectionViewDataSource{
                         
                     }
                 }
-              dwn?.resume()
+              dwn.resume()
                         
                         /*                if let error = error {
                             print(error )
