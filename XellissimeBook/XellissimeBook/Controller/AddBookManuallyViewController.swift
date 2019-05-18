@@ -39,8 +39,8 @@ class AddBookManuallyViewController: UIViewController {
     @IBOutlet weak var item: UIBarButtonItem!
     // MARK: - Outlets : UIButton
     @IBOutlet weak var addToDatabaseButton: UIButton!
-    @IBOutlet weak var openButton: UIButton!
-    @IBOutlet weak var googleBooksButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    
     // MARK: - Outlets : UIButton
     @IBOutlet weak var lineOne: UIView!
     @IBOutlet weak var lineTwo: UIView!
@@ -49,11 +49,14 @@ class AddBookManuallyViewController: UIViewController {
     @IBOutlet weak var lineFive: UIView!
     @IBOutlet weak var lineSix: UIView!
     
+    @IBOutlet weak var indicatorSearch: UIActivityIndicatorView!
+    @IBOutlet weak var indicatorAdd: UIActivityIndicatorView!
     // MARK: - Actions
     /**
      Action to get book information from Google Books API
      */
     @IBAction func testGoogleAPI(_ sender: UIButton) {
+        toggleIndicator(shown: false)
         // This to ensure that no data remains in the object
         bookToSave = Book(title: "", author: "", isbn: "")
         // Get the isbn from the user (typed in textfield)
@@ -77,18 +80,20 @@ class AddBookManuallyViewController: UIViewController {
                 print("ici on récupère les données du livre")
     
                 self.bookToSave = book
+                self.toggleIndicator(shown: true)
             }
             else {
-                print("echec on lance un autre api? ")
-                Alert.shared.controller = self
-                Alert.shared.alertDisplay = .googleBookDidNotFindAResult
+                print("Failure : try openLibrary")
+                self.openLibraryCall()
+                
             }
         })
     }
     /**
      Action to get book information from Open Library API
      */
-    @IBAction func openlibrary(_ sender: UIButton) {
+    
+    private func openLibraryCall() {
         // This to ensure that no data remains in the object
         bookToSave = Book(title: "", author: "", isbn: "")
         // Get the isbn from the user (typed in textfield)
@@ -110,26 +115,27 @@ class AddBookManuallyViewController: UIViewController {
                 self.titleTextField.text = book.bookTitle
                 self.authorTextField.text = book.bookAuthor
                 self.bookToSave = book
+                self.toggleIndicator(shown: true)
             }
             else {
-                print("echec openlibrary on lance un autre api? ")
-                Alert.shared.controller = self
-                Alert.shared.alertDisplay = .openLibraryBookDidNotFindAResult
+                print("Failure : try GoodREads")
+                self.goodReadsCall()
             }
         })
-        }
+    }
     
-    @IBAction func goodReadsButtonIsPressed(_ sender: UIButton) {
+    
+    private func goodReadsCall() {
         // This to ensure that no data remains in the object
         bookToSave = Book(title: "", author: "", isbn: "")
         // Get the isbn from the user (typed in textfield)
         var isbnFromTextField = isbnTextField.text!
         isbnFromTextField.removeFirstAndLastAndDoubleWhitespace()
-         let api = GoodReadsAPI(isbn: isbnFromTextField)
+        let api = GoodReadsAPI(isbn: isbnFromTextField)
         guard  let fullUrl = api.goodReadsFullUrl
             else {
-            Alert.shared.controller = self
-            Alert.shared.alertDisplay = .googleBookAPIProblemWithUrl
+                Alert.shared.controller = self
+                Alert.shared.alertDisplay = .googleBookAPIProblemWithUrl
                 return
         }
         let method = api.httpMethod
@@ -142,16 +148,16 @@ class AddBookManuallyViewController: UIViewController {
                 self.titleTextField.text = book.bookTitle
                 self.authorTextField.text = book.bookAuthor
                 self.bookToSave = book
+                 self.toggleIndicator(shown: true)
             }
             else {
-                print("echec good reads on lance un autre api? ")
+                self.toggleIndicator(shown: true)
+                print("Failure : the book has not been found in our databases")
                 Alert.shared.controller = self
-                Alert.shared.alertDisplay = .openLibraryBookDidNotFindAResult
+                Alert.shared.alertDisplay = .bookDidNotFindAResult
             }
         })
     }
-    
-    
     
  
     /**
@@ -208,6 +214,7 @@ class AddBookManuallyViewController: UIViewController {
         super.viewDidLoad()
         manageTextField()
         setUpPageLogIn()
+        toggleIndicator(shown: true)
     }
     /*
      
@@ -219,6 +226,13 @@ class AddBookManuallyViewController: UIViewController {
      
      */
     
+    
+    private func toggleIndicator(shown: Bool) {
+        indicatorAdd.isHidden = shown
+        indicatorSearch.isHidden = shown
+        addToDatabaseButton.isEnabled = shown
+        searchButton.isEnabled = shown
+    }
     
     
     /**
@@ -241,13 +255,6 @@ class AddBookManuallyViewController: UIViewController {
         
         addToDatabaseButton.layer.borderWidth = 3
         addToDatabaseButton.layer.borderColor = #colorLiteral(red: 0.778303802, green: 0.1855825782, blue: 0.253757894, alpha: 1)
-        
-        openButton.layer.borderWidth = 3
-        openButton.layer.borderColor = #colorLiteral(red: 0.9926809669, green: 0.429654479, blue: 0.4014542699, alpha: 1)
-        googleBooksButton.layer.borderWidth = 3
-        googleBooksButton.layer.borderColor = #colorLiteral(red: 0.9926809669, green: 0.429654479, blue: 0.4014542699, alpha: 1)
-        googleBooksButton.layer.cornerRadius = 20
-        openButton.layer.cornerRadius = 20
         
         titleTextField.layer.borderWidth = 2
         titleTextField.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)

@@ -28,7 +28,7 @@ class Alert{
     // MARK: - Enum
     /// Enum that lists all cases of alert presentations
     enum AlertCase {
-        case userEmailAlreadyUsedByAnotherUser, emailBadlyFormatted, passwordIsTooShort, noData, noUserRegistered, invalidPassword, googleBookDidNotFindAResult, googleBookAPIProblemWithUrl, openLibraryBookDidNotFindAResult, needAllFieldsCompleted
+        case userEmailAlreadyUsedByAnotherUser, emailBadlyFormatted, passwordIsTooShort, noData, noUserRegistered, invalidPassword, googleBookDidNotFindAResult, googleBookAPIProblemWithUrl, bookDidNotFindAResult, needAllFieldsCompleted
     }
     // MARK: -
     init() {}
@@ -73,9 +73,9 @@ class Alert{
             controller?.presentAlertDetails(title: "Sorry",
                                             message:TextAndString.shared.googleBookAPIProblemWithUrl,
                                             titleButton: "OK")
-        case .openLibraryBookDidNotFindAResult:
+        case .bookDidNotFindAResult:
             controller?.presentAlertDetails(title: "Sorry",
-                                            message:TextAndString.shared.openLibraryBookDidNotFindAResult,
+                                            message:TextAndString.shared.bookDidNotFindAResult,
                                             titleButton: "OK")
             
             
