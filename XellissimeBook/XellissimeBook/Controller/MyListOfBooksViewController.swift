@@ -14,7 +14,7 @@ import FirebaseStorage
 
 class MyListOfBooksViewController: UIViewController {
     
-    var optionToList = 1
+    var optionToList = 2
     // MARK: - Outlet - CollectionView
     @IBOutlet weak var mycol: UICollectionView!
     
@@ -185,7 +185,7 @@ extension MyListOfBooksViewController: UICollectionViewDataSource{
                 let leString2 = "https://firebasestorage.googleapis.com/v0/b/xellissimebook.appspot.com/o/cover/2F9782070412396.jpg?alt=media&token=bd6d7523-4a5f-4a7a-a9f5-9c1fa01fdff1"
                  print("le string \(leString)")
                 
-                let downloadImageRef = Storage.storage().reference(forURL:leString )
+                let downloadImageRef = Storage.storage().reference(forURL: leString)
                 let dwn = downloadImageRef.getData(maxSize: 55555555) { (data, error) in
                   
 

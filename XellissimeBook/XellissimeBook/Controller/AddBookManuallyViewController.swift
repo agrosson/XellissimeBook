@@ -39,6 +39,15 @@ class AddBookManuallyViewController: UIViewController {
     @IBOutlet weak var item: UIBarButtonItem!
     // MARK: - Outlets : UIButton
     @IBOutlet weak var addToDatabaseButton: UIButton!
+    @IBOutlet weak var openButton: UIButton!
+    @IBOutlet weak var googleBooksButton: UIButton!
+    // MARK: - Outlets : UIButton
+    @IBOutlet weak var lineOne: UIView!
+    @IBOutlet weak var lineTwo: UIView!
+    @IBOutlet weak var lineThree: UIView!
+    @IBOutlet weak var lineFour: UIView!
+    @IBOutlet weak var lineFive: UIView!
+    @IBOutlet weak var lineSix: UIView!
     
     // MARK: - Actions
     /**
@@ -109,6 +118,41 @@ class AddBookManuallyViewController: UIViewController {
             }
         })
         }
+    
+    @IBAction func goodReadsButtonIsPressed(_ sender: UIButton) {
+        // This to ensure that no data remains in the object
+        bookToSave = Book(title: "", author: "", isbn: "")
+        // Get the isbn from the user (typed in textfield)
+        var isbnFromTextField = isbnTextField.text!
+        isbnFromTextField.removeFirstAndLastAndDoubleWhitespace()
+         let api = GoodReadsAPI(isbn: isbnFromTextField)
+        guard  let fullUrl = api.goodReadsFullUrl
+            else {
+            Alert.shared.controller = self
+            Alert.shared.alertDisplay = .googleBookAPIProblemWithUrl
+                return
+        }
+        let method = api.httpMethod
+        let goodReadsCall = NetworkManager.shared
+        goodReadsCall.getBookInfoGoodReads(fullUrl: fullUrl, method: method, isbn: api.isbn, callBack: { (success, bookresult) in
+            if let book = bookresult  {
+                // Fill the textfield with the data retrieved
+                // TODO: make an alternative view pop-over and possibility to save on firebase
+                // Display all the data received from API and ask the user if want to add to database
+                self.titleTextField.text = book.bookTitle
+                self.authorTextField.text = book.bookAuthor
+                self.bookToSave = book
+            }
+            else {
+                print("echec good reads on lance un autre api? ")
+                Alert.shared.controller = self
+                Alert.shared.alertDisplay = .openLibraryBookDidNotFindAResult
+            }
+        })
+    }
+    
+    
+    
  
     /**
      Action to save book information in FireBase
@@ -196,8 +240,28 @@ class AddBookManuallyViewController: UIViewController {
         addToDatabaseButton.layer.cornerRadius = 20
         
         addToDatabaseButton.layer.borderWidth = 3
-        addToDatabaseButton.layer.borderColor = #colorLiteral(red: 0.5201328993, green: 0.5498541594, blue: 0.5580087304, alpha: 1)
+        addToDatabaseButton.layer.borderColor = #colorLiteral(red: 0.778303802, green: 0.1855825782, blue: 0.253757894, alpha: 1)
         
+        openButton.layer.borderWidth = 3
+        openButton.layer.borderColor = #colorLiteral(red: 0.9926809669, green: 0.429654479, blue: 0.4014542699, alpha: 1)
+        googleBooksButton.layer.borderWidth = 3
+        googleBooksButton.layer.borderColor = #colorLiteral(red: 0.9926809669, green: 0.429654479, blue: 0.4014542699, alpha: 1)
+        googleBooksButton.layer.cornerRadius = 20
+        openButton.layer.cornerRadius = 20
+        
+        titleTextField.layer.borderWidth = 2
+        titleTextField.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
+        authorTextField.layer.borderWidth = 2
+        authorTextField.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
+        isbnTextField.layer.borderWidth = 2
+        isbnTextField.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
+        
+        //titleLabel.layer.borderWidth = 2
+        // titleLabel.layer.borderColor = #colorLiteral(red: 0.3848406076, green: 0.4246458709, blue: 0.4326634705, alpha: 1)
+       // authorLabel.layer.borderWidth = 2
+       // authorLabel.layer.borderColor = #colorLiteral(red: 0.3848406076, green: 0.4246458709, blue: 0.4326634705, alpha: 1)
+       // isbnLabel.layer.borderColor = #colorLiteral(red: 0.3848406076, green: 0.4246458709, blue: 0.4326634705, alpha: 1)
+       // isbnLabel.layer.borderWidth = 2
         
         titleLabel.layer.masksToBounds = true
         authorLabel.layer.masksToBounds = true
@@ -206,6 +270,14 @@ class AddBookManuallyViewController: UIViewController {
         titleLabel.layer.cornerRadius = 5
         authorLabel.layer.cornerRadius = 5
         isbnLabel.layer.cornerRadius = 5
+ 
+    //    cornerRadius = 15
+        lineOne.layer.cornerRadius = 5
+        lineTwo.layer.cornerRadius = 5
+        lineThree.layer.cornerRadius = 5
+        lineFour.layer.cornerRadius = 5
+        lineFive.layer.cornerRadius = 5
+        lineSix.layer.cornerRadius = 5
         
         titleLabel.textAlignment = .center
         authorLabel.textAlignment = .center

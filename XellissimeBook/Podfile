@@ -8,6 +8,7 @@ target 'XellissimeBook' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod "SwiftyXMLParser", :git => 'https://github.com/yahoojapan/SwiftyXMLParser.git'
   # Pods for XellissimeBook
 
   target 'XellissimeBookTests' do
@@ -16,5 +17,6 @@ target 'XellissimeBook' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod "SwiftyXMLParser", :git => 'https://github.com/yahoojapan/SwiftyXMLParser.git'
   end
 end

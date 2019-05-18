@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftyXMLParser
 import UIKit
 
 // MARK: Networking class
@@ -20,11 +20,12 @@ class NetworkManager {
     private var task: URLSessionDataTask?
     private var getBooKInfoFromGoogleBooks = URLSession(configuration: .default)
     private var getBookInfoOpenLibrary = URLSession(configuration: .default)
-
+    private var getBookInfoGoodReads = URLSession(configuration: .default)
     // MARK: -
-    init(getBooKInfoFromGoogleBooks: URLSession, getBookInfoOpenLibrary : URLSession){
+    init(getBooKInfoFromGoogleBooks: URLSession, getBookInfoOpenLibrary : URLSession, getBookInfoGoodReads : URLSession){
         self.getBooKInfoFromGoogleBooks = getBooKInfoFromGoogleBooks
         self.getBookInfoOpenLibrary = getBookInfoOpenLibrary
+        self.getBookInfoGoodReads = getBookInfoGoodReads
     }
 }
 
@@ -198,6 +199,77 @@ extension NetworkManager {
         task.resume()
     }
 }
+
+extension NetworkManager {
+    func getBookInfoGoodReads(fullUrl: URL, method: String, isbn: String, callBack: @escaping (Bool, Book?) -> ()) {
+        print("on passe ici chez GoodReads")
+        var request = URLRequest(url: fullUrl)
+        print(fullUrl)
+        request.httpMethod = method
+        task?.cancel()
+        let task = getBookInfoGoodReads.dataTask(with: request) { (datagoodreads, response, error) in
+             print("on passe ici chez GoodReads partie 2")
+            DispatchQueue.main.async {
+                guard let data = datagoodreads, error == nil else {
+                   print("on passe ici chez GoodReads partie 3")
+                    callBack(false, nil)
+                    return
+                }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                     print("on passe ici chez GoodReads partie 4")
+                    callBack(false, nil)
+                    return
+                }
+                
+                // Use XLM Parser
+                
+                // parse xml document
+                let xml = XML.parse(data)
+                print(xml)
+                
+                print("on est dans le decoder de GoodREads")
+                print("ISBN:\(isbn)")
+ 
+                guard let title =  xml["GoodreadsResponse", "search", "results", "work", "best_book", "title"].text else {
+                    print("erreur good reads 4")
+                    callBack(false, nil)
+                    return
+                }
+                guard let author = xml["GoodreadsResponse", "search", "results", "work", "best_book", "author","name"].text else
+                { print("erreur good reads 5")
+                    callBack(false, nil)
+                    return
+                }
+
+                
+                var coverTemp = ""
+                if let coverMedium =  xml["GoodreadsResponse", "search", "results", "work", "best_book", "image_url"].text {
+                    coverTemp = coverMedium
+                    print("on passe ici  good reads 6")
+                } else {
+                    if let coverSmall = xml["GoodreadsResponse", "search", "results", "work", "best_book", "small_image_url"].text {
+                        coverTemp = coverSmall
+                        print("on passe ici  good reads 7")
+                    }
+                }
+                var bookTemp = Book(title:  title,
+                                    author: author,
+                                    isbn: isbn)
+                bookTemp.bookCoverURL = coverTemp
+                bookTemp.bookEditor = "N/A"
+                print("on passe ici  goooooooooooooooood ")
+                callBack(true, bookTemp)
+            }
+        }
+        task.resume()
+    }
+}
+
+
+
+
+
+
 /*
  //
  //  APIManager.swift

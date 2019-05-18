@@ -27,6 +27,7 @@
 		C1AC1FC12277265A003E0734 /* XellissimeBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FC02277265A003E0734 /* XellissimeBookTests.swift */; };
 		C1AC1FCF227729C1003E0734 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FCE227729C1003E0734 /* Settings.swift */; };
 		C1AC1FD122773268003E0734 /* TextAndString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FD022773268003E0734 /* TextAndString.swift */; };
+		C1AF8997229052D800E5A2F0 /* GoodReadsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AF8996229052D800E5A2F0 /* GoodReadsAPI.swift */; };
 		C1D2C57C2278CC860030498F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1D2C57B2278CC860030498F /* GoogleService-Info.plist */; };
 		C1D7690A2278E065009FE3DB /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1D769092278E065009FE3DB /* APIKeys.plist */; };
 		C1D7690D2278E134009FE3DB /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7690C2278E134009FE3DB /* APIKeys.swift */; };
@@ -88,6 +89,7 @@
 		C1AC1FC22277265A003E0734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1AC1FCE227729C1003E0734 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C1AC1FD022773268003E0734 /* TextAndString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAndString.swift; sourceTree = "<group>"; };
+		C1AF8996229052D800E5A2F0 /* GoodReadsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodReadsAPI.swift; sourceTree = "<group>"; };
 		C1D2C57B2278CC860030498F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1D769092278E065009FE3DB /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		C1D7690C2278E134009FE3DB /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				C1FC7CE0227C6F8E00D32467 /* Utilities.swift */,
 				C1025A4522844D6900AF6DFE /* APIManager.swift */,
 				C1025A4722844EBC00AF6DFE /* GoogleBookAPI.swift */,
+				C1AF8996229052D800E5A2F0 /* GoodReadsAPI.swift */,
 				C1025A49228495C600AF6DFE /* OpenLibraryAPI.swift */,
 				C1AC1FCE227729C1003E0734 /* Settings.swift */,
 				C1AC1FD022773268003E0734 /* TextAndString.swift */,
@@ -372,6 +375,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyXMLParser/SwiftyXMLParser.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -381,6 +385,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyXMLParser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -444,6 +449,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-XellissimeBookTests/Pods-XellissimeBookTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyXMLParser/SwiftyXMLParser.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -453,6 +459,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyXMLParser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -491,6 +498,7 @@
 				C1FC7CF1227C84E200D32467 /* AddressStruct.swift in Sources */,
 				C1025A4822844EBC00AF6DFE /* GoogleBookAPI.swift in Sources */,
 				C1A020D322809A720024C594 /* MenuSearchViewController.swift in Sources */,
+				C1AF8997229052D800E5A2F0 /* GoodReadsAPI.swift in Sources */,
 				C156652E2279D83E00C41453 /* Alert.swift in Sources */,
 				C1FC7CEF227C7A6400D32467 /* UserClass.swift in Sources */,
 			);

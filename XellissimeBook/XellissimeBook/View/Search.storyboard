@@ -14,7 +14,7 @@
         <scene sceneID="IP8-ag-ddC">
             <objects>
                 <navigationController id="2Cr-oK-W8y" userLabel="Search" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="search-1" selectedImage="search-1" id="UsV-qK-0mK" userLabel="Search"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search-1" selectedImage="search-1" id="UsV-qK-0mK" userLabel="Search"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PGd-OT-36L">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -38,19 +38,22 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ici on aura la recherche" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2F-vl-aG2">
                                 <rect key="frame" x="12.5" y="424" width="389.5" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbc-IZ-7Q4">
-                                <rect key="frame" x="177" y="603" width="46" height="30"/>
+                                <rect key="frame" x="79" y="600" width="266" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="My list of books">
+                                    <color key="titleColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <segue destination="hBo-pB-It8" kind="show" id="BvP-PH-44m"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.38555160160000002" green="0.54731100799999999" blue="0.63138794899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="t2F-vl-aG2" firstAttribute="centerY" secondItem="Wq0-am-bmo" secondAttribute="centerY" id="bDM-5l-uYb"/>
                             <constraint firstItem="t2F-vl-aG2" firstAttribute="centerX" secondItem="Wq0-am-bmo" secondAttribute="centerX" id="xbi-sz-Z1b"/>
@@ -92,7 +95,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Fw-uM-fEr">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.38555160160000002" green="0.54731100799999999" blue="0.63138794899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RPJ-S1-20V">
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -107,33 +110,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="c0L-CV-c6O">
+                                                <stackView opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="c0L-CV-c6O">
                                                     <rect key="frame" x="2" y="31" width="208" height="150"/>
-                                                    <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="199" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="29C-Ew-H70">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" priority="999" constant="50" id="EeT-um-iQ2"/>
-                                                            </constraints>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="199" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="29C-Ew-H70">
+                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="140"/>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="GEB-hU-5dP">
-                                                            <rect key="frame" x="0.0" y="57" width="128" height="58"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="GEB-hU-5dP">
+                                                            <rect key="frame" x="0.0" y="142" width="200" height="58"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Book Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Aa-hq-w7o">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="18"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Book Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Aa-hq-w7o">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <color key="textColor" red="0.52560549970000003" green="0.54886430500000005" blue="0.55686467890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Book Author" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MN-ye-v68">
-                                                                    <rect key="frame" x="0.0" y="20" width="128" height="18"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Book Author" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3MN-ye-v68">
+                                                                    <rect key="frame" x="0.0" y="20" width="200" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <color key="textColor" red="0.52560549970000003" green="0.54886430500000005" blue="0.55686467890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Book Editor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahV-8N-VFf">
-                                                                    <rect key="frame" x="0.0" y="40" width="128" height="18"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Book Editor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahV-8N-VFf">
+                                                                    <rect key="frame" x="0.0" y="40" width="200" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <color key="textColor" red="0.52560549970000003" green="0.54886430500000005" blue="0.55686467890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
@@ -141,10 +140,24 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="GEB-hU-5dP" secondAttribute="trailing" id="Uht-uo-tYO"/>
+                                                        <constraint firstItem="GEB-hU-5dP" firstAttribute="leading" secondItem="c0L-CV-c6O" secondAttribute="leading" id="auS-cM-ZAX"/>
+                                                        <constraint firstItem="29C-Ew-H70" firstAttribute="leading" secondItem="c0L-CV-c6O" secondAttribute="leading" id="e7x-Tf-jcI"/>
+                                                        <constraint firstItem="29C-Ew-H70" firstAttribute="top" secondItem="c0L-CV-c6O" secondAttribute="top" id="fh8-Sc-zb2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="29C-Ew-H70" secondAttribute="trailing" id="gyO-j8-KgN"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GEB-hU-5dP" secondAttribute="bottom" id="jZ9-LC-A9s"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="c0L-CV-c6O" secondAttribute="trailing" id="0Nj-Rp-3xA"/>
+                                            <constraint firstItem="c0L-CV-c6O" firstAttribute="leading" secondItem="jra-4b-dDa" secondAttribute="leading" id="5fW-fj-TYk"/>
+                                            <constraint firstItem="7Fw-uM-fEr" firstAttribute="top" secondItem="jra-4b-dDa" secondAttribute="top" id="8JP-Bn-Z9T"/>
+                                            <constraint firstAttribute="bottom" secondItem="c0L-CV-c6O" secondAttribute="bottom" id="trR-8y-65b"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
