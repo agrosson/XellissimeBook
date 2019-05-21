@@ -31,7 +31,6 @@ class NetworkManager {
 
 // MARK: - Request for Get book info
 extension NetworkManager {
-    
     func getBookInfo(fullUrl: URL, method: String, isbn: String, callBack: @escaping (Bool, Book?) -> Void) {
         var request = URLRequest(url: fullUrl)
         request.httpMethod = method

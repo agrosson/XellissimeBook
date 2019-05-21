@@ -15,5 +15,4 @@ struct Address {
     var zipCode: String?
     var city: String?
     var country: String?
-    
 }

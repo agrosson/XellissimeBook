@@ -10,15 +10,12 @@ import UIKit
 
 class MenuSearchViewController: UIViewController {
     // MARK: - Action
-    
     @IBOutlet weak var goToMyListOfBooksButton: UIButton!
-    @IBAction func backSearchMenu(segue: UIStoryboardSegue){
+    @IBAction func backSearchMenu(segue: UIStoryboardSegue) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-  
-
 }

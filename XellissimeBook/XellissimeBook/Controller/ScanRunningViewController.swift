@@ -78,7 +78,7 @@ class ScanRunningViewController: UIViewController, AVCaptureMetadataOutputObject
             let actionSheet = UIAlertController(title: "Bravo",
                                                 message: "Le code ISBN est \(codeToDisplay).",
                                                 preferredStyle: .alert)
-            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction) in
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_: UIAlertAction) in
                 self.dismiss(animated: true)
             }))
             self.present(actionSheet, animated: true, completion: nil)

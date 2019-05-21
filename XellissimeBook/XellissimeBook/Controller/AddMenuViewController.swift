@@ -11,15 +11,11 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
 
-
 class AddMenuViewController: UIViewController {
-    
     @IBOutlet var popoverView: UIView!
-    
     // MARK: - Outlets : UIButton
     @IBOutlet weak var addToDatabaseButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
-    
     // MARK: - Outlets : UIButton
     @IBOutlet weak var lineOne: UIView!
     @IBOutlet weak var lineTwo: UIView!
@@ -27,7 +23,6 @@ class AddMenuViewController: UIViewController {
     @IBOutlet weak var lineFour: UIView!
     @IBOutlet weak var lineFive: UIView!
     @IBOutlet weak var lineSix: UIView!
-    
     @IBOutlet weak var indicatorSearch: UIActivityIndicatorView!
     @IBOutlet weak var indicatorAdd: UIActivityIndicatorView!
     // MARK: - Properties
@@ -38,7 +33,7 @@ class AddMenuViewController: UIViewController {
     var coverReference: StorageReference {
         return Storage.storage().reference().child("cover")
     }
-    var tempURL:String?
+    var tempURL: String?
     var imageReference: StorageReference {
         return Storage.storage().reference().child("images")
     }
@@ -52,15 +47,11 @@ class AddMenuViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var isbnLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
-    
-    
-    
-    
+
     // MARK: - Outlets
     @IBOutlet weak var addManuallyButton: UIButton!
     @IBOutlet weak var addWithCameraButton: UIButton!
     // MARK: - Actions
-    
     /**
      Action to save book information in FireBase
      */
@@ -70,7 +61,7 @@ class AddMenuViewController: UIViewController {
         var isbn = isbnTextField.text ?? ""
         var userId = ""
         var uniqueBookId = ""
-        if title == "" || author == "" ||  isbn == ""  {
+        if title == "" || author == "" ||  isbn == "" {
             Alert.shared.controller = self
             Alert.shared.alertDisplay = .needAllFieldsCompleted
         } else {
@@ -92,7 +83,6 @@ class AddMenuViewController: UIViewController {
                 book.bookCoverURL = bookToSave?.bookCoverURL
                 // store image in Storage
                 storeCoverImageInFirebaseStorage(fromBook: book)
-                
                 /* This block is eventually here to change URLCOVER in Firebase : Todo if needed
                  // change URL for book cover
                  let referenceToTransformInURLString = "\(coverReference.child(book.bookId)).jpg"
@@ -101,28 +91,18 @@ class AddMenuViewController: UIViewController {
                  book.bookCoverURL = referenceToTransformInURLString
                  book.bookCoverURL = tempURL
                  */
-                
-                
                 // this function is defined in Utilities
                 saveBook(with: book)
             }
         }
     }
-    
-    
-    
     @IBAction func addManuallyButtonIsPressed(_ sender: UIButton) {
         showPopover()
     }
-    
-    
     @IBAction func addWithCameraButtonIsPressed(_ sender: UIButton) {
     }
-    
-    @IBAction func backToAddMenu(segue: UIStoryboardSegue){
-        
+    @IBAction func backToAddMenu(segue: UIStoryboardSegue) {
     }
-    
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,23 +110,18 @@ class AddMenuViewController: UIViewController {
         setUpPageLogIn()
         toggleIndicator(shown: true)
         isbnTextField.text = scannedIsbn
-       
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if scannedIsbn != "" {
             showPopover()
-            
         }
     }
-    private func toggleButton(isHidden : Bool){
+    private func toggleButton(isHidden: Bool) {
         addManuallyButton.isHidden = isHidden
         addWithCameraButton.isHidden = isHidden
-        
     }
-    
-    private func showPopover(){
+    private func showPopover() {
         popoverView.center = CGPoint(x: view.frame.width/2,
                                      y: view.frame.height/2)
         self.view.addSubview(popoverView)
@@ -154,13 +129,11 @@ class AddMenuViewController: UIViewController {
         // let heightNavBar = self.navigationController?.navigationBar.bounds.height
         //   let heightBarFrame = UIApplication.shared.statusBarFrame.height
         //  if let height = heightNavBar{
-       
         // if want to have on top
         // popoverView.frame.height/2)+height+heightBarFrame+2)
         toggleButton(isHidden: true)
         isbnTextField.text = scannedIsbn
     }
-    
     private func removePopover() {
         /*
         let translation = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
@@ -174,58 +147,48 @@ class AddMenuViewController: UIViewController {
         toggleButton(isHidden: false)
     }
 
-    
     private func toggleIndicator(shown: Bool) {
         indicatorAdd.isHidden = shown
         indicatorSearch.isHidden = shown
         addToDatabaseButton.isEnabled = shown
         searchButton.isEnabled = shown
     }
-    
-    
     /**
      Function that manages TextField
      */
-    private func manageTextField(){
+    private func manageTextField() {
         titleTextField.delegate = self
         authorTextField.delegate = self
         isbnTextField.delegate = self
     }
-    
     /**
      Function that manages views for textFields
      */
-    private func setUpPageLogIn(){
+    private func setUpPageLogIn() {
         titleTextField.layer.cornerRadius = 5
         authorTextField.layer.cornerRadius = 5
         isbnTextField.layer.cornerRadius = 5
         addToDatabaseButton.layer.cornerRadius = 20
-        
         addToDatabaseButton.layer.borderWidth = 3
         addToDatabaseButton.layer.borderColor = #colorLiteral(red: 0.778303802, green: 0.1855825782, blue: 0.253757894, alpha: 1)
-        
         titleTextField.layer.borderWidth = 2
         titleTextField.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
         authorTextField.layer.borderWidth = 2
         authorTextField.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
         isbnTextField.layer.borderWidth = 2
         isbnTextField.layer.borderColor = #colorLiteral(red: 0.9092954993, green: 0.865521729, blue: 0.8485594392, alpha: 1)
-        
         //titleLabel.layer.borderWidth = 2
         // titleLabel.layer.borderColor = #colorLiteral(red: 0.3848406076, green: 0.4246458709, blue: 0.4326634705, alpha: 1)
         // authorLabel.layer.borderWidth = 2
         // authorLabel.layer.borderColor = #colorLiteral(red: 0.3848406076, green: 0.4246458709, blue: 0.4326634705, alpha: 1)
         // isbnLabel.layer.borderColor = #colorLiteral(red: 0.3848406076, green: 0.4246458709, blue: 0.4326634705, alpha: 1)
         // isbnLabel.layer.borderWidth = 2
-        
         titleLabel.layer.masksToBounds = true
         authorLabel.layer.masksToBounds = true
         isbnLabel.layer.masksToBounds = true
-        
         titleLabel.layer.cornerRadius = 5
         authorLabel.layer.cornerRadius = 5
         isbnLabel.layer.cornerRadius = 5
-        
         //    cornerRadius = 15
         lineOne.layer.cornerRadius = 5
         lineTwo.layer.cornerRadius = 5
@@ -233,14 +196,11 @@ class AddMenuViewController: UIViewController {
         lineFour.layer.cornerRadius = 5
         lineFive.layer.cornerRadius = 5
         lineSix.layer.cornerRadius = 5
-        
         titleLabel.textAlignment = .center
         authorLabel.textAlignment = .center
         isbnLabel.textAlignment = .center
-        
         gestureTapCreation()
         gestureswipeCreation()
-        
     }
     @IBAction func testGoogleAPI(_ sender: UIButton) {
         toggleIndicator(shown: false)
@@ -257,29 +217,23 @@ class AddMenuViewController: UIViewController {
         }
         let method = api.httpMethod
         let googleCall = NetworkManager.shared
-        googleCall.getBookInfo(fullUrl: fullUrl, method: method, isbn: api.isbn, callBack: { (success, bookresult) in
-            if let book = bookresult  {
-                // Fill the textfield with the data retrieved
-                // TODO: make an alternative view pop-over and possibility to save on firebase
-                // Display all the data received from API and ask the user if want to add to database
+        googleCall.getBookInfo(fullUrl: fullUrl, method: method, isbn: api.isbn, callBack: { (_, bookresult) in
+            if let book = bookresult {
                 self.titleTextField.text = book.bookTitle
                 self.authorTextField.text = book.bookAuthor
                 print("ici on récupère les données du livre")
-                
                 self.bookToSave = book
                 self.toggleIndicator(shown: true)
-            }
-            else {
+            } else {
                 print("Failure : try openLibrary")
                 self.openLibraryCall()
-                
             }
         })
     }
     /**
      Action to get book information from Open Library API
      */
-    
+
     private func openLibraryCall() {
         // This to ensure that no data remains in the object
         bookToSave = Book(title: "", author: "", isbn: "")
@@ -294,24 +248,21 @@ class AddMenuViewController: UIViewController {
         }
         let method = api.httpMethod
         let openLibraryCall = NetworkManager.shared
-        openLibraryCall.getBookInfoOpenLibrary(fullUrl: fullUrl, method: method, isbn: api.isbn, callBack: { (success, bookresult) in
-            if let book = bookresult  {
-                // Fill the textfield with the data retrieved
-                // TODO: make an alternative view pop-over and possibility to save on firebase
-                // Display all the data received from API and ask the user if want to add to database
+        openLibraryCall.getBookInfoOpenLibrary(fullUrl: fullUrl,
+                                               method: method,
+                                               isbn: api.isbn,
+                                               callBack: { (_, bookresult) in
+            if let book = bookresult {
                 self.titleTextField.text = book.bookTitle
                 self.authorTextField.text = book.bookAuthor
                 self.bookToSave = book
                 self.toggleIndicator(shown: true)
-            }
-            else {
+            } else {
                 print("Failure : try GoodREads")
                 self.goodReadsCall()
             }
         })
     }
-    
-    
     private func goodReadsCall() {
         // This to ensure that no data remains in the object
         bookToSave = Book(title: "", author: "", isbn: "")
@@ -327,61 +278,56 @@ class AddMenuViewController: UIViewController {
         }
         let method = api.httpMethod
         let goodReadsCall = NetworkManager.shared
-        goodReadsCall.getBookInfoGoodReads(fullUrl: fullUrl, method: method, isbn: api.isbn, callBack: { (success, bookresult) in
-            if let book = bookresult  {
-                // Fill the textfield with the data retrieved
-                // TODO: make an alternative view pop-over and possibility to save on firebase
-                // Display all the data received from API and ask the user if want to add to database
+        goodReadsCall.getBookInfoGoodReads(fullUrl: fullUrl,
+                                           method: method,
+                                           isbn: api.isbn,
+                                           callBack: { (_, bookresult) in
+            if let book = bookresult {
                 self.titleTextField.text = book.bookTitle
                 self.authorTextField.text = book.bookAuthor
                 self.bookToSave = book
                 self.toggleIndicator(shown: true)
-            }
-            else {
+            } else {
                 self.toggleIndicator(shown: true)
                 print("Failure : the book has not been found in our databases")
                // Alert.shared.controller = self
                // Alert.shared.alertDisplay = .bookDidNotFindAResult
-                let actionSheet = UIAlertController(title: "Sorry", message: "No book found in databases", preferredStyle: .alert)
-                
-                actionSheet.addAction(UIAlertAction(title: "Add Manually", style: .default, handler: { (action: UIAlertAction) in
-                    
-                    
+                let actionSheet = UIAlertController(title: "Sorry",
+                                                    message: "No book found in databases",
+                                                    preferredStyle: .alert)
+                actionSheet.addAction(UIAlertAction(title: "Add Manually",
+                                                    style: .default,
+                                                    handler: { (_: UIAlertAction) in
                     self.dismiss(animated: true)
                 }))
-                
-                actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction) in
+                actionSheet.addAction(UIAlertAction(title: "Cancel",
+                                                    style: .default,
+                                                    handler: { (_: UIAlertAction) in
                     self.removePopover()
                     self.dismiss(animated: true)
                 }))
-                
-                self.present(actionSheet, animated: true, completion : nil)
-                
+                self.present(actionSheet, animated: true, completion: nil)
             }
         })
     }
-    
-    private func gestureTapCreation(){
+    private func gestureTapCreation() {
         let mytapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(myTap
             ))
         mytapGestureRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(mytapGestureRecognizer)
     }
-    
-    private func gestureswipeCreation(){
+    private func gestureswipeCreation() {
         let mySwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(myTap
             ))
         mySwipeGestureRecognizer.direction = .down
         self.view.addGestureRecognizer(mySwipeGestureRecognizer)
     }
-    
     @objc private func myTap() {
         titleTextField.resignFirstResponder()
         authorTextField.resignFirstResponder()
         isbnTextField.resignFirstResponder()
     }
-    
-    private func storeCoverImageInFirebaseStorage(fromBook : Book) {
+    private func storeCoverImageInFirebaseStorage(fromBook: Book) {
         // get url string from book
         guard let bookUrl = fromBook.bookCoverURL else {return}
         // get url from url string
@@ -407,18 +353,12 @@ class AddMenuViewController: UIViewController {
         uploadTask.resume()
         print("Text printed if download is done")
     }
-
-    
 }
-extension  AddMenuViewController : UITextFieldDelegate {
+extension  AddMenuViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 }
-
-
-

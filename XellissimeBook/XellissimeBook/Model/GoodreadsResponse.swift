@@ -8,11 +8,9 @@
 
 import Foundation
 
-
 struct GoodreadsResponse: Codable {
     let request: GoodreadsResponse.Request?
     let search: GoodreadsResponse.Search?
-    
     struct Request: Codable {
         let authentication: Bool?
         let key: String? // à revoir
@@ -35,9 +33,7 @@ struct GoodreadsResponse: Codable {
         let original_publication_year,original_publication_month, original_publication_day: Int?
         let average_rating: Double?
         let best_book: GoodreadsResponse.Book?
-        
     }
-    
     struct Book: Codable {
         let id: Int?
         let title: String?

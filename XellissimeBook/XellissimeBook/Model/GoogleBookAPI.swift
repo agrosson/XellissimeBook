@@ -25,7 +25,7 @@ class GoogleBookAPI {
     /// API parameters : isbn
     var isbn: String
     /// API parameters : FullURL
-    var googleBookFullUrl:URL? {
+    var googleBookFullUrl: URL? {
         return createFullUrl()
     }
     // MARK: -

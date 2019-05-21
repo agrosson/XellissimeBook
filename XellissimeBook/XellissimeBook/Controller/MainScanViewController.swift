@@ -10,22 +10,14 @@ import UIKit
 
 class MainScanViewController: UIViewController {
 
-    
-    
     @IBOutlet weak var isbnScannedLabel: UILabel!
-    
     @IBOutlet weak var exportIsbnButton: UIButton!
-    
-    
     @IBAction func startScanningIsPressed(_ sender: UIButton) {
     }
-    
     @IBAction func exportIsbnIsPressed(_ sender: UIButton) {
         print(scannedIsbn)
         performSegue(withIdentifier: "unwindToAddMenu", sender: self)
     }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if scannedIsbn == "" {
@@ -38,7 +30,6 @@ class MainScanViewController: UIViewController {
         print("scan isbn is in didload : \(scannedIsbn)")
         isbnScannedLabel.text = "Isbn number: \(scannedIsbn)"
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if scannedIsbn == "" {
@@ -51,9 +42,7 @@ class MainScanViewController: UIViewController {
         print("scan isbn is in didload : \(scannedIsbn)")
         isbnScannedLabel.text = "Isbn number: \(scannedIsbn)"
     }
-    @IBAction func unwindToMainScan(_ segue : UIStoryboardSegue) {
+    @IBAction func unwindToMainScan(_ segue: UIStoryboardSegue) {
         // Do nothing
     }
-
-
 }

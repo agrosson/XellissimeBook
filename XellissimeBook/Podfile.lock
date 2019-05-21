@@ -68,6 +68,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - SwiftLint (0.27.0)
   - SwiftyXMLParser (5.0.0)
 
 DEPENDENCIES:
@@ -75,6 +76,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - SwiftLint
   - SwiftyXMLParser (from `https://github.com/yahoojapan/SwiftyXMLParser.git`)
 
 SPEC REPOS:
@@ -92,6 +94,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - SwiftLint
 
 EXTERNAL SOURCES:
   SwiftyXMLParser:
@@ -116,8 +119,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   SwiftyXMLParser: 5ebb8793192f403fa8cc691045143906122a7a75
 
-PODFILE CHECKSUM: 1771527e96ae482e298691fd6de57aae8183741b
+PODFILE CHECKSUM: 355bc514395f5ddd76b8be7b99a895aaed0646f4
 
 COCOAPODS: 1.5.3

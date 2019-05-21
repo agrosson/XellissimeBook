@@ -75,7 +75,7 @@ func saveBook(with book: Book) {
     // create a shortcut reference : type DataReference
     let databaseReference = Database.database().reference()
     // the book properties have to be saved as dictionary in Firebase
-    let bookToSaveDictionary: [String : Any] =  ["bookId": book.bookId,
+    let bookToSaveDictionary: [String: Any] =  ["bookId": book.bookId,
                                                  "bookIsbn": book.bookIsbn,
                                                  "bookTitle": book.bookTitle,
                                                  "bookAuthor": book.bookAuthor,

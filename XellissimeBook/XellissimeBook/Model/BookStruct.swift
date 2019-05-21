@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 // MARK: - Book class
 /**
  An object that stores all elements of a book
@@ -33,12 +32,10 @@ struct Book {
     var bookDateOfLoanStart: Date?
     var bookDateOfLoanEnd: Date?
     var bookTypeString: String?
-    
     var bookType: BookType = .unknown
     //  create a failable initializer
-    
     // MARK: - Method init
-    init(title: String, author:String, isbn: String) {
+    init(title: String, author: String, isbn: String) {
         bookIsbn = isbn
         bookTitle = title
         bookAuthor = author

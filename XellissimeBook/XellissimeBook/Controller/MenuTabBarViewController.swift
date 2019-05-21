@@ -13,12 +13,8 @@ class MenuTabBarViewController: UITabBarController {
     @IBOutlet weak var menu: UITabBar!
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-        
         // Do any additional setup after loading the view.
     }
-    
-
 }
 
 //extension UITabBar {

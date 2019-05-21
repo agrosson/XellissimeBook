@@ -10,13 +10,11 @@ import UIKit
 import FirebaseAuth
 
 class LogInViewController: UIViewController {
-    
     // MARK: - Outlets - TextFields
     @IBOutlet weak var emailLogInTextField: UITextField!
     @IBOutlet weak var passwordLogInTextField: UITextField!
     // MARK: - Outlets - Button
     @IBOutlet weak var logInButton: UIButton!
-   
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,7 +98,7 @@ class LogInViewController: UIViewController {
     }
 }
     // MARK: - Extension
-extension LogInViewController : UITextFieldDelegate {
+extension LogInViewController: UITextFieldDelegate {
     // definition of delegate functions for UITexfields
     func textFieldDidBeginEditing(_ textField: UITextField) {
     }

@@ -25,8 +25,7 @@ class WelcomeViewController: UIViewController {
             logoutButton.isEnabled = false
             usernameWelcomeLabel.text = "Please log in"
             performSegue(withIdentifier: "unwindToMenu", sender: self)
-        }
-        catch {
+        } catch {
             print("Impossible to disconnect because user not connected !!")
         }
     }
