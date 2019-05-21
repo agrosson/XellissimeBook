@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // MARK: - Class GoogleBookAPI
 /**
  This class enables to set parameters of the API GoogleBook
@@ -16,19 +15,17 @@ import Foundation
 class OpenLibraryAPI {
     // MARK: - Properties
     /// API endPoint string
-    
-    // OpenLibraryAPI :
     private let endPoint = "https://openlibrary.org/api/books"
     /// API method
     let httpMethod = "GET"
     /// API parameters : isbn 
     var isbn: String
     /// API parameters : FullURL
-    var openlibraryFullUrl:URL? {
+    var openlibraryFullUrl: URL? {
         return createFullUrl()
     }
     // MARK: -
-    init(isbn: String){
+    init(isbn: String) {
         self.isbn = isbn
     }
     // MARK: - Methods
