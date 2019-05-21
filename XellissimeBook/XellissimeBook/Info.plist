@@ -50,5 +50,7 @@
 	<false/>
 	<key>FIRAnalyticsDebugEnabled</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>We need to use your camera for scanning</string>
 </dict>
 </plist>

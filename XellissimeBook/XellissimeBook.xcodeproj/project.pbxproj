@@ -19,6 +19,8 @@
 		C1890992227A055B00ABE37D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1890991227A055B00ABE37D /* LogInViewController.swift */; };
 		C1A020D1228082FA0024C594 /* MyListOfBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */; };
 		C1A020D322809A720024C594 /* MenuSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A020D222809A720024C594 /* MenuSearchViewController.swift */; };
+		C1A121AF22918D1300FDAC0D /* MainScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A121AE22918D1300FDAC0D /* MainScanViewController.swift */; };
+		C1A121B12291910500FDAC0D /* ScanRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A121B02291910500FDAC0D /* ScanRunningViewController.swift */; };
 		C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAB22772658003E0734 /* AppDelegate.swift */; };
 		C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */; };
 		C1AC1FB122772658003E0734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AC1FAF22772658003E0734 /* Main.storyboard */; };
@@ -44,7 +46,6 @@
 		C1FC7CF3227C850D00D32467 /* BookStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF2227C850D00D32467 /* BookStruct.swift */; };
 		C1FC7CF5227C854400D32467 /* MyBookToStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */; };
 		C1FC7CF7227C859700D32467 /* MessageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF6227C859700D32467 /* MessageStruct.swift */; };
-		C1FC7CF9227C9EB800D32467 /* AddBookManuallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF8227C9EB800D32467 /* AddBookManuallyViewController.swift */; };
 		C9A5512E9B795B03502EB4D7 /* Pods_XellissimeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11921FF18DDBBD5B074109A4 /* Pods_XellissimeBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		C1A020CD22806D330024C594 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListOfBooksViewController.swift; sourceTree = "<group>"; };
 		C1A020D222809A720024C594 /* MenuSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSearchViewController.swift; sourceTree = "<group>"; };
+		C1A121AE22918D1300FDAC0D /* MainScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScanViewController.swift; sourceTree = "<group>"; };
+		C1A121B02291910500FDAC0D /* ScanRunningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanRunningViewController.swift; sourceTree = "<group>"; };
 		C1AC1FA822772658003E0734 /* XellissimeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XellissimeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AC1FAB22772658003E0734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1AC1FAD22772658003E0734 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +109,6 @@
 		C1FC7CF2227C850D00D32467 /* BookStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStruct.swift; sourceTree = "<group>"; };
 		C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookToStruct.swift; sourceTree = "<group>"; };
 		C1FC7CF6227C859700D32467 /* MessageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStruct.swift; sourceTree = "<group>"; };
-		C1FC7CF8227C9EB800D32467 /* AddBookManuallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookManuallyViewController.swift; sourceTree = "<group>"; };
 		E5B68362ADBC175D2D6C1761 /* Pods-XellissimeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,9 +234,10 @@
 		C1AC1FCD22772975003E0734 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C1A121B02291910500FDAC0D /* ScanRunningViewController.swift */,
+				C1A121AE22918D1300FDAC0D /* MainScanViewController.swift */,
 				C1A020D222809A720024C594 /* MenuSearchViewController.swift */,
 				C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */,
-				C1FC7CF8227C9EB800D32467 /* AddBookManuallyViewController.swift */,
 				C1FC7CE8227C73F100D32467 /* AddMenuViewController.swift */,
 				C1FC7CDE227C68DC00D32467 /* MenuTabBarViewController.swift */,
 				C156652B2279B1D800C41453 /* WelcomeViewController.swift */,
@@ -267,6 +270,7 @@
 				C1AC1FA522772658003E0734 /* Frameworks */,
 				C1AC1FA622772658003E0734 /* Resources */,
 				00A52EA2C2967565E19B0C92 /* [CP] Embed Pods Frameworks */,
+				C15BD4A22293F748004BC3D8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -438,6 +442,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C15BD4A22293F748004BC3D8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		FB93C27AD07367D12ADE3F59 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -486,16 +507,17 @@
 				C1890992227A055B00ABE37D /* LogInViewController.swift in Sources */,
 				C1FC7CF5227C854400D32467 /* MyBookToStruct.swift in Sources */,
 				C1FC7CF7227C859700D32467 /* MessageStruct.swift in Sources */,
+				C1A121B12291910500FDAC0D /* ScanRunningViewController.swift in Sources */,
 				C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */,
 				C1A020D1228082FA0024C594 /* MyListOfBooksViewController.swift in Sources */,
 				C1025A442284309600AF6DFE /* BookResponse.swift in Sources */,
 				C1FC7CE9227C73F100D32467 /* AddMenuViewController.swift in Sources */,
 				C1025A4A228495C600AF6DFE /* OpenLibraryAPI.swift in Sources */,
 				C1AC1FAC22772658003E0734 /* AppDelegate.swift in Sources */,
-				C1FC7CF9227C9EB800D32467 /* AddBookManuallyViewController.swift in Sources */,
 				C1FC7CE1227C6F8E00D32467 /* Utilities.swift in Sources */,
 				C1337C80228DAA5900D7DC28 /* GoodreadsResponse.swift in Sources */,
 				C1FC7CF1227C84E200D32467 /* AddressStruct.swift in Sources */,
+				C1A121AF22918D1300FDAC0D /* MainScanViewController.swift in Sources */,
 				C1025A4822844EBC00AF6DFE /* GoogleBookAPI.swift in Sources */,
 				C1A020D322809A720024C594 /* MenuSearchViewController.swift in Sources */,
 				C1AF8997229052D800E5A2F0 /* GoodReadsAPI.swift in Sources */,
