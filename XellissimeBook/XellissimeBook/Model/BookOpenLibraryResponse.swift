@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-struct BookOpenLibraryResponse:Codable {
+struct BookOpenLibraryResponse: Codable {
     let publishers: [Publish]?
     let pagination: String?
     let identifiers: [String: [String]]?
@@ -25,16 +24,16 @@ struct BookOpenLibraryResponse:Codable {
     let publishPlaces: [Publish]?
 }
 
-struct Author:Codable {
+struct Author: Codable {
     let url: String?
     let name: String?
 }
 
-struct Classifications:Codable {
+struct Classifications: Codable {
     let lcClassifications: [String]?
 }
 
-struct Cover:Codable {
+struct Cover: Codable {
     let small, large, medium: String?
 }
 

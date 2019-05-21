@@ -31,8 +31,6 @@ struct TextAndString {
     let segueToLogIn = "goToLogInScreen"
     let segueFromInitialToWelcome = "goToWelcomeScreen"
     let goToMyListOfBooksSegue = "goToMyListOfBooksSegue"
-    
-    
     // Cell identifier
     let myListOfBookCell = "myListOfBookCell"
 }
@@ -43,7 +41,7 @@ struct TextAndString {
 extension String {
     mutating func removeFirstAndLastAndDoubleWhitespace() {
         var newString = self
-        repeat{
+        repeat {
             if newString.last == " " || newString.last == "\""{
                 newString = String(newString.dropLast())
             }
@@ -57,4 +55,3 @@ extension String {
         self =  newString
     }
 }
-

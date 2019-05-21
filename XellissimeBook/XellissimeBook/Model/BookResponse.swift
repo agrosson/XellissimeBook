@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct BookResponse:Codable {
+struct BookResponse: Codable {
     let kind: String?
     let totalItems: Int?
     let items: [Item]?
 }
 
-struct Item:Codable {
+struct Item: Codable {
     let kind, id, etag: String?
     let selfLink: String?
     let volumeInfo: VolumeInfo?
@@ -23,7 +23,7 @@ struct Item:Codable {
     let searchInfo: SearchInfo?
 }
 
-struct AccessInfo:Codable {
+struct AccessInfo: Codable {
     let country, viewability: String?
     let embeddable, publicDomain: Bool?
     let textToSpeechPermission: String?
@@ -33,20 +33,20 @@ struct AccessInfo:Codable {
     let quoteSharingAllowed: Bool?
 }
 
-struct Epub:Codable {
+struct Epub: Codable {
     let isAvailable: Bool?
 }
 
-struct SaleInfo:Codable {
+struct SaleInfo: Codable {
     let country, saleability: String?
     let isEbook: Bool?
 }
 
-struct SearchInfo:Codable {
+struct SearchInfo: Codable {
     let textSnippet: String?
 }
 
-struct VolumeInfo:Codable {
+struct VolumeInfo: Codable {
     let title, subtitle: String?
     let authors: [String]?
     let publisher, publishedDate, description: String?
@@ -69,14 +69,14 @@ struct IndustryIdentifier: Codable {
     let type, identifier: String?
 }
 
-struct PanelizationSummary:Codable {
+struct PanelizationSummary: Codable {
     let containsEpubBubbles, containsImageBubbles: Bool?
 }
 
-struct ReadingModes:Codable {
+struct ReadingModes: Codable {
     let text, image: Bool?
 }
 
-struct ImageLinks:Codable {
+struct ImageLinks: Codable {
     let smallThumbnail, thumbnail: String?
 }

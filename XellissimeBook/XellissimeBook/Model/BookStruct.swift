@@ -38,14 +38,12 @@ struct Book {
     //  create a failable initializer
     
     // MARK: - Method init
-    init(title: String, author:String, isbn: String){
+    init(title: String, author:String, isbn: String) {
         bookIsbn = isbn
         bookTitle = title
         bookAuthor = author
     }
 }
-
-
 enum BookType {
     case classic, youth, cartoon, historic, scienceFiction, unknown
 }

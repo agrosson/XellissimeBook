@@ -11,6 +11,6 @@ import Foundation
 struct Message {
     var messageFrom: String // userIosId from User who sents first message
     var messageTo: String // userIosId from User who receives message
-    var messageText : String
+    var messageText: String
     var messageData: Data?
 }
