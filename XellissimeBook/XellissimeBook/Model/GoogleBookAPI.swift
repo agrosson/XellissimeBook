@@ -10,7 +10,6 @@ import Foundation
 
 import UIKit
 
-
 // MARK: - Class GoogleBookAPI
 /**
  This class enables to set parameters of the API GoogleBook
@@ -22,7 +21,6 @@ class GoogleBookAPI {
     /// API method
     let httpMethod = "GET"
     /// API Key
-    
     private let keyAPI = valueForAPIKey(named: "APIGoogle")
     /// API parameters : isbn
     var isbn: String
@@ -31,7 +29,7 @@ class GoogleBookAPI {
         return createFullUrl()
     }
     // MARK: -
-    init(isbn: String){
+    init(isbn: String) {
         self.isbn = isbn
     }
     // MARK: - Methods
