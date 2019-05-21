@@ -16,6 +16,7 @@
 		C1337C80228DAA5900D7DC28 /* GoodreadsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1337C7F228DAA5900D7DC28 /* GoodreadsResponse.swift */; };
 		C156652C2279B1D800C41453 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652B2279B1D800C41453 /* WelcomeViewController.swift */; };
 		C156652E2279D83E00C41453 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652D2279D83E00C41453 /* Alert.swift */; };
+		C15BD4A42294015F004BC3D8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C15BD4A32294015F004BC3D8 /* .swiftlint.yml */; };
 		C1890992227A055B00ABE37D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1890991227A055B00ABE37D /* LogInViewController.swift */; };
 		C1A020D1228082FA0024C594 /* MyListOfBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */; };
 		C1A020D322809A720024C594 /* MenuSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A020D222809A720024C594 /* MenuSearchViewController.swift */; };
@@ -73,6 +74,7 @@
 		C1337C7F228DAA5900D7DC28 /* GoodreadsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodreadsResponse.swift; sourceTree = "<group>"; };
 		C156652B2279B1D800C41453 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C156652D2279D83E00C41453 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		C15BD4A32294015F004BC3D8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C1890991227A055B00ABE37D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		C1A020CC22806D330024C594 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C1A020CD22806D330024C594 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		C1AC1FAA22772658003E0734 /* XellissimeBook */ = {
 			isa = PBXGroup;
 			children = (
+				C15BD4A32294015F004BC3D8 /* .swiftlint.yml */,
 				C1AC1FB72277265A003E0734 /* Info.plist */,
 				C1D7690B2278E0B7009FE3DB /* Supporting Files */,
 				C1AC1FCB2277295F003E0734 /* Model */,
@@ -355,6 +358,7 @@
 				C1AC1FB32277265A003E0734 /* Assets.xcassets in Resources */,
 				C1FC7CE7227C717F00D32467 /* Search.storyboard in Resources */,
 				C1AC1FB122772658003E0734 /* Main.storyboard in Resources */,
+				C15BD4A42294015F004BC3D8 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
