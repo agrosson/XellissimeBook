@@ -20,16 +20,15 @@ class GoodReadsAPI {
     /// API method
     let httpMethod = "GET"
     /// API Key
-    
     private let keyAPI = valueForAPIKey(named: "APIGoodReads")
     /// API parameters : isbn
     var isbn: String
     /// API parameters : FullURL
-    var goodReadsFullUrl:URL? {
+    var goodReadsFullUrl: URL? {
         return createFullUrl()
     }
     // MARK: -
-    init(isbn: String){
+    init(isbn: String) {
         self.isbn = isbn
     }
     // MARK: - Methods
@@ -45,4 +44,3 @@ class GoodReadsAPI {
         return url
     }
 }
-
