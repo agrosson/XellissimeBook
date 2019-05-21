@@ -10,15 +10,13 @@ import UIKit
 import Foundation
 import Firebase
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey: Any]?)
+                     didFinishLaunchingWithOptions launchOptions : [UIApplication.LaunchOptionsKey: Any]?)
                     -> Bool {
         // Configue FireBase for the Application
         FirebaseApp.configure()
