@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseStorage
+
 
 // MARK: - CustomTabBar class
 /**
@@ -108,6 +110,7 @@ func saveBook(with book: Book) {
     // create an data in jpg format from a UIImage
     guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
     // Create a Storage reference with the bookId
+    
     let storageRef = Storage.storage().reference().child("cover").child("\(fromBook.bookIsbn).jpg")
     let uploadTask = storageRef.putData(imageData, metadata: nil) { (metadata, errorUpLoad) in
         print(metadata ?? "no metadata")
