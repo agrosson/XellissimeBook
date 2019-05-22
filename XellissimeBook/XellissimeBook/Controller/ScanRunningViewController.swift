@@ -75,10 +75,10 @@ class ScanRunningViewController: UIViewController, AVCaptureMetadataOutputObject
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 found(code: stringValue)
             }
-            let actionSheet = UIAlertController(title: "Bravo",
-                                                message: "Le code ISBN est \(codeToDisplay).",
+            let actionSheet = UIAlertController(title: "Congratulations",
+                                                message: "Isbn code found is \(codeToDisplay).",
                                                 preferredStyle: .alert)
-            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_: UIAlertAction) in
+            actionSheet.addAction(UIAlertAction(title: "Back", style: .default, handler: { (_: UIAlertAction) in
                 self.dismiss(animated: true)
             }))
             self.present(actionSheet, animated: true, completion: nil)

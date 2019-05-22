@@ -91,6 +91,91 @@ func saveBook(with book: Book) {
     // databaseReference.child("users").child(userId!).setValue(["bookId" : text])
     databaseReference.child("books").child(book.bookId).setValue(bookToSaveDictionary)
 }
+
+/**
+ Function that stores cover information from a bbok
+ - Parameter fromBook: the book to save
+ */
+ func storeCoverImageInFirebaseStorage(fromBook: Book) {
+    // get url string from book
+    guard let bookUrl = fromBook.bookCoverURL else {return}
+    // get url from url string
+    guard let url = URL(string: bookUrl) else {return}
+    // get data from url
+    guard let data = try? Data(contentsOf: url) else {return}
+    // create a UIImage from the data
+    guard let dataasImage = UIImage(data: data) else {return}
+    // create an data in jpg format from a UIImage
+    guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
+    // Create a Storage reference with the bookId
+    let storageRef = Storage.storage().reference().child("cover").child("\(fromBook.bookIsbn).jpg")
+    let uploadTask = storageRef.putData(imageData, metadata: nil) { (metadata, errorUpLoad) in
+        print(metadata ?? "no metadata")
+        print(errorUpLoad ?? "no error")
+        storageRef.downloadURL(completion: { (url, error) in
+            //    self.tempURL = url
+            print(url as Any)
+        })
+    }
+    uploadTask.observe(.progress) { (snapshot) in
+        print(snapshot.progress ?? "No More Progress")
+    }
+    uploadTask.resume()
+    print("Text printed if download is done")
+    storageRef.downloadURL(completion: { (url, error) in
+        //   self.tempURL = url
+        print(url as Any)
+    })
+    
+    /*
+     //  tempCoverReferenceWhenUploadOrDownLoad = coverReference.child("\(fromBook.bookIsbn).jpg")
+     //print("17 mai :  test pour reference \(tempCoverReferenceWhenUploadOrDownLoad)")
+     // create a tast to put (send) the data in the Firebase storage at storage reference
+     let uploadTask = tempCoverReferenceWhenUploadOrDownLoad.putData(imageData, metadata: nil) { (metadata, erro) in
+     print("upload is finished")
+     print(metadata ?? "no metadata")
+     print(erro ?? "no error")
+     }
+     uploadTask.observe(.progress) { (snapshot) in
+     print(snapshot.progress ?? "No More Progress")
+     }
+     uploadTask.resume()
+     print("Text printed if download is done")
+     */
+}
+
+/**
+ Function that stores cover information from a picture taken from device
+ - Parameter fromBook: the book to save
+ */
+func storeCoverImageInFirebaseStorageFromDevice(imageToSave: UIImage, toBook : Book) -> String {
+
+    let dataasImage = imageToSave
+    // create an data in jpg format from a UIImage
+    guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return ""}
+    // Create a Storage reference with the bookId
+    let storageRef = Storage.storage().reference().child("cover").child("\(toBook.bookIsbn).jpg")
+    let uploadTask = storageRef.putData(imageData, metadata: nil) { (metadata, errorUpLoad) in
+        print(metadata ?? "no metadata")
+        print(errorUpLoad ?? "no error")
+        storageRef.downloadURL(completion: { (url, error) in
+            //    self.tempURL = url
+            print(url as Any)
+        })
+    }
+    uploadTask.observe(.progress) { (snapshot) in
+        print(snapshot.progress ?? "No More Progress")
+    }
+    uploadTask.resume()
+    print("Text printed if download is done")
+    storageRef.downloadURL(completion: { (url, error) in
+        //   self.tempURL = url
+        print(url as Any)
+    })
+    
+    return "à définir"
+}
+
 // MARK: - Methods
 /**
  Function that resizes an image

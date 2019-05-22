@@ -77,19 +77,8 @@ class MyListOfBooksViewController: UIViewController {
                 self.collectionBooks.append(bookFromFireBase)
                 // reload the collectionView
                 self.mycol.reloadData()
-                /* Check the data with a print if needed
-                 //                    print("ceci pour la référence dans firebase : \(childKey)")
-                 //                    print("bookId is dans xcode : \(String(describing: bookId))")
-                 //                    print("bookAuthor is : \(String(describing: bookAuthor))")
-                 //                    print("bookCoverURL is : \(String(describing: bookCoverURL))")
-                 //                    print("bookIsbn is : \(String(describing: bookIsbn))")
-                 //                    print("bookEditor is : \(String(describing: bookEditor))")
-                 //                    print("bookIsAvailable is : \(String(describing: bookIsAvailable))")
-                 //                    print("bookOwner is \(String(describing: bookOwner))")
-                 //                    print("bookYearOfEdition is \(String(describing: bookYearOfEdition))")
-                 //                    print("bookTitle is \(String(describing: bookTitle))")
-                 //                    print("bookType is \(String(describing: bookTypeString))")
-                 */
+                
+                
             }
         })
     }
@@ -131,9 +120,7 @@ class MyListOfBooksViewController: UIViewController {
     }
 }
 
-extension MyListOfBooksViewController: UICollectionViewDelegate {
-}
-extension MyListOfBooksViewController: UICollectionViewDataSource {
+extension MyListOfBooksViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // return the number of item in the data source array
         return collectionBooks.count
@@ -154,11 +141,11 @@ extension MyListOfBooksViewController: UICollectionViewDataSource {
         }
         if let imageViewBook = cell.viewWithTag(199) as? UIImageView {
             if optionToList == 1 {
-                let coverurl = "\(String(describing: collectionBooks[indexPath.row].bookCoverURL!))"
+             //   let coverurl = "\(String(describing: collectionBooks[indexPath.row].bookCoverURL!))"
                 let filename =  "\(collectionBooks[indexPath.row].bookIsbn)"
-                let ref = coverReference.child(filename)
+             //   let ref = coverReference.child(filename)
                 let leString = "gs://xellissimebook.appspot.com/cover/"+"\(filename).jpg"
-                let leString2 = "https://firebasestorage.googleapis.com/v0/b/xellissimebook.appspot.com/o/cover/2F9782070412396.jpg?alt=media&token=bd6d7523-4a5f-4a7a-a9f5-9c1fa01fdff1"
+          //      let leString2 = "https://firebasestorage.googleapis.com/v0/b/xellissimebook.appspot.com/o/cover/2F9782070412396.jpg?alt=media&token=bd6d7523-4a5f-4a7a-a9f5-9c1fa01fdff1"
 
                 let downloadImageRef = Storage.storage().reference(forURL: leString)
                 let dwn = downloadImageRef.getData(maxSize: 55555555) { (data, error) in
@@ -213,5 +200,40 @@ extension MyListOfBooksViewController: UICollectionViewDataSource {
             return cell
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Title is \(collectionBooks[indexPath.row].bookTitle)")
+        print("Author is \(collectionBooks[indexPath.row].bookAuthor)")
+        print("bookEditor is \(collectionBooks[indexPath.row].bookEditor ?? "unknown")")
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // check the segue name
+        if segue.identifier == "showBookDetailsSegue" {
+            // si la destination est le VC DetailViewController, and set the index from the selected item
+            if let dest = segue.destination as? BookDetailsViewController, let index = mycol.indexPathsForSelectedItems?.first {
+                // Pass your datas
+                dest.bookDetailsToDisplay = collectionBooks[index.row]
+            }
+        }
+    }
+    
+}
+extension MyListOfBooksViewController : UICollectionViewDelegateFlowLayout{
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewWidth = collectionView.bounds.width
+        return CGSize(width: (collectionViewWidth-24)/2, height: (collectionViewWidth-24)/2)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
     }
 }

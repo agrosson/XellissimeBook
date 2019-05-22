@@ -33,6 +33,7 @@
 		C1D2C57C2278CC860030498F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1D2C57B2278CC860030498F /* GoogleService-Info.plist */; };
 		C1D7690A2278E065009FE3DB /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1D769092278E065009FE3DB /* APIKeys.plist */; };
 		C1D7690D2278E134009FE3DB /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7690C2278E134009FE3DB /* APIKeys.swift */; };
+		C1E22AFC229545CC002C86BF /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E22AFB229545CC002C86BF /* BookDetailsViewController.swift */; };
 		C1FC7CDF227C68DC00D32467 /* MenuTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CDE227C68DC00D32467 /* MenuTabBarViewController.swift */; };
 		C1FC7CE1227C6F8E00D32467 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CE0227C6F8E00D32467 /* Utilities.swift */; };
 		C1FC7CE3227C70EE00D32467 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FC7CE2227C70EE00D32467 /* Settings.storyboard */; };
@@ -96,6 +97,7 @@
 		C1D2C57B2278CC860030498F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1D769092278E065009FE3DB /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		C1D7690C2278E134009FE3DB /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		C1E22AFB229545CC002C86BF /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		C1FC7CDE227C68DC00D32467 /* MenuTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabBarViewController.swift; sourceTree = "<group>"; };
 		C1FC7CE0227C6F8E00D32467 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C1FC7CE2227C70EE00D32467 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		C1AC1FCD22772975003E0734 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C1E22AFB229545CC002C86BF /* BookDetailsViewController.swift */,
 				C1A121B02291910500FDAC0D /* ScanRunningViewController.swift */,
 				C1A121AE22918D1300FDAC0D /* MainScanViewController.swift */,
 				C1A020D222809A720024C594 /* MenuSearchViewController.swift */,
@@ -519,6 +522,7 @@
 				C1337C80228DAA5900D7DC28 /* GoodreadsResponse.swift in Sources */,
 				C1FC7CF1227C84E200D32467 /* AddressStruct.swift in Sources */,
 				C1A121AF22918D1300FDAC0D /* MainScanViewController.swift in Sources */,
+				C1E22AFC229545CC002C86BF /* BookDetailsViewController.swift in Sources */,
 				C1025A4822844EBC00AF6DFE /* GoogleBookAPI.swift in Sources */,
 				C1A020D322809A720024C594 /* MenuSearchViewController.swift in Sources */,
 				C1AF8997229052D800E5A2F0 /* GoodReadsAPI.swift in Sources */,

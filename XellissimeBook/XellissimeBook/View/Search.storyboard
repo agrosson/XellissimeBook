@@ -25,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTU-6d-3y5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5117" y="265"/>
+            <point key="canvasLocation" x="-5988" y="-184"/>
         </scene>
         <!--Menu Search View Controller-->
         <scene sceneID="t8J-2o-hcZ">
@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Swu-Gd-gOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4278" y="265"/>
+            <point key="canvasLocation" x="-5149" y="-184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VGO-6F-Edm">
@@ -83,7 +83,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4e-sl-fOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3681" y="-390"/>
+            <point key="canvasLocation" x="-4552" y="-839"/>
         </scene>
         <!--My List Of Books View Controller-->
         <scene sceneID="RW9-4j-Nhk">
@@ -103,7 +103,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" reuseIdentifier="myListOfBookCell" id="jra-4b-dDa">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myListOfBookCell" id="jra-4b-dDa">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -158,6 +158,9 @@
                                             <constraint firstItem="7Fw-uM-fEr" firstAttribute="top" secondItem="jra-4b-dDa" secondAttribute="top" id="8JP-Bn-Z9T"/>
                                             <constraint firstAttribute="bottom" secondItem="c0L-CV-c6O" secondAttribute="bottom" id="trR-8y-65b"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="dQk-uz-abL" kind="show" identifier="showBookDetailsSegue" id="WDn-lj-eDZ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -189,7 +192,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rqg-5B-Yhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Orf-g9-n6C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2687" y="-226"/>
+            <point key="canvasLocation" x="-3597" y="-839"/>
+        </scene>
+        <!--BookDetails-->
+        <scene sceneID="Qq8-jA-YJL">
+            <objects>
+                <viewController id="dQk-uz-abL" userLabel="BookDetails" customClass="BookDetailsViewController" customModule="XellissimeBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bC8-Ub-D3q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zkz-99-NFx">
+                                <rect key="frame" x="8" y="96" width="398" height="398"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Zkz-99-NFx" secondAttribute="height" multiplier="1:1" id="zA8-eg-McS"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" tag="1" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jx0-FF-MNy">
+                                <rect key="frame" x="8" y="736" width="398" height="118"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jHt-cA-IXm">
+                                        <rect key="frame" x="163.5" y="0.0" width="71" height="36"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <color key="textColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="imF-Kb-UDd">
+                                        <rect key="frame" x="163.5" y="41" width="71" height="36"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <color key="textColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p8W-yh-q5g">
+                                        <rect key="frame" x="163.5" y="82" width="71" height="36"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <color key="textColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.38555160160000002" green="0.54731100799999999" blue="0.63138794899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="MUk-Xy-gBO" firstAttribute="trailing" secondItem="Zkz-99-NFx" secondAttribute="trailing" constant="8" id="8lo-eC-cqB"/>
+                            <constraint firstItem="Zkz-99-NFx" firstAttribute="top" secondItem="MUk-Xy-gBO" secondAttribute="top" constant="8" id="Bmg-bv-Yco"/>
+                            <constraint firstItem="jx0-FF-MNy" firstAttribute="leading" secondItem="MUk-Xy-gBO" secondAttribute="leading" constant="8" id="Mpf-2S-qSc"/>
+                            <constraint firstItem="MUk-Xy-gBO" firstAttribute="bottom" secondItem="jx0-FF-MNy" secondAttribute="bottom" constant="8" id="Vhh-me-RX9"/>
+                            <constraint firstItem="Zkz-99-NFx" firstAttribute="centerX" secondItem="bC8-Ub-D3q" secondAttribute="centerX" id="Yh8-vX-vn0"/>
+                            <constraint firstItem="MUk-Xy-gBO" firstAttribute="trailing" secondItem="jx0-FF-MNy" secondAttribute="trailing" constant="8" id="ZKl-73-ZJI"/>
+                            <constraint firstItem="Zkz-99-NFx" firstAttribute="leading" secondItem="MUk-Xy-gBO" secondAttribute="leading" constant="8" id="jsb-p1-XOr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MUk-Xy-gBO"/>
+                    </view>
+                    <connections>
+                        <outlet property="bookAuthorLabel" destination="imF-Kb-UDd" id="3AG-ga-f8E"/>
+                        <outlet property="bookEditorLabel" destination="p8W-yh-q5g" id="kWm-Wk-TGg"/>
+                        <outlet property="bookTitleLabel" destination="jHt-cA-IXm" id="GLv-n7-X5W"/>
+                        <outlet property="coverBookImage" destination="Zkz-99-NFx" id="GIR-Xf-ssq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Xa-Uh-oyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2833" y="-838"/>
         </scene>
     </scenes>
     <resources>
