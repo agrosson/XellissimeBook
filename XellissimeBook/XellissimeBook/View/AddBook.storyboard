@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UqG-RB-knq">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,11 +32,11 @@
             <objects>
                 <viewController id="K1i-Bf-mj8" customClass="AddMenuViewController" customModule="XellissimeBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nh3-1q-EdN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MP6-4P-euA">
-                                <rect key="frame" x="8" y="514" width="584" height="36"/>
+                                <rect key="frame" x="8" y="776" width="398" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <state key="normal" title="ADD WITH CAMERA">
                                     <color key="titleColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -43,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIM-jG-bze">
-                                <rect key="frame" x="8" y="448" width="584" height="36"/>
+                                <rect key="frame" x="8" y="710" width="398" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <state key="normal" title="ADD MANUALLY">
                                     <color key="titleColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -230,6 +234,7 @@
                             </state>
                             <connections>
                                 <action selector="saveBookInDatabase:" destination="K1i-Bf-mj8" eventType="touchUpInside" id="nTi-oB-an3"/>
+                                <segue destination="aNv-1v-cdW" kind="show" id="o3g-ac-6Mm"/>
                             </connections>
                         </button>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="9JU-mN-rUf">
@@ -262,16 +267,24 @@
             </objects>
             <point key="canvasLocation" x="-2468" y="-612"/>
         </scene>
+        <!--storyListBook-->
+        <scene sceneID="Vgf-iM-2Ny">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" referencedIdentifier="storyListBook" id="aNv-1v-cdW" propertyAccessControl="localizable" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Us8-Pw-X58" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1918" y="-1132"/>
+        </scene>
         <!--Main Scan View Controller-->
         <scene sceneID="4qt-cZ-WLr">
             <objects>
                 <viewController id="tw1-B4-N5z" customClass="MainScanViewController" customModule="XellissimeBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="97B-Pr-a2j">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jg5-XU-lMf">
-                                <rect key="frame" x="8" y="270" width="584" height="60"/>
+                                <rect key="frame" x="8" y="418" width="398" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="START SCANNING">
                                     <color key="titleColor" red="0.92429834600000005" green="0.4638344049" blue="0.42349392180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -282,7 +295,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9V-4H-ZXh">
-                                <rect key="frame" x="8" y="520" width="584" height="60"/>
+                                <rect key="frame" x="8" y="782" width="398" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Export ISBN">
                                     <color key="titleColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -292,7 +305,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="isbn scanned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5y6-Zq-Luc">
-                                <rect key="frame" x="8" y="464" width="584" height="36"/>
+                                <rect key="frame" x="8" y="726" width="398" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -330,7 +343,7 @@
             <objects>
                 <viewController id="Y1u-EZ-Wuw" customClass="ScanRunningViewController" customModule="XellissimeBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fdw-2t-ajV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.38555160160000002" green="0.54731100799999999" blue="0.63138794899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="YzV-jj-iDU"/>

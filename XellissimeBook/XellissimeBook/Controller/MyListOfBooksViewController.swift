@@ -37,6 +37,7 @@ class MyListOfBooksViewController: UIViewController {
     // MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
         // Reference to the database
         ref = Database.database().reference()
         // Retrieve the books and listen for change
@@ -82,6 +83,10 @@ class MyListOfBooksViewController: UIViewController {
             }
         })
     }
+    @objc func addTapped(){
+        print("we add a book")
+    }
+    
     private func storeCoverImageInFirebaseStorage(fromBook: Book) {
         // get url string from book
         guard let bookUrl = fromBook.bookCoverURL else {return}

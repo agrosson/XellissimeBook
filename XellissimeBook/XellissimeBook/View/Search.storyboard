@@ -88,7 +88,7 @@
         <!--My List Of Books View Controller-->
         <scene sceneID="RW9-4j-Nhk">
             <objects>
-                <viewController id="Up3-nJ-IxP" customClass="MyListOfBooksViewController" customModule="XellissimeBook" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="storyListBook" id="Up3-nJ-IxP" customClass="MyListOfBooksViewController" customModule="XellissimeBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eWU-du-yW8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xa-Uh-oyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2833" y="-838"/>
+            <point key="canvasLocation" x="-2651" y="-840"/>
         </scene>
     </scenes>
     <resources>
