@@ -9,9 +9,13 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import Firebase
+import FirebaseAuth
+
+
 
 class MyListOfBooksViewController: UIViewController {
-    var optionToList = 2
+    var optionToList = 1
     // MARK: - Outlet - CollectionView
     @IBOutlet weak var mycol: UICollectionView!
     // MARK: - Properties
@@ -34,9 +38,10 @@ class MyListOfBooksViewController: UIViewController {
 
     /// Temp reference of a Google Cloud Storage object
     var tempCoverReferenceWhenUploadOrDownLoad = StorageReference()
-    // MARK: -
+    // MARK: - ViewDidAppear
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
         // Reference to the database
         ref = Database.database().reference()
@@ -78,45 +83,21 @@ class MyListOfBooksViewController: UIViewController {
                 self.collectionBooks.append(bookFromFireBase)
                 // reload the collectionView
                 self.mycol.reloadData()
-                
-                
             }
         })
     }
+    // MARK: - ViewWillAppear
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+     //   navigationController?.isNavigationBarHidden = comeFromAdd
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+    }
+    
     @objc func addTapped(){
         print("we add a book")
     }
-    
-    private func storeCoverImageInFirebaseStorage(fromBook: Book) {
-        // get url string from book
-        guard let bookUrl = fromBook.bookCoverURL else {return}
-        // get url from url string
-        guard let url = URL(string: bookUrl) else {return}
-        // get data from url
-        guard let data = try? Data(contentsOf: url) else {return}
-        // create a UIImage from the data
-        guard let dataasImage = UIImage(data: data) else {return}
-        // create an data in jpg format from a UIImage
-        guard let imageData = dataasImage.pngData() else {return}
-//
-//        dataasImage
-//        jpegData(compressionQuality: 1) else {return}
-        // Create a Storage reference with the bookId
-        //let fileNameStorage = fromBook.bookIsbn
-        tempCoverReferenceWhenUploadOrDownLoad = Storage.storage().reference(
-            forURL: "gs://xellissimebook.appspot.com/cover/"+"\(fromBook.bookIsbn).jpg")
-        // create a tast to put (send) the data in the Firebase storage at storage reference
-        let uploadTask = tempCoverReferenceWhenUploadOrDownLoad.putData(imageData, metadata: nil) { (metadata, erro) in
-            print("upload is finished")
-            print(metadata ?? "no metadata")
-            print(erro ?? "no error")
-        }
-        uploadTask.observe(.progress) { (snapshot) in
-            print(snapshot.progress ?? "No More Progress")
-        }
-        uploadTask.resume()
-        print("Test print to see if download is done")
-    }
+
     private func downloadImage(urlString: String) {
         let url = URL(string: urlString)
         //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
@@ -145,44 +126,40 @@ extension MyListOfBooksViewController: UICollectionViewDataSource, UICollectionV
             labelEditor.text = collectionBooks[indexPath.row].bookEditor
         }
         if let imageViewBook = cell.viewWithTag(199) as? UIImageView {
-            if optionToList == 1 {
-             //   let coverurl = "\(String(describing: collectionBooks[indexPath.row].bookCoverURL!))"
-                let filename =  "\(collectionBooks[indexPath.row].bookIsbn)"
-             //   let ref = coverReference.child(filename)
-                let leString = "gs://xellissimebook.appspot.com/cover/"+"\(filename).jpg"
-          //      let leString2 = "https://firebasestorage.googleapis.com/v0/b/xellissimebook.appspot.com/o/cover/2F9782070412396.jpg?alt=media&token=bd6d7523-4a5f-4a7a-a9f5-9c1fa01fdff1"
-
-                let downloadImageRef = Storage.storage().reference(forURL: leString)
-                let dwn = downloadImageRef.getData(maxSize: 55555555) { (data, error) in
-                    if error != nil {
-                    } else {
-                        // Data for "images/island.jpg" is returned
-                        imageViewBook.image = UIImage(data: data!)
+                if optionToList == 1 {
+                    let myURL = collectionBooks[indexPath.row].bookCoverURL ?? ""
+                    print("myUrl is : \(myURL)")
+                    let downloadImageRef = Storage.storage().reference(forURL: myURL)
+                    print("and storage is \(downloadImageRef)")
+                    let downloadtask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { data, error in
+                        
+                        if error != nil {print(error!.localizedDescription); return}
+                        guard let data = data else {print("no data"); return}
+                        let image = UIImage(data: data)
+                        imageViewBook.image = image
                     }
+                    downloadtask.resume()
                 }
-              dwn.resume()
-                    print("j'en ai trouvé")
-            }
-            if optionToList == 2 {
-                if var urlTest = collectionBooks[indexPath.row].bookCoverURL {
-                    var imageToGet: UIImage?
-                    print("ceci est l'url :\(urlTest)")
-                    urlTest.removeFirstAndLastAndDoubleWhitespace()
-                    if let url = URL(string: urlTest) {
-                        let data = try? Data(contentsOf: url)
-                        if let datatNotNil = data {
-                            imageToGet = UIImage(data: datatNotNil)
-                            let size = CGSize(width: 100, height: 100)
-                            let resizedImage = resizeImage(image: imageToGet!, targetSize: size)
-                            imageViewBook.image = resizedImage
+                if optionToList == 2 {
+                    if var urlTest = collectionBooks[indexPath.row].bookCoverURL {
+                        var imageToGet: UIImage?
+                        print("ceci est l'url :\(urlTest)")
+                        urlTest.removeFirstAndLastAndDoubleWhitespace()
+                        if let url = URL(string: urlTest) {
+                            let data = try? Data(contentsOf: url)
+                            if let datatNotNil = data {
+                                imageToGet = UIImage(data: datatNotNil)
+                                let size = CGSize(width: 100, height: 100)
+                                let resizedImage = resizeImage(image: imageToGet!, targetSize: size)
+                                imageViewBook.image = resizedImage
+                            } else {
+                                imageViewBook.image = imageDefault1!
+                            }
                         } else {
                             imageViewBook.image = imageDefault1!
                         }
-                    } else {
-                        imageViewBook.image = imageDefault1!
-                    }
-                } else { imageViewBook.image = imageDefault1!}
-            }
+                    } else { imageViewBook.image = imageDefault1!}
+                }
 //
 //            let downloadImageRef = coverReference.child(filename)
 //

@@ -10,6 +10,8 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
+import Firebase
+
 
 class AddMenuViewController: UIViewController {
     
@@ -113,6 +115,7 @@ class AddMenuViewController: UIViewController {
                 // this function is defined in Utilities
                 saveBook(with: book)
                 scannedIsbn = ""
+                comeFromAdd = true
             }
         }
     }

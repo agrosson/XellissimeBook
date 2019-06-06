@@ -16,6 +16,7 @@
 		C1337C80228DAA5900D7DC28 /* GoodreadsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1337C7F228DAA5900D7DC28 /* GoodreadsResponse.swift */; };
 		C156652C2279B1D800C41453 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652B2279B1D800C41453 /* WelcomeViewController.swift */; };
 		C156652E2279D83E00C41453 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C156652D2279D83E00C41453 /* Alert.swift */; };
+		C1810858229BD99400392754 /* listNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1810857229BD99400392754 /* listNavViewController.swift */; };
 		C1890992227A055B00ABE37D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1890991227A055B00ABE37D /* LogInViewController.swift */; };
 		C1A020D1228082FA0024C594 /* MyListOfBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */; };
 		C1A020D322809A720024C594 /* MenuSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A020D222809A720024C594 /* MenuSearchViewController.swift */; };
@@ -74,6 +75,7 @@
 		C1337C7F228DAA5900D7DC28 /* GoodreadsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodreadsResponse.swift; sourceTree = "<group>"; };
 		C156652B2279B1D800C41453 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C156652D2279D83E00C41453 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		C1810857229BD99400392754 /* listNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listNavViewController.swift; sourceTree = "<group>"; };
 		C1890991227A055B00ABE37D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		C1A020CC22806D330024C594 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C1A020CD22806D330024C594 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		C1AC1FCD22772975003E0734 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C1810857229BD99400392754 /* listNavViewController.swift */,
 				C1E22AFB229545CC002C86BF /* BookDetailsViewController.swift */,
 				C1A121B02291910500FDAC0D /* ScanRunningViewController.swift */,
 				C1A121AE22918D1300FDAC0D /* MainScanViewController.swift */,
@@ -500,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1810858229BD99400392754 /* listNavViewController.swift in Sources */,
 				C1FC7CDF227C68DC00D32467 /* MenuTabBarViewController.swift in Sources */,
 				C1025A4C22849B8200AF6DFE /* BookOpenLibraryResponse.swift in Sources */,
 				C1FC7CF3227C850D00D32467 /* BookStruct.swift in Sources */,

@@ -44,7 +44,7 @@ class Alert {
     // MARK: - Methods
     /**
      Function that presents an alert with defined text depending on AlertCase
-     - Parameter myCase: variable used to set text of the alert
+     - Parameter alertCase: variable used to set text of the alert
      */
     private func presentAlert(alertCase: AlertCase) {
         switch alertCase {

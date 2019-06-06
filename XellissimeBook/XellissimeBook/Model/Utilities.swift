@@ -11,6 +11,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseStorage
+import FirebaseDatabase
 
 
 // MARK: - CustomTabBar class
@@ -64,35 +65,10 @@ func getErrorMessageFromFireBase(error: String) -> String {
     let sentenceStartIndex = error.index(error.startIndex, offsetBy: start+1)
     let sentenceEndIndex = error.index(error.startIndex, offsetBy: end)
     let myWarning = error[(sentenceStartIndex..<sentenceEndIndex)]
-    print(myWarning)
     return String(myWarning)
 }
 
 // MARK: - Methods
-/**
- Function that saves the book in FireBase
- - Parameter book : book to be saved
- */
-func saveBook(with book: Book) {
-    // create a shortcut reference : type DataReference
-    let databaseReference = Database.database().reference()
-    // the book properties have to be saved as dictionary in Firebase
-    let bookToSaveDictionary: [String: Any] =  ["bookId": book.bookId,
-                                                 "bookIsbn": book.bookIsbn,
-                                                 "bookTitle": book.bookTitle,
-                                                 "bookAuthor": book.bookAuthor,
-                                                 "bookEditor": book.bookEditor ?? "N/A",
-                                                 "bookYearOfEdition": book.bookYearOfEdition ?? "N/A",
-                                                 "bookCover": book.bookCoverURL ?? "",
-                                                 "bookOwner": book.bookOwner,
-                                                 "bookIsAvailable": book.bookIsAvailable,
-                                                 //     "bookDateOfLoanStart" : book.bookDateOfLoanStart as Any,
-        //    "bookDateOfLoanEnd": book.bookDateOfLoanEnd as Any,
-        "bookType": book.bookTypeString ?? "unknown"]
-    // In the dataBase, child is a repo, child userId (is an repo), create a dictionnary.
-    // databaseReference.child("users").child(userId!).setValue(["bookId" : text])
-    databaseReference.child("books").child(book.bookId).setValue(bookToSaveDictionary)
-}
 
 /**
  Function that stores cover information from a bbok
@@ -110,47 +86,46 @@ func saveBook(with book: Book) {
     // create an data in jpg format from a UIImage
     guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
     // Create a Storage reference with the bookId
+    let storageRef = Storage.storage().reference(withPath: "cover/\(fromBook.bookIsbn).jpg")
     
-    let storageRef = Storage.storage().reference().child("cover").child("\(fromBook.bookIsbn).jpg")
-    let uploadTask = storageRef.putData(imageData, metadata: nil) { (metadata, errorUpLoad) in
-        print(metadata ?? "no metadata")
-        print(errorUpLoad ?? "no error")
-        storageRef.downloadURL(completion: { (url, error) in
-            //    self.tempURL = url
-            print(url as Any)
-        })
+    let uploadMetadata = StorageMetadata()
+    // Describe the type of image stored in FireStorage
+    uploadMetadata.contentType = "image/jpeg"
+    
+    let uploadTask = storageRef.putData(imageData, metadata: uploadMetadata) { (metadata, errorUpLoad) in
+         DispatchQueue.main.async {
+        if errorUpLoad != nil {
+            print("i received an error \(errorUpLoad?.localizedDescription ?? "error but no description")")
+        } else {
+            print("upload is finished")
+          print("Here are some metadata \(String(describing: metadata))")
+            if metadata == nil {
+                print("oups")
+            }else {
+                 print("metadata existe")
+                let stor = metadata?.storageReference
+                print("la descritpion du stor \(String(describing: stor))")
+                let stro = uploadMetadata.storageReference
+                 print("la descritpion du stor \(String(describing: stro))")
+                 print("la descritpion du stor \(String(describing: storageRef))")
+            }
+        }
+        }
     }
     uploadTask.observe(.progress) { (snapshot) in
-        print(snapshot.progress ?? "No More Progress")
+        guard let progress = snapshot.progress else {return}
+        print(progress)
+        uploadTask.resume()
+        print("Test print to see if download is done")
     }
-    uploadTask.resume()
-    print("Text printed if download is done")
-    storageRef.downloadURL(completion: { (url, error) in
-        //   self.tempURL = url
-        print(url as Any)
-    })
     
-    /*
-     //  tempCoverReferenceWhenUploadOrDownLoad = coverReference.child("\(fromBook.bookIsbn).jpg")
-     //print("17 mai :  test pour reference \(tempCoverReferenceWhenUploadOrDownLoad)")
-     // create a tast to put (send) the data in the Firebase storage at storage reference
-     let uploadTask = tempCoverReferenceWhenUploadOrDownLoad.putData(imageData, metadata: nil) { (metadata, erro) in
-     print("upload is finished")
-     print(metadata ?? "no metadata")
-     print(erro ?? "no error")
-     }
-     uploadTask.observe(.progress) { (snapshot) in
-     print(snapshot.progress ?? "No More Progress")
-     }
-     uploadTask.resume()
-     print("Text printed if download is done")
-     */
 }
+ 
 
 /**
  Function that stores cover information from a picture taken from device
  - Parameter fromBook: the book to save
- */
+ 
 func storeCoverImageInFirebaseStorageFromDevice(imageToSave: UIImage, toBook : Book) -> String {
 
     let dataasImage = imageToSave
@@ -163,6 +138,7 @@ func storeCoverImageInFirebaseStorageFromDevice(imageToSave: UIImage, toBook : B
         print(errorUpLoad ?? "no error")
         storageRef.downloadURL(completion: { (url, error) in
             //    self.tempURL = url
+            print("toutou")
             print(url as Any)
         })
     }
@@ -178,7 +154,7 @@ func storeCoverImageInFirebaseStorageFromDevice(imageToSave: UIImage, toBook : B
     
     return "à définir"
 }
-
+*/
 // MARK: - Methods
 /**
  Function that resizes an image
@@ -190,7 +166,6 @@ func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
     let size = image.size
     let widthRatio  = targetSize.width  / size.width
     let heightRatio = targetSize.height / size.height
-    
     var newSize: CGSize
     if widthRatio > heightRatio {
         newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)

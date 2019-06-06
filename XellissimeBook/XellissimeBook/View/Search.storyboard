@@ -25,7 +25,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTU-6d-3y5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5988" y="-184"/>
+            <point key="canvasLocation" x="-7359" y="-194"/>
         </scene>
         <!--Menu Search View Controller-->
         <scene sceneID="t8J-2o-hcZ">
@@ -49,7 +49,7 @@
                                     <color key="titleColor" red="0.90178716179999996" green="0.86696618800000003" blue="0.85097676519999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hBo-pB-It8" kind="show" id="BvP-PH-44m"/>
+                                    <segue destination="KWc-A3-1CR" kind="show" id="qB3-pl-W3j"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,23 +67,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Swu-Gd-gOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5149" y="-184"/>
+            <point key="canvasLocation" x="-6548" y="-194"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="VGO-6F-Edm">
+        <scene sceneID="oMS-XX-jak">
             <objects>
-                <navigationController id="hBo-pB-It8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XRE-JY-0Sl">
+                <navigationController id="KWc-A3-1CR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KJS-Uq-poP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Up3-nJ-IxP" kind="relationship" relationship="rootViewController" id="SCM-oU-xh5"/>
+                        <segue destination="Up3-nJ-IxP" kind="relationship" relationship="rootViewController" id="g0x-QS-UIt"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P4e-sl-fOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EQN-1H-Omv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4552" y="-839"/>
+            <point key="canvasLocation" x="-5690" y="-205"/>
         </scene>
         <!--My List Of Books View Controller-->
         <scene sceneID="RW9-4j-Nhk">
@@ -93,8 +93,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Fw-uM-fEr">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Fw-uM-fEr">
+                                <rect key="frame" x="-1" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.38555160160000002" green="0.54731100799999999" blue="0.63138794899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RPJ-S1-20V">
                                     <size key="itemSize" width="200" height="200"/>
@@ -113,8 +113,8 @@
                                                 <stackView opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="c0L-CV-c6O">
                                                     <rect key="frame" x="2" y="31" width="208" height="150"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="199" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="29C-Ew-H70">
-                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="140"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="199" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29C-Ew-H70">
+                                                            <rect key="frame" x="-3" y="4" width="200" height="140"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="GEB-hU-5dP">
                                                             <rect key="frame" x="0.0" y="142" width="200" height="58"/>
@@ -192,7 +192,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rqg-5B-Yhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Orf-g9-n6C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3597" y="-839"/>
+            <point key="canvasLocation" x="-4735" y="-207"/>
         </scene>
         <!--BookDetails-->
         <scene sceneID="Qq8-jA-YJL">
@@ -253,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xa-Uh-oyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2651" y="-840"/>
+            <point key="canvasLocation" x="-3878" y="-206"/>
         </scene>
     </scenes>
     <resources>
