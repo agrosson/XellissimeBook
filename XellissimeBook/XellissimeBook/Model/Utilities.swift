@@ -49,12 +49,15 @@ func getErrorMessageFromFireBase(error: String) -> String? {
     /// var that tracks the last " - end of the text message
     var end = 0
     var counterQuote = 0
+    // count the number of quote ""
     for char in error where char == "\u{22}" {
         counterQuote += 1
     }
+    // return nil if less or more than
     if counterQuote != 2 {
         return nil
     }
+    // Extract the string between ""
     for char in error {
         if char == "\u{22}" {
             if start == 0 {
