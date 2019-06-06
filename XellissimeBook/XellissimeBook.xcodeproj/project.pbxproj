@@ -48,6 +48,7 @@
 		C1FC7CF3227C850D00D32467 /* BookStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF2227C850D00D32467 /* BookStruct.swift */; };
 		C1FC7CF5227C854400D32467 /* MyBookToStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */; };
 		C1FC7CF7227C859700D32467 /* MessageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF6227C859700D32467 /* MessageStruct.swift */; };
+		C1FE6F4122A9790C006EC5D4 /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE6F4022A9790C006EC5D4 /* UtilitiesTests.swift */; };
 		C9A5512E9B795B03502EB4D7 /* Pods_XellissimeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11921FF18DDBBD5B074109A4 /* Pods_XellissimeBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		C1FC7CF2227C850D00D32467 /* BookStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStruct.swift; sourceTree = "<group>"; };
 		C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookToStruct.swift; sourceTree = "<group>"; };
 		C1FC7CF6227C859700D32467 /* MessageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStruct.swift; sourceTree = "<group>"; };
+		C1FE6F4022A9790C006EC5D4 /* UtilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesTests.swift; sourceTree = "<group>"; };
 		E5B68362ADBC175D2D6C1761 /* Pods-XellissimeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 		C1AC1FBF2277265A003E0734 /* XellissimeBookTests */ = {
 			isa = PBXGroup;
 			children = (
+				C1FE6F4022A9790C006EC5D4 /* UtilitiesTests.swift */,
 				C1AC1FC02277265A003E0734 /* XellissimeBookTests.swift */,
 				C1AC1FC22277265A003E0734 /* Info.plist */,
 			);
@@ -539,6 +542,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1FE6F4122A9790C006EC5D4 /* UtilitiesTests.swift in Sources */,
 				C1AC1FC12277265A003E0734 /* XellissimeBookTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

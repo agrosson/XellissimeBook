@@ -36,7 +36,7 @@ class LogInViewController: UIViewController {
                 guard authResult != nil, error == nil else {
                     // manage error
                     let fireBaseError = error.debugDescription
-                    let fireBaseErrorMessage = getErrorMessageFromFireBase(error: fireBaseError)
+                    let fireBaseErrorMessage = getErrorMessageFromFireBase(error: fireBaseError) ?? "no error indication given"
                     self.presentAlertDetails(title: "Sorry", message: fireBaseErrorMessage, titleButton: "Cancel")
                     return
                 }

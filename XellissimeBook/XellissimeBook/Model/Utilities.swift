@@ -42,13 +42,19 @@ class CustomTabBar: UITabBar {
  - Parameter error : error message received from Firebase
  - Returns: explanation of error as a String
  */
-
-func getErrorMessageFromFireBase(error: String) -> String {
+func getErrorMessageFromFireBase(error: String) -> String? {
     var counter = 0
     /// var that tracks the first " - beginning of the text message
     var start = 0
     /// var that tracks the last " - end of the text message
     var end = 0
+    var counterQuote = 0
+    for char in error where char == "\u{22}" {
+        counterQuote += 1
+    }
+    if counterQuote != 2 {
+        return nil
+    }
     for char in error {
         if char == "\u{22}" {
             if start == 0 {

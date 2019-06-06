@@ -125,8 +125,10 @@ extension NetworkManager {
 }
 
 extension NetworkManager {
-    func getBookInfoGoodReads(fullUrl: URL, method: String,
-                              isbn: String, callBack: @escaping (Bool, Book?) -> Void) {
+    func getBookInfoGoodReads(fullUrl: URL,
+                              method: String,
+                              isbn: String,
+                              callBack: @escaping (Bool, Book?) -> Void) {
         var request = URLRequest(url: fullUrl)
         request.httpMethod = method
         task?.cancel()

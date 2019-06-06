@@ -61,7 +61,7 @@ class InitialScreenViewController: UIViewController {
                 guard authResult != nil, error == nil else {
                     // manage error here :
                     let fireBaseError = error.debugDescription
-                    let fireBaseErrorMessage = getErrorMessageFromFireBase(error: fireBaseError)
+                    let fireBaseErrorMessage = getErrorMessageFromFireBase(error: fireBaseError) ?? "No error indication given"
                     self.presentAlertDetails(title: "Sorry", message: fireBaseErrorMessage, titleButton: "Cancel")
                     print(error.debugDescription)
                     return
