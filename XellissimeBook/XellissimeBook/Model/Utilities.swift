@@ -78,7 +78,6 @@ func getErrorMessageFromFireBase(error: String) -> String? {
 }
 
 // MARK: - Methods
-
 /**
  Function that stores cover information from a bbok
  - Parameter fromBook: the book to save
@@ -96,31 +95,32 @@ func getErrorMessageFromFireBase(error: String) -> String? {
     guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
     // Create a Storage reference with the bookId
     let storageRef = Storage.storage().reference(withPath: "cover/\(fromBook.bookIsbn).jpg")
-    
+    // Create a Storage Metadata
     let uploadMetadata = StorageMetadata()
     // Describe the type of image stored in FireStorage
     uploadMetadata.contentType = "image/jpeg"
     
+    // Create the uopload task
     let uploadTask = storageRef.putData(imageData, metadata: uploadMetadata) { (metadata, errorUpLoad) in
          DispatchQueue.main.async {
         if errorUpLoad != nil {
             print("i received an error \(errorUpLoad?.localizedDescription ?? "error but no description")")
         } else {
             print("upload is finished")
-          print("Here are some metadata \(String(describing: metadata))")
             if metadata == nil {
-                print("oups")
+                print("No metada")
             }else {
-                 print("metadata existe")
-                let stor = metadata?.storageReference
-                print("la descritpion du stor \(String(describing: stor))")
-                let stro = uploadMetadata.storageReference
-                 print("la descritpion du stor \(String(describing: stro))")
-                 print("la descritpion du stor \(String(describing: storageRef))")
+                print("Here are some metadata \(String(describing: metadata))")
+                let storageMetadata = metadata?.storageReference
+                print("Here are the storageMetadata \(String(describing: storageMetadata))")
+                let uploadStorageReference = uploadMetadata.storageReference
+                 print("Here are the uploadStorageReference \(String(describing: uploadStorageReference))")
+                 print("Here are the initial storageRef \(String(describing: storageRef))")
             }
         }
         }
     }
+    // Observer of the uploadTask : describe the progression of the upLoad
     uploadTask.observe(.progress) { (snapshot) in
         guard let progress = snapshot.progress else {return}
         print(progress)
