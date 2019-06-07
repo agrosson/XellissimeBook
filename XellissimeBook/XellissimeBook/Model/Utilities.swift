@@ -94,39 +94,49 @@ func getErrorMessageFromFireBase(error: String) -> String? {
     // create an data in jpg format from a UIImage
     guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
     // Create a Storage reference with the bookId
-    let storageRef = Storage.storage().reference(withPath: "cover/\(fromBook.bookIsbn).jpg")
+    let path = "\(fromBook.bookIsbn).jpg"
+    let storageRef = Storage.storage().reference(withPath: path)
     // Create a Storage Metadata
     let uploadMetadata = StorageMetadata()
     // Describe the type of image stored in FireStorage
     uploadMetadata.contentType = "image/jpeg"
-    
     // Create the uopload task
-    let uploadTask = storageRef.putData(imageData, metadata: uploadMetadata) { (metadata, errorUpLoad) in
-         DispatchQueue.main.async {
-        if errorUpLoad != nil {
-            print("i received an error \(errorUpLoad?.localizedDescription ?? "error but no description")")
-        } else {
-            print("upload is finished")
-            if metadata == nil {
-                print("No metada")
-            }else {
-                print("Here are some metadata \(String(describing: metadata))")
-                let storageMetadata = metadata?.storageReference
-                print("Here are the storageMetadata \(String(describing: storageMetadata))")
-                let uploadStorageReference = uploadMetadata.storageReference
-                 print("Here are the uploadStorageReference \(String(describing: uploadStorageReference))")
-                 print("Here are the initial storageRef \(String(describing: storageRef))")
-            }
-        }
+    storageRef.putData(imageData, metadata: uploadMetadata) { (metada, error) in
+        if error != nil {
+              print("i received an error \(error?.localizedDescription ?? "error but no description")")
+        }   else {
+            print("up load complete, here some metadata \(String(describing: metada))")
         }
     }
+//    let uploadTask = storageRef.putData(imageData, metadata: uploadMetadata) { (metadata, errorUpLoad) in
+//         DispatchQueue.main.async {
+//             print("serie de test 6")
+//        if errorUpLoad != nil {
+//            print("i received an error \(errorUpLoad?.localizedDescription ?? "error but no description")")
+//        } else {
+//            print("upload is finished")
+//            if metadata == nil {
+//                print("No metada")
+//            }else {
+//                print("Here are some metadata \(String(describing: metadata))")
+//                let storageMetadata = metadata?.storageReference
+//                print("Here are the storageMetadata \(String(describing: storageMetadata))")
+//                let uploadStorageReference = uploadMetadata.storageReference
+//                 print("Here are the uploadStorageReference \(String(describing: uploadStorageReference))")
+//                 print("Here are the initial storageRef \(String(describing: storageRef))")
+//            }
+//        }
+//        }
+//    }
     // Observer of the uploadTask : describe the progression of the upLoad
-    uploadTask.observe(.progress) { (snapshot) in
-        guard let progress = snapshot.progress else {return}
-        print(progress)
-        uploadTask.resume()
-        print("Test print to see if download is done")
-    }
+//    uploadTask.observe(.progress) { (snapshot) in
+//         print("serie de test a")
+//        guard let progress = snapshot.progress else {return}
+//        print(progress)
+//        print("serie de test B")
+//        uploadTask.resume()
+//        print("Test print to see if download is done")
+//    }
     
 }
  

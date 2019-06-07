@@ -100,6 +100,8 @@ class AddMenuViewController: UIViewController {
                 book.bookOwner = userId
                 book.bookEditor = bookToSave?.bookEditor
                 book.bookCoverURL = bookToSave?.bookCoverURL
+                
+                print("l'url est \(String(describing: book.bookCoverURL))")
                 // store image in Storage
                 storeCoverImageInFirebaseStorage(fromBook: book)
               //  book.bookCoverURL = tempURL?.absoluteString
@@ -112,8 +114,10 @@ class AddMenuViewController: UIViewController {
                  book.bookCoverURL = referenceToTransformInURLString
                  book.bookCoverURL = tempURL
                  */
-                // this function is defined in Utilities
+                // this function is defined in bookStruct
+                print("on execute ici")
                 saveBook(with: book)
+                print("on execute là")
                 scannedIsbn = ""
                 comeFromAdd = true
             }

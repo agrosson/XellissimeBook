@@ -56,6 +56,7 @@ func saveBook(with book: Book) {
     //let newCoverUrlString = "\(String(describing: storageRef))"
     // create a shortcut reference : type DataReference
     let databaseReference = Database.database().reference()
+    print("la dataref est \(databaseReference)")
     // the book properties have to be saved as dictionary in Firebase
     let bookToSaveDictionary: [String: Any] =  ["bookId": book.bookId,
                                                 "bookIsbn": book.bookIsbn,
