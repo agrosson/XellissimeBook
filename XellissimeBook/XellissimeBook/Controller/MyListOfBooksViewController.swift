@@ -15,6 +15,10 @@ import FirebaseAuth
 
 
 class MyListOfBooksViewController: UIViewController {
+    
+    var download:StorageDownloadTask!
+    
+    
     var optionToList = 1
     // MARK: - Outlet - CollectionView
     @IBOutlet weak var mycol: UICollectionView!
@@ -104,6 +108,32 @@ class MyListOfBooksViewController: UIViewController {
         let data = try? Data(contentsOf: url!)
         self.imagefromFire = UIImage(data: data!)
     }
+    
+    private func getImageFromFireStorage(with path: String) -> UIImage {
+        var image = UIImage()
+        let storageRef = Storage.storage().reference(withPath: path)
+        let maxSize: Int64 = 3*1024*1024
+        self.download = storageRef.getData(maxSize: maxSize) { [weak self] (data, error) in
+            guard let data = data else {
+                print("no dta ")
+                return}
+            guard let imageData = UIImage(data: data) else {
+                print("no data image")
+                return
+            }
+            image = imageData
+            self!.download.resume()
+        }
+        download.observe(.progress) { (snapshot) in
+            guard let progress = snapshot.progress else {
+                print("no progress")
+                return}
+            print("end of progress")
+            print(progress.fractionCompleted)
+        }
+        
+        return image
+    }
 }
 
 extension MyListOfBooksViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -126,59 +156,30 @@ extension MyListOfBooksViewController: UICollectionViewDataSource, UICollectionV
             labelEditor.text = collectionBooks[indexPath.row].bookEditor
         }
         if let imageViewBook = cell.viewWithTag(199) as? UIImageView {
-                if optionToList == 1 {
-                    let myURL = collectionBooks[indexPath.row].bookCoverURL ?? ""
-                    print("myUrl is : \(myURL)")
-                    let downloadImageRef = Storage.storage().reference(forURL: myURL)
-                    print("and storage is \(downloadImageRef)")
-                    let downloadtask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { data, error in
-                        
-                        if error != nil {print(error!.localizedDescription); return}
-                        guard let data = data else {print("no data"); return}
-                        let image = UIImage(data: data)
-                        imageViewBook.image = image
+            let cover = "\(collectionBooks[indexPath.row].bookIsbn).jpg"
+            print("la cover = isbn \(cover)")
+            print("let's download")
+            let storageRef = Storage.storage().reference().child("cover").child(cover)
+            print(storageRef.description)
+            DispatchQueue.main.async {
+                print("let's be inside")
+                self.download = storageRef.getData(maxSize: 1024*1024*5, completion:  { [weak self] (data, error) in
+                    print("let's be inside download")
+                    if error != nil {
+                        print("error here : \(error.debugDescription)")
                     }
-                    downloadtask.resume()
-                }
-                if optionToList == 2 {
-                    if var urlTest = collectionBooks[indexPath.row].bookCoverURL {
-                        var imageToGet: UIImage?
-                        print("ceci est l'url :\(urlTest)")
-                        urlTest.removeFirstAndLastAndDoubleWhitespace()
-                        if let url = URL(string: urlTest) {
-                            let data = try? Data(contentsOf: url)
-                            if let datatNotNil = data {
-                                imageToGet = UIImage(data: datatNotNil)
-                                let size = CGSize(width: 100, height: 100)
-                                let resizedImage = resizeImage(image: imageToGet!, targetSize: size)
-                                imageViewBook.image = resizedImage
-                            } else {
-                                imageViewBook.image = imageDefault1!
-                            }
-                        } else {
-                            imageViewBook.image = imageDefault1!
-                        }
-                    } else { imageViewBook.image = imageDefault1!}
-                }
-//
-//            let downloadImageRef = coverReference.child(filename)
-//
-//            let downloadtask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
-//                if let data = data {
-//                    let image = UIImage(data: data)
-//                    imageViewBook.image = image
-//                }
-//                print(error ?? "NO ERROR")
-//            }
-//
-//            downloadtask.observe(.progress) { (snapshot) in
-//                print(snapshot.progress ?? "NO MORE PROGRESS")
-//            }
-//
-//            downloadtask.resume()
-//
-//
-//        }
+                    guard let data = data else {
+                        print("no data here")
+                        return
+                    }
+                    if error != nil {
+                        print("error here : \(error.debugDescription)")
+                    }
+                    print("download succeeded !")
+                    imageViewBook.image = UIImage(data: data)
+                    self!.download.resume()
+                })
+            }
             return cell
         }
         return cell

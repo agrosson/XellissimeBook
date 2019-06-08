@@ -105,21 +105,14 @@ class AddMenuViewController: UIViewController {
                 // store image in Storage
                 storeCoverImageInFirebaseStorage(fromBook: book)
               //  book.bookCoverURL = tempURL?.absoluteString
+                
                 print("la nouvelle url est : \(String(describing: book.bookCoverURL))")
-                /* This block is eventually here to change URLCOVER in Firebase : Todo if needed
-                 // change URL for book cover
-                 let referenceToTransformInURLString = "\(coverReference.child(book.bookId)).jpg"
-                 let one = referenceToTransformInURLString.fullPath
-                 print("ceci est le full path \(one)")
-                 book.bookCoverURL = referenceToTransformInURLString
-                 book.bookCoverURL = tempURL
-                 */
-                // this function is defined in bookStruct
                 print("on execute ici")
                 saveBook(with: book)
                 print("on execute là")
                 scannedIsbn = ""
                 comeFromAdd = true
+                
             }
         }
     }
