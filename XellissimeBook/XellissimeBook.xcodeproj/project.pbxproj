@@ -24,7 +24,6 @@
 		C1624DFF22AAA2EB006DE380 /* codeToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1624DFE22AAA2EB006DE380 /* codeToSave.swift */; };
 		C1810858229BD99400392754 /* listNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1810857229BD99400392754 /* listNavViewController.swift */; };
 		C1890992227A055B00ABE37D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1890991227A055B00ABE37D /* LogInViewController.swift */; };
-		C1A020D1228082FA0024C594 /* MyListOfBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */; };
 		C1A020D322809A720024C594 /* MenuSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A020D222809A720024C594 /* MenuSearchViewController.swift */; };
 		C1A121AF22918D1300FDAC0D /* MainScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A121AE22918D1300FDAC0D /* MainScanViewController.swift */; };
 		C1A121B12291910500FDAC0D /* ScanRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A121B02291910500FDAC0D /* ScanRunningViewController.swift */; };
@@ -92,7 +91,6 @@
 		C1890991227A055B00ABE37D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		C1A020CC22806D330024C594 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C1A020CD22806D330024C594 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListOfBooksViewController.swift; sourceTree = "<group>"; };
 		C1A020D222809A720024C594 /* MenuSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSearchViewController.swift; sourceTree = "<group>"; };
 		C1A121AE22918D1300FDAC0D /* MainScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScanViewController.swift; sourceTree = "<group>"; };
 		C1A121B02291910500FDAC0D /* ScanRunningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanRunningViewController.swift; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 				C1A121B02291910500FDAC0D /* ScanRunningViewController.swift */,
 				C1A121AE22918D1300FDAC0D /* MainScanViewController.swift */,
 				C1A020D222809A720024C594 /* MenuSearchViewController.swift */,
-				C1A020D0228082FA0024C594 /* MyListOfBooksViewController.swift */,
 				C1FC7CE8227C73F100D32467 /* AddMenuViewController.swift */,
 				C1FC7CDE227C68DC00D32467 /* MenuTabBarViewController.swift */,
 				C156652B2279B1D800C41453 /* WelcomeViewController.swift */,
@@ -541,7 +538,6 @@
 				C1FC7CF7227C859700D32467 /* MessageStruct.swift in Sources */,
 				C1A121B12291910500FDAC0D /* ScanRunningViewController.swift in Sources */,
 				C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */,
-				C1A020D1228082FA0024C594 /* MyListOfBooksViewController.swift in Sources */,
 				C1025A442284309600AF6DFE /* BookResponse.swift in Sources */,
 				C1FC7CE9227C73F100D32467 /* AddMenuViewController.swift in Sources */,
 				C1025A4A228495C600AF6DFE /* OpenLibraryAPI.swift in Sources */,

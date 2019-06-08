@@ -234,7 +234,6 @@
                             </state>
                             <connections>
                                 <action selector="saveBookInDatabase:" destination="K1i-Bf-mj8" eventType="touchUpInside" id="nTi-oB-an3"/>
-                                <segue destination="aNv-1v-cdW" kind="show" id="o3g-ac-6Mm"/>
                             </connections>
                         </button>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="9JU-mN-rUf">
@@ -266,14 +265,6 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="-2468" y="-612"/>
-        </scene>
-        <!--storyListBook-->
-        <scene sceneID="Vgf-iM-2Ny">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Search" referencedIdentifier="storyListBook" id="aNv-1v-cdW" propertyAccessControl="localizable" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Us8-Pw-X58" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1918" y="-1132"/>
         </scene>
         <!--Main Scan View Controller-->
         <scene sceneID="4qt-cZ-WLr">

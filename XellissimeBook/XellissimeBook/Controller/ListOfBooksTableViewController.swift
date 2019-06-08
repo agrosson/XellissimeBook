@@ -40,9 +40,53 @@ class ListOfBooksTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        navBarItemSetup()
-       createBookListFromFirebase()
+        print("on passe par là .fbcelbflubflb")
+        ref = Database.database().reference()
+        // Retrieve the books and listen for change
+        DispatchQueue.main.async {
+            self.databaseHandler = self.ref?.child("books").observe(.value, with: { (snapshot) in
+                var counter = 1
+                // In repo "books", go to every "child"
+                for mychild in snapshot.children {
+                    print("Book details \(counter)")
+                    counter += 1
+                    /// A FIRDataSnapshot contains data from a Firebase Database location
+                    guard let childTest = mychild as? DataSnapshot else {return}
+                    // the data contained in the DataSnapshot is a dictionary of type [String : AnyObject]
+                    guard let values = childTest.value as? [String: AnyObject] else {return}
+                    // Get all values from Dictionary
+                    guard   let bookId: String = values["bookId"] as? String,
+                        let bookIsbn: String = values["bookIsbn"] as? String,
+                        let bookAuthor: String = values["bookAuthor"] as? String,
+                        var bookCoverURL: String = values["bookCover"] as? String,
+                        let bookEditor: String = values["bookEditor"] as? String,
+                        let bookIsAvailable: Bool = values["bookIsAvailable"] as? Bool,
+                        let bookOwner: String = values["bookIsbn"] as? String,
+                        let bookTitle: String = values["bookTitle"] as? String,
+                        let bookTypeString: String = values["bookType"] as? String,
+                        let bookYearOfEdition: String = values["bookYearOfEdition"] as? String
+                        else {return}
+                    // Use the values to create a book
+                    var bookFromFireBase = Book(title: bookTitle, author: bookAuthor, isbn: bookIsbn)
+                    bookFromFireBase.bookId = bookId
+                    bookCoverURL.removeFirstAndLastAndDoubleWhitespace()
+                    // To do here : change the url if needed
+                    bookFromFireBase.bookCoverURL = bookCoverURL
+                    bookFromFireBase.bookEditor = bookEditor
+                    bookFromFireBase.bookIsAvailable = bookIsAvailable
+                    bookFromFireBase.bookOwner = bookOwner
+                    bookFromFireBase.bookTypeString = bookTypeString
+                    bookFromFireBase.bookYearOfEdition = bookYearOfEdition
+                    // Add the book in the collectionBook
+                    self.collectionBooks.append(bookFromFireBase)
+                    // reload the collectionView
+                    self.tableView.reloadData()
+                }
+            })
+        }
         
         
+       print("c''est quoi ce \(collectionBooks.count)")
        tableView.reloadData()
       
     }
@@ -50,7 +94,6 @@ class ListOfBooksTableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navBarItemSetup()
-        createBookListFromFirebase()
         tableView.reloadData()
     }
     
@@ -67,6 +110,7 @@ class ListOfBooksTableViewController: UIViewController {
     }
     
     private func createBookListFromFirebase(){
+        print("on passe par là .fbcelbflubflb")
         ref = Database.database().reference()
         // Retrieve the books and listen for change
         self.databaseHandler = self.ref?.child("books").observe(.value, with: { (snapshot) in
@@ -154,6 +198,9 @@ extension ListOfBooksTableViewController: UITableViewDelegate, UITableViewDataSo
         cell.configure(title: book.bookTitle, author: book.bookAuthor, editor: book.bookEditor ?? "unknown")
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+        
+    }
     
 }
