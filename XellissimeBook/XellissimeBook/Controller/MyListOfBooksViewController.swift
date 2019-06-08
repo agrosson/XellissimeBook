@@ -15,14 +15,13 @@ import FirebaseAuth
 
 
 class MyListOfBooksViewController: UIViewController {
-    
-    var download:StorageDownloadTask!
-    
-    
+
     var optionToList = 1
     // MARK: - Outlet - CollectionView
     @IBOutlet weak var mycol: UICollectionView!
     // MARK: - Properties
+    /// StorageDownloadTask
+    var download:StorageDownloadTask!
     /// Empty book for testing
     var bookA = Book(title: "le livre", author: "l'auteur", isbn: "l'isbn")
     /// Array of books : displayed in collectionView
