@@ -35,9 +35,8 @@ class BookListTableViewCell: UITableViewCell {
      - Parameter author: author(s) of the book
      - Parameter editor: editor(s) of the book
      */
-    func configure(imageCover: UIImage, title: String, author: String, editor: String) {
+    func configure(title: String, author: String, editor: String) {
         // todo : bookAvailabilityImage will be configured later
-        coverImage.image = imageCover
         bookTitleLabel.text = title
         bookAuthorLabel.text = author
         bookEditorLabel.text = editor

@@ -100,39 +100,6 @@ class MyListOfBooksViewController: UIViewController {
     @objc func addTapped(){
         print("we add a book")
     }
-
-    private func downloadImage(urlString: String) {
-        let url = URL(string: urlString)
-        //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        let data = try? Data(contentsOf: url!)
-        self.imagefromFire = UIImage(data: data!)
-    }
-    
-    private func getImageFromFireStorage(with path: String) -> UIImage {
-        var image = UIImage()
-        let storageRef = Storage.storage().reference(withPath: path)
-        let maxSize: Int64 = 3*1024*1024
-        self.download = storageRef.getData(maxSize: maxSize) { [weak self] (data, error) in
-            guard let data = data else {
-                print("no dta ")
-                return}
-            guard let imageData = UIImage(data: data) else {
-                print("no data image")
-                return
-            }
-            image = imageData
-            self!.download.resume()
-        }
-        download.observe(.progress) { (snapshot) in
-            guard let progress = snapshot.progress else {
-                print("no progress")
-                return}
-            print("end of progress")
-            print(progress.fractionCompleted)
-        }
-        
-        return image
-    }
 }
 
 extension MyListOfBooksViewController: UICollectionViewDataSource, UICollectionViewDelegate {
