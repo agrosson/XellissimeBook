@@ -35,7 +35,7 @@ class BookDetailsViewController: UIViewController {
         bookAuthorLabel.text = bookDetailsToDisplay.bookAuthor
         bookEditorLabel.text = bookDetailsToDisplay.bookEditor
         
-        guard let urlString = bookDetailsToDisplay.bookCoverURL else {return}
+        let urlString = bookDetailsToDisplay.bookCoverURL
         if let url = URL(string: urlString) {
             let data = try? Data(contentsOf: url)
             if let datatNotNil = data {

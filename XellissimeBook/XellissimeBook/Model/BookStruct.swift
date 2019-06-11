@@ -27,7 +27,7 @@ struct Book {
     var bookEditor: String?
     var bookYearOfEdition: String?
     /// URL of the cover image
-    var bookCoverURL: String?
+    var bookCoverURL = ""
     /// Will be set when user will add a book in the list
     var bookOwner = String() // the unqiue userIosId
     var bookIsAvailable: Bool = false
@@ -52,9 +52,7 @@ enum BookType {
  */
 func saveBook(with book: Book) {
     
-    // let storageRef = Storage.storage().reference().child("cover").child(book.bookIsbn+".jpg")
-    //let newCoverUrlString = "\(String(describing: storageRef))"
-    // create a shortcut reference : type DataReference
+
     let databaseReference = Database.database().reference()
     print("la dataref est \(databaseReference)")
     // the book properties have to be saved as dictionary in Firebase
@@ -62,9 +60,9 @@ func saveBook(with book: Book) {
                                                 "bookIsbn": book.bookIsbn,
                                                 "bookTitle": book.bookTitle,
                                                 "bookAuthor": book.bookAuthor,
-                                                "bookEditor": book.bookEditor ?? "N/A",
+                                                "bookEditor": book.bookEditor ?? "unknown",
                                                 "bookYearOfEdition": book.bookYearOfEdition ?? "N/A",
-                                                "bookCover": book.bookCoverURL ?? "",
+                                                "bookCover": book.bookCoverURL,
                                                 "bookOwner": book.bookOwner,
                                                 "bookIsAvailable": book.bookIsAvailable,
                                                 //     "bookDateOfLoanStart" : book.bookDateOfLoanStart as Any,

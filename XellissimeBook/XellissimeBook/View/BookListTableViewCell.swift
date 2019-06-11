@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class BookListTableViewCell: UITableViewCell {
 
@@ -18,6 +19,7 @@ class BookListTableViewCell: UITableViewCell {
     @IBOutlet weak var bookAuthorLabel: UILabel!
     @IBOutlet weak var bookEditorLabel: UILabel!
     
+    var download:StorageDownloadTask!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,8 +37,33 @@ class BookListTableViewCell: UITableViewCell {
      - Parameter author: author(s) of the book
      - Parameter editor: editor(s) of the book
      */
-    func configure(title: String, author: String, editor: String) {
+    func configure(isbn: String, title: String, author: String, editor: String) {
         // todo : bookAvailabilityImage will be configured later
+        
+        let cover = "\(isbn).jpg"
+        let storageRef = Storage.storage().reference().child("cover").child(cover)
+        print(storageRef.description)
+        //  download = StorageDownloadTask()
+        DispatchQueue.main.async {
+            print("let's be inside")
+            self.download = storageRef.getData(maxSize: 1024*1024*5, completion:  { [weak self] (data, error) in
+                print("let's be inside download")
+                if error != nil {
+                    print("error here : \(error.debugDescription)")
+                }
+                guard let data = data else {
+                    print("no data here")
+                    return
+                }
+                if error != nil {
+                    print("error here : \(error.debugDescription)")
+                }
+                print("download succeeded !")
+                self!.coverImage.image = UIImage(data: data)
+                self!.download.resume()
+            })
+        }
+        
         bookTitleLabel.text = title
         bookAuthorLabel.text = author
         bookEditorLabel.text = editor

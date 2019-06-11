@@ -84,15 +84,28 @@ func getErrorMessageFromFireBase(error: String) -> String? {
  */
  func storeCoverImageInFirebaseStorage(fromBook: Book) {
     // get url string from book
-    guard let bookUrl = fromBook.bookCoverURL else {return}
+    let bookUrl = fromBook.bookCoverURL
+    print("mardi \(bookUrl)")
     // get url from url string
-    guard let url = URL(string: bookUrl) else {return}
-    // get data from url
-    guard let data = try? Data(contentsOf: url) else {return}
+  
     // create a UIImage from the data
-    guard let dataasImage = UIImage(data: data) else {return}
+    var dataasImage: UIImage?
+    if bookUrl == "" {
+        dataasImage = UIImage(named: "default")
+        print("mardi là")
+    } else {
+        guard let url = URL(string: bookUrl) else {  print("mardi aie")
+            return}
+        // get data from url
+        guard let data = try? Data(contentsOf: url) else {
+            print("mardi ouille")
+            return}
+        dataasImage = UIImage(data: data)
+        print("mardi ici")
+    }
+    guard let imageToStore = dataasImage else {return}
     // create an data in jpg format from a UIImage
-    guard let imageData = dataasImage.jpegData(compressionQuality: 1) else {return}
+    guard let imageData = imageToStore.jpegData(compressionQuality: 1) else {return}
     // Create a Storage reference with the bookId
     let storageRef = Storage.storage().reference().child("cover").child("\(fromBook.bookIsbn).jpg")
     // Create a Storage Metadata
@@ -109,7 +122,6 @@ func getErrorMessageFromFireBase(error: String) -> String? {
     }
     uploadTask.observe(.progress) { (snapshot) in
         guard let progress = snapshot.progress else {
-            print("chameau")
             return}
         print("end of progress?? ")
         print(progress.fractionCompleted)

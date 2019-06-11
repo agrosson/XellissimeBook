@@ -99,8 +99,11 @@ class AddMenuViewController: UIViewController {
                 book.bookId = uniqueBookId
                 book.bookOwner = userId
                 book.bookEditor = bookToSave?.bookEditor
-                book.bookCoverURL = bookToSave?.bookCoverURL
-                
+                if  bookToSave?.bookCoverURL != nil && bookToSave?.bookCoverURL != "" {
+                   book.bookCoverURL = bookToSave!.bookCoverURL
+                } else {
+                    book.bookCoverURL = ""
+                }
                 print("l'url est \(String(describing: book.bookCoverURL))")
                 // store image in Storage
                 storeCoverImageInFirebaseStorage(fromBook: book)

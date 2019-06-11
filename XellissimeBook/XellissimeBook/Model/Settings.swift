@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-// credit 
+// credit
+// Photo by Kourosh Qaffari on Unsplash
+
 // MARK: - Global variables
 
 let screenHeight = UIScreen.main.bounds.height
