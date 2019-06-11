@@ -40,12 +40,9 @@ class ListOfBooksTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navBarItemSetup()
-        print("on passe par là .fbcelbflubflb")
         ref = Database.database().reference()
         createBookListFromFirebase()
-        print("c''est quoi ce \(collectionBooks.count)")
         tableView.reloadData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

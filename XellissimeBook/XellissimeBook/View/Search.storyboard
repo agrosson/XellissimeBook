@@ -82,11 +82,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.38555160160000002" green="0.54731100799999999" blue="0.63138794899999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableListCell" focusStyle="custom" rowHeight="208" id="r16-3W-0Ec" customClass="BookListTableViewCell" customModule="XellissimeBook" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="208"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableListCell" rowHeight="393" id="r16-3W-0Ec" customClass="BookListTableViewCell" customModule="XellissimeBook" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="393"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r16-3W-0Ec" id="3ky-fV-Zei">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="207.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r16-3W-0Ec" id="3ky-fV-Zei">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="392.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fhi-ue-V1O" userLabel="Available">
@@ -103,21 +103,21 @@
                                                         <constraint firstAttribute="height" constant="100" id="ySQ-xb-sBo"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARI-iW-j7S">
-                                                    <rect key="frame" x="155" y="26" width="229" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="999" verticalCompressionResistancePriority="1000" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARI-iW-j7S">
+                                                    <rect key="frame" x="155" y="26" width="229" height="287"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qos-56-fCT">
-                                                    <rect key="frame" x="155" y="60" width="229" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <rect key="frame" x="155" y="323" width="229" height="19.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Editor" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mcl-NR-Nml">
-                                                    <rect key="frame" x="155" y="94" width="229" height="24"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Editor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mcl-NR-Nml">
+                                                    <rect key="frame" x="155" y="352.5" width="229" height="19.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -129,13 +129,13 @@
                                                 <constraint firstItem="Mcl-NR-Nml" firstAttribute="leading" secondItem="hly-zT-g07" secondAttribute="trailing" constant="20" id="EbK-AL-nyh"/>
                                                 <constraint firstItem="Fhi-ue-V1O" firstAttribute="top" secondItem="3ky-fV-Zei" secondAttribute="top" constant="10" id="Fs3-Q1-3HM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Mcl-NR-Nml" secondAttribute="trailing" constant="10" id="MxO-74-res"/>
-                                                <constraint firstItem="Mcl-NR-Nml" firstAttribute="top" secondItem="Qos-56-fCT" secondAttribute="bottom" priority="998" constant="10" id="SQd-vW-Bxy"/>
+                                                <constraint firstItem="Mcl-NR-Nml" firstAttribute="top" secondItem="Qos-56-fCT" secondAttribute="bottom" constant="10" id="SQd-vW-Bxy"/>
                                                 <constraint firstItem="Qos-56-fCT" firstAttribute="top" secondItem="ARI-iW-j7S" secondAttribute="bottom" constant="10" id="TCU-6p-ww3"/>
                                                 <constraint firstItem="Qos-56-fCT" firstAttribute="leading" secondItem="hly-zT-g07" secondAttribute="trailing" constant="20" id="bJ1-pz-xLB"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Qos-56-fCT" secondAttribute="trailing" constant="10" id="hTq-gZ-jm9"/>
                                                 <constraint firstItem="hly-zT-g07" firstAttribute="leading" secondItem="3ky-fV-Zei" secondAttribute="leadingMargin" constant="15" id="mZy-io-08p"/>
                                                 <constraint firstItem="ARI-iW-j7S" firstAttribute="top" secondItem="3ky-fV-Zei" secondAttribute="topMargin" constant="15" id="qK3-4J-96y"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="hly-zT-g07" secondAttribute="bottom" constant="20" id="rxv-gL-gGn"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="hly-zT-g07" secondAttribute="bottom" constant="20" id="rxv-gL-gGn"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ARI-iW-j7S" secondAttribute="trailing" constant="10" id="uvA-zZ-q0Q"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Mcl-NR-Nml" secondAttribute="bottom" constant="10" id="vI9-my-1oY"/>
                                                 <constraint firstItem="hly-zT-g07" firstAttribute="top" secondItem="3ky-fV-Zei" secondAttribute="topMargin" constant="15" id="ytx-q7-uD2"/>

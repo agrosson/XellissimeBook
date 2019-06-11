@@ -85,23 +85,15 @@ func getErrorMessageFromFireBase(error: String) -> String? {
  func storeCoverImageInFirebaseStorage(fromBook: Book) {
     // get url string from book
     let bookUrl = fromBook.bookCoverURL
-    print("mardi \(bookUrl)")
-    // get url from url string
-  
     // create a UIImage from the data
     var dataasImage: UIImage?
     if bookUrl == "" {
         dataasImage = UIImage(named: "default")
-        print("mardi là")
     } else {
-        guard let url = URL(string: bookUrl) else {  print("mardi aie")
-            return}
+        guard let url = URL(string: bookUrl) else {return}
         // get data from url
-        guard let data = try? Data(contentsOf: url) else {
-            print("mardi ouille")
-            return}
+        guard let data = try? Data(contentsOf: url) else {return}
         dataasImage = UIImage(data: data)
-        print("mardi ici")
     }
     guard let imageToStore = dataasImage else {return}
     // create an data in jpg format from a UIImage
@@ -115,7 +107,7 @@ func getErrorMessageFromFireBase(error: String) -> String? {
     // Create the uopload task
     let uploadTask = storageRef.putData(imageData, metadata: uploadMetadata) { (metada, error) in
         if error != nil {
-              print("i received an error \(error?.localizedDescription ?? "error but no description")")
+            print("i received an error \(error?.localizedDescription ?? "error but no description")")
         }   else {
             print("up load complete, here some metadata \(String(describing: metada))")
         }
