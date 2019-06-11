@@ -39,13 +39,20 @@ class UtilitiesTests: XCTestCase {
         let test = getErrorMessageFromFireBase(error: stringTotest)
         XCTAssertNil(test)
     }
-    func test1GivenAStringwithNoQuoteWhenUseFunctionGetErrorThenReturnNil(){
+    func testAnotherGivenAStringwithNoQuoteWhenUseFunctionGetErrorThenReturnNil(){
         let stringTotest = "This is an \"Expression to extract\" thank you\"n and "
         //let resultToGet = "Expression to extract"
         let test = getErrorMessageFromFireBase(error: stringTotest)
         XCTAssertNil(test)
     }
     
+    func testGivenABookWhenStoreImageWithNoUrlThenUseDefaultImage(){
+        var book = Book(title: "test", author: "test", isbn: "123456")
+        book.bookCoverURL = ""
+        // To do : see test for FireBase
+        //storeCoverImageInFirebaseStorage(fromBook: book)
+        XCTAssert(true)  
+    }
     
     
     

@@ -51,7 +51,6 @@
 		C1FC7CEF227C7A6400D32467 /* UserClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CEE227C7A6400D32467 /* UserClass.swift */; };
 		C1FC7CF1227C84E200D32467 /* AddressStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF0227C84E200D32467 /* AddressStruct.swift */; };
 		C1FC7CF3227C850D00D32467 /* BookStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF2227C850D00D32467 /* BookStruct.swift */; };
-		C1FC7CF5227C854400D32467 /* MyBookToStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */; };
 		C1FC7CF7227C859700D32467 /* MessageStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FC7CF6227C859700D32467 /* MessageStruct.swift */; };
 		C1FE6F4122A9790C006EC5D4 /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE6F4022A9790C006EC5D4 /* UtilitiesTests.swift */; };
 		C9A5512E9B795B03502EB4D7 /* Pods_XellissimeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11921FF18DDBBD5B074109A4 /* Pods_XellissimeBook.framework */; };
@@ -122,7 +121,6 @@
 		C1FC7CEE227C7A6400D32467 /* UserClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClass.swift; sourceTree = "<group>"; };
 		C1FC7CF0227C84E200D32467 /* AddressStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressStruct.swift; sourceTree = "<group>"; };
 		C1FC7CF2227C850D00D32467 /* BookStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStruct.swift; sourceTree = "<group>"; };
-		C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookToStruct.swift; sourceTree = "<group>"; };
 		C1FC7CF6227C859700D32467 /* MessageStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStruct.swift; sourceTree = "<group>"; };
 		C1FE6F4022A9790C006EC5D4 /* UtilitiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesTests.swift; sourceTree = "<group>"; };
 		E5B68362ADBC175D2D6C1761 /* Pods-XellissimeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XellissimeBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-XellissimeBook/Pods-XellissimeBook.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 				C156652D2279D83E00C41453 /* Alert.swift */,
 				C1FC7CEE227C7A6400D32467 /* UserClass.swift */,
 				C1FC7CF6227C859700D32467 /* MessageStruct.swift */,
-				C1FC7CF4227C854400D32467 /* MyBookToStruct.swift */,
 				C1FC7CF2227C850D00D32467 /* BookStruct.swift */,
 				C1FC7CF0227C84E200D32467 /* AddressStruct.swift */,
 				C1025A432284309600AF6DFE /* BookResponse.swift */,
@@ -274,8 +271,8 @@
 		C1D7690B2278E0B7009FE3DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C1D769092278E065009FE3DB /* APIKeys.plist */,
 				C1AC1FAB22772658003E0734 /* AppDelegate.swift */,
+				C1D769092278E065009FE3DB /* APIKeys.plist */,
 				C1D2C57B2278CC860030498F /* GoogleService-Info.plist */,
 				C1D7690C2278E134009FE3DB /* APIKeys.swift */,
 			);
@@ -534,7 +531,6 @@
 				C156652C2279B1D800C41453 /* WelcomeViewController.swift in Sources */,
 				C1025A4622844D6900AF6DFE /* APIManager.swift in Sources */,
 				C1890992227A055B00ABE37D /* LogInViewController.swift in Sources */,
-				C1FC7CF5227C854400D32467 /* MyBookToStruct.swift in Sources */,
 				C1FC7CF7227C859700D32467 /* MessageStruct.swift in Sources */,
 				C1A121B12291910500FDAC0D /* ScanRunningViewController.swift in Sources */,
 				C1AC1FAE22772658003E0734 /* InitialScreenViewController.swift in Sources */,

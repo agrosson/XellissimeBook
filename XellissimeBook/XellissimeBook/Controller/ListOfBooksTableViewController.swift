@@ -20,16 +20,8 @@ class ListOfBooksTableViewController: UIViewController {
     // MARK: - Properties
     /// StorageDownloadTask
     var download:StorageDownloadTask!
-    /// Empty book for testing
-    var bookA = Book(title: "le livre", author: "l'auteur", isbn: "l'isbn")
     /// Array of books : displayed in collectionView
     var collectionBooks = [Book]()
-    /// Array of book covers images : displayed in collectionView
-    var collectionOfImageBooks = [UIImage]()
-    /// Default image for cover book : used when no book cover is found
-    let imageDefault1 = UIImage.init(named: "notebook")
-    /// Image Object to store image received from FirebaseStorage
-    var imagefromFire: UIImage?
     /// Firebase reference
     var ref: DatabaseReference?
     /// Firebase var is used to identify listeners of Firebase Database events
@@ -37,20 +29,21 @@ class ListOfBooksTableViewController: UIViewController {
     /// Firebase reference for cover images in Firebase Storage
     var coverReference: StorageReference = Storage.storage().reference().child("cover")
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navBarItemSetup()
-        ref = Database.database().reference()
         createBookListFromFirebase()
+        tableView.allowsMultipleSelectionDuringEditing = true
         tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navBarItemSetup()
+       // createBookListFromFirebase()
         tableView.reloadData()
     }
-    
     // MARK: - Methods
     
     private func navBarItemSetup() {
@@ -64,7 +57,7 @@ class ListOfBooksTableViewController: UIViewController {
     }
     
     private func createBookListFromFirebase(){
-        print("on passe par là .fbcelbflubflb")
+        collectionBooks = [Book]()
         ref = Database.database().reference()
         // Retrieve the books and listen for change
         self.databaseHandler = self.ref?.child("books").observe(.value, with: { (snapshot) in
@@ -101,12 +94,12 @@ class ListOfBooksTableViewController: UIViewController {
                 bookFromFireBase.bookOwner = bookOwner
                 bookFromFireBase.bookTypeString = bookTypeString
                 bookFromFireBase.bookYearOfEdition = bookYearOfEdition
-                print("book from fire \(bookFromFireBase.bookTitle) \(bookFromFireBase.bookAuthor) \(bookFromFireBase.bookEditor ?? "no editor")   ")
                 // Add the book in the collectionBook
                 self.collectionBooks.append(bookFromFireBase)
                 // reload the collectionView
-                self.tableView.reloadData()
+               
             }
+            self.tableView.reloadData()
         })
     }
     
@@ -116,20 +109,39 @@ extension ListOfBooksTableViewController: UITableViewDelegate, UITableViewDataSo
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let book = self.collectionBooks[indexPath.row]
+            let bookIdToRemove = book.bookId
+            let refToRemove = Database.database().reference()
+            refToRemove.child("books").child(bookIdToRemove).removeValue { (error, dataref) in
+                if error != nil {
+                    print("fail to delete book", error as Any)
+                    return
+                }
+                   self.collectionBooks.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    self.tableView.reloadData()
+            }
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return collectionBooks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell =  tableView.dequeueReusableCell(withIdentifier: "tableListCell", for: indexPath) as? BookListTableViewCell else {return UITableViewCell()}
-       
         let book = self.collectionBooks[indexPath.row]
         cell.configure(isbn: book.bookIsbn, title: book.bookTitle, author: book.bookAuthor, editor: book.bookEditor ?? "unknown")
-       
             return cell
        
     }
+
+
+
 }
 
 
