@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class BookListTableViewCell: UITableViewCell {
 
@@ -19,7 +20,7 @@ class BookListTableViewCell: UITableViewCell {
     @IBOutlet weak var bookAuthorLabel: UILabel!
     @IBOutlet weak var bookEditorLabel: UILabel!
     
-    var download:StorageDownloadTask!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,14 +40,14 @@ class BookListTableViewCell: UITableViewCell {
      */
     func configure(isbn: String, title: String, author: String, editor: String) {
         // todo : bookAvailabilityImage will be configured later
-        
+        var download: StorageDownloadTask!
         let cover = "\(isbn).jpg"
         let storageRef = Storage.storage().reference().child("cover").child(cover)
         print(storageRef.description)
         //  download = StorageDownloadTask()
         DispatchQueue.main.async {
             print("let's be inside")
-            self.download = storageRef.getData(maxSize: 1024*1024*5, completion:  { [weak self] (data, error) in
+            download = storageRef.getData(maxSize: 1024*1024*5, completion:  { [weak self] (data, error) in
                 print("let's be inside download")
                 if error != nil {
                     print("error here : \(error.debugDescription)")
@@ -60,7 +61,7 @@ class BookListTableViewCell: UITableViewCell {
                 }
                 print("download succeeded !")
                 self!.coverImage.image = UIImage(data: data)
-                self!.download.resume()
+                download.resume()
             })
         }
         

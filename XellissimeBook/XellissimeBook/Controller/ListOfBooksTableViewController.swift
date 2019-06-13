@@ -122,12 +122,16 @@ extension ListOfBooksTableViewController: UITableViewDelegate, UITableViewDataSo
                     print("fail to delete book", error as Any)
                     return
                 }
-                   self.collectionBooks.remove(at: indexPath.row)
-                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                    self.tableView.reloadData()
+                DispatchQueue.main.async { [weak self] in
+                    self?.collectionBooks.remove(at: indexPath.row)
+                    self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+                
+            //        self.tableView.reloadData()
             }
         }
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return collectionBooks.count
     }
